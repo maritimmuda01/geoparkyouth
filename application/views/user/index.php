@@ -16,19 +16,25 @@ $this->load->view('_layout/header');
                     </div></a>
                   </div>
                   <div class="article-details">
-                    <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#"><?php echo date("j F Y",strtotime($data->created_date)) ; ?></a></div>
+                    <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#"><?php echo date("j F Y",strtotime($data->date)) ; ?></a></div>
                     <div class="article-title">
                       <h2><a href="#"><?php echo $data->title ?></a></h2>
                     </div>
-                    <p><?php $clickbait = strpos($data->content, ".");
-                    echo substr($data->content, 0,$clickbait+1);   ?></p>
                     <div class="article-user">
                       <img alt="image" src="<?= base_url('assets/img/profile/') . $data->image; ?>">
                       <div class="article-user-details">
                         <div class="user-detail-name">
                           <a href="#"><?php echo $data->author?></a>
                         </div>
-                        <div class="text-job"><?php echo $data->position." at ".$data->company?></div>
+                        <?php if ($user['position'] || $user['company']) {
+                        echo "<div class='text-job'>";
+                        if ($user['position'] && $user['company']){
+                          echo $user['position']." at ";
+                          }
+                          echo $user['company'];
+                          echo "</div>";
+                        }
+                       ?>
                       </div>
                     </div>
                   </div>

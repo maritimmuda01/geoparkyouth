@@ -26,7 +26,7 @@ class User extends CI_Controller
     {
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] =$data['user']['name'].' | Profile';
+        $data['title'] = $data['user']['name'].' | Profile';
         $data['total_news'] = $this->M_news->total_news_by_id();
 
         $this->load->view('user/profile', $data);
@@ -48,7 +48,6 @@ class User extends CI_Controller
         $data['title'] = 'Change Password';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-
         $this->load->view('user/changepassword', $data);
     }
 
@@ -64,6 +63,7 @@ class User extends CI_Controller
             $config['allowed_types']        = 'jpg|png|jpeg';
             $config['overwrite']            = TRUE;
             $config['remove_spaces']        = TRUE;
+            $config['encrypt_name']         = TRUE;
             // $config['max_width']            = 1024;
             // $config['max_height']           = 768;
             
@@ -78,13 +78,13 @@ class User extends CI_Controller
 
                 //Compress Image
                 $config['image_library']='gd2';
-                $config['source_image']='./assets/img/'.$gbr['file_name'];
+                $config['source_image']='./assets/img/profile'.$gbr['file_name'];
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '50%';
                 $config['width']= 600;
                 $config['height']= 400;
-                $config['new_image']= './assets/img/profile/'.$gbr['file_name'];
+                $config['new_image']= './assets/img/profile/thumb'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
  
