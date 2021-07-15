@@ -9,7 +9,7 @@ if(flashData == 'password-success'){
 }
 
 if(flashData == 'failed'){
-    swal('Failed!', 'Profile failed to update!', 'error');
+    swal('Update Failed!', 'Please check your input!', 'error');
 }
 
 if(flashData == 'wrong-password'){

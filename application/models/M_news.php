@@ -21,16 +21,5 @@ class M_news extends CI_Model {
 		$data = $this->db->query("SELECT id FROM news WHERE author_id = '{$id}'");
 		return $data->num_rows();
 	}
-
-	public function insert($data) {
-
-		$sql = "INSERT INTO news VALUES('','" .$data['news'] ."')";
-		var_dump($sql);
-		exit();
-		$this->db->query($sql);
-
-		return $this->db->affected_rows();
-	}
-
 }
 ?>

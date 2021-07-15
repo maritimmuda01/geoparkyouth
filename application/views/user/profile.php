@@ -4,10 +4,11 @@ $this->load->view('_layout/header');
 ?>
       <!-- Main Content -->
       <div class="main-content">
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>  
         <section class="section">
           <div class="section-body">
             <div class="row mt-lg-12">
-              <div class="col-12 col-md-12 col-lg-5 ">
+              <div class="col-12 col-md-12 col-lg-8 ">
                 <div class="card profile-widget">
                   <div class="profile-widget-header">                     
                     <img alt="image" src="<?= base_url('assets/img/profile/') . $user['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
@@ -33,15 +34,18 @@ $this->load->view('_layout/header');
                   <div class="profile-widget-description">
                     <div class="profile-widget-name">
                       <h4><?= $user['name']; ?></h4>
-                      <?php if ($user['position'] != "" || $user['company'] != "") {
+                      <?php if ($user['position'] || $user['company']) {
                         echo "<div class='text-muted d-inline font-weight-light'>";
-                        if ($user['position'] != "" && $user['company'] != ""){
+                        if ($user['position'] && $user['company']){
                           echo $user['position']." at ";
                           }
                           echo $user['company'];
                           echo "</div>";
                         }
                        ?>
+                        <div class="d-inline font-weight-light">
+                          <h6> <?php if($user['city']){ echo $user['city'].', ';} echo $user['country_code']; ?> </h6> 
+                       </div>
                     </div>
                     <?= $user['about']?>
                   </div>

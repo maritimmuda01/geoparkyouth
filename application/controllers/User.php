@@ -26,7 +26,7 @@ class User extends CI_Controller
     {
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] ='Profile';
+        $data['title'] =$data['user']['name'].' | Profile';
         $data['total_news'] = $this->M_news->total_news_by_id();
 
         $this->load->view('user/profile', $data);
@@ -34,8 +34,9 @@ class User extends CI_Controller
 
     public function settings()
     {
-        $data['title'] = 'Settings';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['title'] = 'Settings';
+        
         $data['dataCountry'] = $this->M_country->select_all();
 
 
@@ -93,28 +94,28 @@ class User extends CI_Controller
                 $this->db->query($sql);
             }
         }
-                    $this->form_validation->set_rules('name', 'Name', 'trim|required');
-                    $this->form_validation->set_rules('twitter', 'Twitter', 'trim|alpha_dash');
-                    $this->form_validation->set_rules('instagram', 'Intagram', 'trim|alpha_dash');
-                    $this->form_validation->set_rules('linkedin', 'Linkedin', 'trim|alpha_dash');
+                $this->form_validation->set_rules('name', 'Name', 'trim|required');
+                $this->form_validation->set_rules('twitter', 'Twitter', 'trim|alpha_dash');
+                $this->form_validation->set_rules('instagram', 'Intagram', 'trim|alpha_dash');
+                $this->form_validation->set_rules('linkedin', 'Linkedin', 'trim|alpha_dash');
 
-                    $name = addslashes($data['name']);
-                    $city = addslashes($data['city']);
-                    $position = addslashes($data['position']);
-                    $company = addslashes($data['company']);
-                    $about = addslashes($data['about']);
+                $name = addslashes($data['name']);
+                $city = addslashes($data['city']);
+                $position = addslashes($data['position']);
+                $company = addslashes($data['company']);
+                $about = addslashes($data['about']);
 
-                    $sql = "UPDATE user SET name='" .$name ."', city='" .$city ."', country_code='" .$data['country'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$data['twitter'] ."', instagram='" .$data['instagram'] ."', linkedin='" .$data['linkedin'] ."' WHERE id='" .$data['id'] ."'";
+                $sql = "UPDATE user SET name='" .$name ."', city='" .$city ."', country_code='" .$data['country'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$data['twitter'] ."', instagram='" .$data['instagram'] ."', linkedin='" .$data['linkedin'] ."' WHERE id='" .$data['id'] ."'";
 
 
-                    if ($this->form_validation->run() == TRUE) {
-                        $this->db->query($sql);
-                        $this->session->set_flashdata('message', 'success');
-                    }else {
-                        $this->session->set_flashdata('message', 'failed');
-                    }
-
+                if ($this->form_validation->run() == TRUE) {
+                    $this->db->query($sql);
+                    $this->session->set_flashdata('message', 'success');
+                    redirect("user/profile", $data);
+                }else {
+                    $this->session->set_flashdata('message', 'failed');
                     redirect("user/settings", $data);
+                }
     }
 
     public function password_update()
