@@ -48,12 +48,12 @@ $this->load->view('_layout/header');
 
                   <div class="form-group">
                     <label for="country">Country</label>
-                    <select class="form-control" name="country">
+                    <select class="form-control select2" name="country">
                       <option selected disabled>Select country...</option>
                       <?php
                         foreach ($dataCountry as $data){ ?>
                             <option value=
-                            "<?php echo $data->code ?>"><?php echo $data->name ?></option>
+                            "<?php echo $data->name ?>"><?php echo $data->name ?></option>
                         <?php }
                       ?>
                     </select>

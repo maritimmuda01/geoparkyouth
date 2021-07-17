@@ -13,8 +13,6 @@ $this->load->view('_layout/header');
           </div>
 
           <div class="section-body">
-            
-
             <div class="row">
               <div class="col-12">
                 <div class="card">
@@ -41,7 +39,7 @@ $this->load->view('_layout/header');
                           <div class="form-group profile-pic-wrapper pic-holder image-preview">
                             <img id="profilePic" class="pic">
                             <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" class="uploadNewsImage" id="newProfilePhoto" name="uploadNews" accept="image/*" >
+                            <input type="file" class="uploadimage" id="newProfilePhoto" name="uploadNews" accept="image/*" >
                           </div>
                           <!-- <div id="image-preview" class="image-preview">
                             <label for="image-upload" id="image-label">Choose File</label>

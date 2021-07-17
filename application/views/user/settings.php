@@ -14,7 +14,7 @@ $this->load->view('_layout/header');
                   <div class="card-header">
                     <a href="<?php echo base_url(); ?>user/profile" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>  
                     <h4>Settings</h4>
-                  </div>
+                   </div>
                   <div class="card-body">
                         <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                           <li class="nav-item">
@@ -51,7 +51,7 @@ $this->load->view('_layout/header');
                                   </div>
                                 </div>
                               </label>
-                            <input type="file" class="uploadProfileInput" id="newProfilePhoto" name="profile_picture" accept="image/*" hidden="" >
+                            <input type="file" class="uploadimage" id="newProfilePhoto" name="profile_picture" accept="image/*" hidden="" >
                             </div>
                             <div class="form-group">
                               <label for="name">Name</label>
@@ -61,31 +61,52 @@ $this->load->view('_layout/header');
                             </div>
                             <div class="form-row">
                               <div class="form-group col-md-6">
+                                <label for="city">Gender</label>
+                                <div class="selectgroup selectgroup-pills">
+                                  <label class="selectgroup-item">
+                                    <input type="radio" name="gender" value="M" class="selectgroup-input" <?php if($user['gender']=='M') echo 'checked'?> >
+                                    <span class="selectgroup-button" >Male</span>
+                                  </label>
+                                  <label class="selectgroup-item">
+                                    <input type="radio" name="gender" value="F" class="selectgroup-input" <?php if($user['gender']=='F') echo 'checked'?> >
+                                    <span class="selectgroup-button">Female</span>
+                                  </label>
+                                  <label class="selectgroup-item">
+                                    <input type="radio" name="gender" value="O" class="selectgroup-input" <?php if($user['gender']=='O') echo 'checked'?> >
+                                    <span class="selectgroup-button">Other</span>
+                                  </label>
+                                </div>  
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="date">Date of Birth</label>
+                                <input type="text" class="form-control datepicker" name="dob" value="<?= $user['dob']; ?>">
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
                                 <label for="city">City</label>
                                 <input type="text" class="form-control" id="city" name=city value="<?= $user['city']; ?>">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="city">Country</label>
-                                <select class="form-control" name="country">  
+                                <select class="form-control select2" name="country" data-show-subtext="true" data-live-search="true">  
                                   <?php
                                     foreach ($dataCountry as $data){ ?>
                                         <option
-                                        <?php if ($data->code == $user['country_code']){
+                                        <?php if ($data->name == $user['country']){
                                           echo "selected";
-                                        } ?> value="<?php echo $data->code ?>"><?php echo $data->name ?></option>
+                                        } ?> value="<?php echo $data->name ?>"><?php echo $data->name ?></option>
                                     <?php }
                                   ?>
                                 </select>
                               </div>
                             </div>
                             <div class="form-row">
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-6">
                                 <label for="position">Position</label>
                                 <input type="text" class="form-control" id="position" name="position" value="<?= $user['position']; ?>">
                               </div>
-                            </div>
-                            <div class="form-row">
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-6">
                                 <label for="company">Company</label>
                                 <input type="text" class="form-control" id="company" name="company" value="<?= $user['company']; ?>">
                               </div>
@@ -93,28 +114,22 @@ $this->load->view('_layout/header');
                             <div class="form-row">
                               <div class="form-group col-md-12">
                                 <label for="company">About Me</label>
-                                <textarea class="form-control" id="about" name="about" id="textareaChars" maxlength="144"><?= $user['about']; ?></textarea>
-                                <span id="chars">144</span>/144
+                                <textarea class="form-control" id="about" name="about" ><?= $user['about']; ?></textarea>
                               </div>
                             </div>
                             <div class="form-row">
-                              <div class="form-group col-md-12">
+                              <div class="form-group col-md-12 ">
                                 <label for="company">Social</label>
-                                <div class="input-group mb-2">
+                                <div class="input-group ">
                                   <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="fab fa-twitter"></i></div>
                                   </div>
                                   <input type="text" class="form-control" id="twitter" name="twitter" value="<?= $user['twitter']; ?>">
-                                </div>
-                                <div class="input-group mb-2">
-                                  <div class="input-group-prepend">
+                                  <div class="input-group-prepend ml-2">
                                     <div class="input-group-text"><i class="fab fa-instagram"></i></div>
                                   </div>
                                   <input type="text" class="form-control" id="instagram" name="instagram" value="<?= $user['instagram']; ?>">
-                                  <?= form_error('instagram', '<small class="text-danger">', '</small>'); ?>
-                                </div>
-                                <div class="input-group mb-2">
-                                  <div class="input-group-prepend">
+                                  <div class="input-group-prepend ml-2">
                                     <div class="input-group-text"><i class="fab fa-linkedin"></i></div>
                                   </div>
                                   <input type="text" class="form-control" id="linkedin" name="linkedin" value="<?= $user['linkedin']; ?>">

@@ -44,7 +44,7 @@ $this->load->view('_layout/header');
                         }
                        ?>
                         <div class="d-inline font-weight-light">
-                          <h6> <?php if($user['city']){ echo $user['city'].', ';} echo $user['country_code']; ?> </h6> 
+                          <h6> <i class="fa fa-map-marker-alt"></i> <?php if($user['city']){ echo $user['city'].', ';} echo $user['country'] ?> </h6> 
                        </div>
                     </div>
                     <?= $user['about']?>

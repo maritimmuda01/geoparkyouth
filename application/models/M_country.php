@@ -10,5 +10,6 @@ class M_country extends CI_Model {
 
 		return $data->result();
 	}
+
 }
 ?>

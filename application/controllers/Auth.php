@@ -99,7 +99,7 @@ class Auth extends CI_Controller
                 'email' => htmlspecialchars($email),
                 'profile_picture' => 'default.png',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'country_code' => $this->input->post('country'),
+                'country' => $this->input->post('country'),
                 'role_id' => 2,
                 'is_active' => 1,
                 'date_created' => time()

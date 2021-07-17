@@ -105,7 +105,7 @@ class User extends CI_Controller
                 $company = addslashes($data['company']);
                 $about = addslashes($data['about']);
 
-                $sql = "UPDATE user SET name='" .$name ."', city='" .$city ."', country_code='" .$data['country'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$data['twitter'] ."', instagram='" .$data['instagram'] ."', linkedin='" .$data['linkedin'] ."' WHERE id='" .$data['id'] ."'";
+                $sql = "UPDATE user SET name='" .$name ."', gender='" .$data['gender'] ."', dob='" .$data['dob'] ."', city='" .$city ."', country='" .$data['country'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$data['twitter'] ."', instagram='" .$data['instagram'] ."', linkedin='" .$data['linkedin'] ."' WHERE id='" .$data['id'] ."'";
 
 
                 if ($this->form_validation->run() == TRUE) {
