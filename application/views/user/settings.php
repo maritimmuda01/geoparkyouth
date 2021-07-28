@@ -88,8 +88,8 @@ $this->load->view('_layout/header');
                                 <input type="text" class="form-control" id="city" name=city value="<?= $user['city']; ?>">
                               </div>
                               <div class="form-group col-md-6">
-                                <label for="city">Country</label>
-                                <select class="form-control select2" name="country" data-show-subtext="true" data-live-search="true">  
+                                <label for="country">Country</label>
+                                <select class="form-control" id="country" name="country" data-show-subtext="true" data-live-search="true">  
                                   <?php
                                     foreach ($dataCountry as $data){ ?>
                                         <option
@@ -118,21 +118,21 @@ $this->load->view('_layout/header');
                               </div>
                             </div>
                             <div class="form-row">
-                              <div class="form-group col-md-12 ">
+                              <div class="form-group col-md-12">
                                 <label for="company">Social</label>
                                 <div class="input-group ">
-                                  <div class="input-group-prepend">
+                                  <div class="input-group-prepend col-sm-12 col-md-4">
                                     <div class="input-group-text"><i class="fab fa-twitter"></i></div>
+                                    <input type="text" class="form-control" id="twitter" name="twitter" value="<?= $user['twitter']; ?>">
                                   </div>
-                                  <input type="text" class="form-control" id="twitter" name="twitter" value="<?= $user['twitter']; ?>">
-                                  <div class="input-group-prepend ml-2">
+                                  <div class="input-group-prepend col-sm-12 col-md-4">
                                     <div class="input-group-text"><i class="fab fa-instagram"></i></div>
+                                    <input type="text" class="form-control" id="instagram" name="instagram" value="<?= $user['instagram']; ?>">
                                   </div>
-                                  <input type="text" class="form-control" id="instagram" name="instagram" value="<?= $user['instagram']; ?>">
-                                  <div class="input-group-prepend ml-2">
+                                  <div class="input-group-prepend col-sm-12 col-md-4">
                                     <div class="input-group-text"><i class="fab fa-linkedin"></i></div>
+                                    <input type="text" class="form-control" id="linkedin" name="linkedin" value="<?= $user['linkedin']; ?>">
                                   </div>
-                                  <input type="text" class="form-control" id="linkedin" name="linkedin" value="<?= $user['linkedin']; ?>">
                                 </div>
                               </div>
                             </div>  

@@ -1,45 +1,44 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class News extends CI_Controller
+class Articles extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         is_logged_in();
         $this->load->library('form_validation');
-        $this->load->model('M_news');
-        $this->load->model('M_country');
+        $this->load->model('M_articles');
     }
 
     public function index()
     {
-        $data['title'] = 'News';
+        $data['title'] = 'Articles';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['dataNews'] = $this->M_news->select_all();
+        $data['dataArticles'] = $this->M_articles->select_all();
 
-        $this->load->view('news/index', $data);
+        $this->load->view('articles/index', $data);
     }
 
-    public function write_news()
+    public function write_articles()
     {
-        $data['title'] = 'Write News';
+        $data['title'] = 'Write Articles';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->load->view('news/add', $data);
+        $this->load->view('articles/add', $data);
     }
 
-    public function add_news()
+    public function add_articles()
     {   
         $author['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data   = $this->input->post();
-        $image = 'image.jpg';
+        $image = 'default.jpg';
         
-        if(isset($_FILES["uploadNews"]["name"]))
+        if(isset($_FILES["uploadArticles"]["name"]))
         {
 
-            $config['upload_path']          = './assets/img/news/';
+            $config['upload_path']          = './assets/img/articles/';
             $config['allowed_types']        = 'jpg|png|jpeg';
             $config['overwrite']            = TRUE;
             $config['remove_spaces']        = TRUE;
@@ -50,7 +49,7 @@ class News extends CI_Controller
 
             $this->load->library('upload', $config);
 
-            if ( ! $this->upload->do_upload('uploadNews')){
+            if ( ! $this->upload->do_upload('uploadArticles')){
                     $this->session->set_flashdata('message', 'failed');
             }else{
 
@@ -58,13 +57,13 @@ class News extends CI_Controller
 
                 //Compress Image
                 $config['image_library']='gd2';
-                $config['source_image']='./assets/img/news'.$gbr['file_name'];
+                $config['source_image']='./assets/img/articles'.$gbr['file_name'];
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '50%';
                 $config['width']= 600;
                 $config['height']= 400;
-                $config['new_image']= './assets/img/profile/news'.$gbr['file_name'];
+                $config['new_image']= './assets/img/profile/articles'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
                 $image = $gbr['file_name'];
@@ -86,11 +85,11 @@ class News extends CI_Controller
         // var_dump($sql['time']);
         // exit();
 
-        $this->db->insert('news', $sql);
-        redirect('news');
+        $this->db->insert('articles', $sql);
+        redirect('articles');
 
 
 
-        // $sql = "INSERT INTO news VALUES ('', '" .$title."',
+        // $sql = "INSERT INTO articles VALUES ('', '" .$title."',
     }
 }

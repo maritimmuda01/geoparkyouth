@@ -8,7 +8,7 @@ class User extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->library('form_validation');
-        $this->load->model('M_news');
+        $this->load->model('M_articles');
         $this->load->model('M_country');
     }
 
@@ -16,7 +16,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Home';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['dataNews'] = $this->M_news->select_latest();
+        $data['dataArticles'] = $this->M_articles->select_all();   
 
         $this->load->view('user/index', $data);
     }
@@ -27,7 +27,7 @@ class User extends CI_Controller
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = $data['user']['name'].' | Profile';
-        $data['total_news'] = $this->M_news->total_news_by_id();
+        $data['total_articles'] = $this->M_articles->total_articles_by_id();
 
         $this->load->view('user/profile', $data);
     }

@@ -57,6 +57,7 @@ $this->load->view('_layout/header');
                         <?php }
                       ?>
                     </select>
+                      <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
                     <div class="invalid-feedback">
                     </div>
                   </div>

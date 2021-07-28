@@ -52,7 +52,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 10px;
   border: none;
   position: relative;
   margin-bottom: 30px;
@@ -750,13 +750,13 @@ tr:first-child > td > .fc-day-grid-event {
 
 /* 1.17 Profile */
 .profile-widget {
-  margin-top: 35px;
+  margin-top: 0px;
 }
 .profile-widget .profile-widget-picture {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   float: left;
   width: 100px;
-  margin: -35px -5px 0 30px;
+  margin: 30px -5px 0 30px;
   position: relative;
   z-index: 1;
 }
@@ -821,6 +821,7 @@ tr:first-child > td > .fc-day-grid-event {
   }
 }
 /* 1.18 Select2 */
+
 .select2-container--default .select2-search--dropdown .select2-search__field:focus {
   outline: none;
   box-shadow: none;

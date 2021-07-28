@@ -14,12 +14,8 @@ $this->load->view('_layout/header');
                     <img alt="image" src="<?= base_url('assets/img/profile/') . $user['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
                     <div class="profile-widget-items">
                       <div class="profile-widget-item">
-                        <div class="profile-widget-item-label">News</div>
-                        <div class="profile-widget-item-value"><?php echo $total_news ?></div>
-                      </div>
-                      <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Articles</div>
-                        <div class="profile-widget-item-value">48,2K</div>
+                        <div class="profile-widget-item-value"><?php echo $total_articles ?></div>
                       </div>
                       <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Opinion</div>
@@ -44,7 +40,7 @@ $this->load->view('_layout/header');
                         }
                        ?>
                         <div class="d-inline font-weight-light">
-                          <h6> <i class="fa fa-map-marker-alt"></i> <?php if($user['city']){ echo $user['city'].', ';} echo $user['country'] ?> </h6> 
+                          <h6><?php if($user['city']){ echo $user['city'].', ';} echo $user['country'] ?> </h6> 
                        </div>
                     </div>
                     <?= $user['about']?>

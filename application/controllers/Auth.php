@@ -100,6 +100,7 @@ class Auth extends CI_Controller
                 'profile_picture' => 'default.png',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'country' => $this->input->post('country'),
+                'dob' => date('Y-m-d'), 
                 'role_id' => 2,
                 'is_active' => 1,
                 'date_created' => time()

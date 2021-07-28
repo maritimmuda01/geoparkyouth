@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2021 at 06:50 PM
+-- Generation Time: Jul 28, 2021 at 05:19 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `geopark`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `articles`
+--
+
+CREATE TABLE `articles` (
+  `id` int(11) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `content` longtext NOT NULL,
+  `image` varchar(256) NOT NULL,
+  `author_id` int(11) NOT NULL,
+  `category_id` int(2) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `title`, `content`, `image`, `author_id`, `category_id`, `date`, `time`) VALUES
+(53, 'Manchester United Kebut Transfer Jadon Sancho, Deal Pekan Ini?', '<div class=\"article-content-body__item-page \" data-page=\"1\" data-title=\"\" style=\"line-height: 23px;\"><div class=\"article-content-body__item-content\" data-component-name=\"desktop:read-page:article-content-body:section:text\" style=\"\"><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Manchester United mengajukan tawaran 67 juta paun dengan add-on yang mendorong nilainya hanya melewati 75 juta. Tapi Dortmund bertahan untuk paket total di angka 86 juta.<br></p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Negosiasi berlanjut pada Jumat (11/6/2021). Klub Bundesliga itu berharap&nbsp;Manchester United memenuhi tuntutannya.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Sancho, yang kini tengah bergabung dengan Timnas Inggris di Piala Eropa 2020, sejak musim lalu sudah dikejar oleh&nbsp;Manchester United. Namun kesepakatan yang tak tercapai antara Dortmund dan Mancheter United membuat pemain berusia 21 tahun itu belum dilepas.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Dortmund menginginkan 108 juta paun untuk Sancho tahun lalu. Tetapi, Dortmund membutuhkan dana segar di tengah krisis pandemi COVID-19 sehingga mereka menurunkan harga jual Sancho.</p></div></div>', 'a820208c079eaa08f2b5f5d054f04fcb.jpg', 27, 0, '2021-07-18', '09:07:45'),
+(56, 'Bursa Transfer', '<p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Chelsea telah melepas sejumlah pemain musim panas ini dan mendapatkan tambahan pundi-pundi uang. Fikayo Tomori, Victor Moses, hingga yang terbaru, Olivier Giroud telah \'diuangkan\'.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Langkah ini bukanlah tanpa alasan. Chelsea, membutuhkan banyak tambahan dana guna mendapatkan tanda tangan&nbsp;<a href=\"https://www.bola.com/tag/erling-haaland\" style=\"\">Erling Haaland</a>. Striker Borussia Dortmund berusia 21 tahun itu dicap sebagai solusi tepat di lini serang dalam&nbsp;<a href=\"https://www.bola.com/tag/bursa-transfer-pemain\" style=\"\">bursa transfer pemain</a>&nbsp;musim panas ini.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Awal Juni, Chelsea disebut-sebut siap membayar 170juta pounds kepada Dortmund demi tanda tangan Haaland. Tentu saja, meski The Blues berstatus tim sultan, jumlah tersebut sangatlah banyak.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Oleh karenanya,&nbsp;<a href=\"https://www.bola.com/tag/marina-granovskaia\" style=\"\">Marina Granovskaia</a>&nbsp;langsung bergerak cepat dengan menjual pemain-pemain Chelsea yang dirasa kurang berkontribusi namun bergaji mahal. Alhasil, sejumlah pemain dilego ke klub lain.</p>', 'default.jpg', 27, 0, '2021-07-18', '09:11:37');
 
 -- --------------------------------------------------------
 
@@ -268,7 +293,7 @@ INSERT INTO `countries` (`code`, `name`) VALUES
 ('UA', 'Ukraine'),
 ('AE', 'United Arab Emirates'),
 ('GB', 'United Kingdom'),
-('US', 'United States'),
+('US', 'United States of America'),
 ('UM', 'United States minor outlying islands'),
 ('UY', 'Uruguay'),
 ('UZ', 'Uzbekistan'),
@@ -287,54 +312,6 @@ INSERT INTO `countries` (`code`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jobs`
---
-
-CREATE TABLE `jobs` (
-  `id` int(11) NOT NULL,
-  `position` varchar(128) NOT NULL,
-  `company` varchar(128) NOT NULL,
-  `details` longtext NOT NULL,
-  `location` varchar(128) NOT NULL,
-  `created_date` date NOT NULL,
-  `published` int(1) NOT NULL,
-  `author_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `jobs`
---
-
-INSERT INTO `jobs` (`id`, `position`, `company`, `details`, `location`, `created_date`, `published`, `author_id`) VALUES
-(1, 'Social Media Manager', 'NUADU Lte', '', 'Jakarta', '2021-07-13', 1, 16),
-(2, 'Social Media Dev', 'NUADU ASIA', '', 'Palangkaraya', '2021-07-27', 1, 16);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `news`
---
-
-CREATE TABLE `news` (
-  `id` int(11) NOT NULL,
-  `title` varchar(128) NOT NULL,
-  `content` longtext NOT NULL,
-  `image` varchar(256) NOT NULL,
-  `author_id` int(11) NOT NULL,
-  `created_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `news`
---
-
-INSERT INTO `news` (`id`, `title`, `content`, `image`, `author_id`, `created_date`) VALUES
-(1, 'News Testing 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur urna facilisis, euismod ipsum vel, lacinia turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In mollis, tortor vel pulvinar faucibus, metus odio tempus neque, congue ultrices nisi est non risus. Etiam consectetur purus eu nibh molestie ornare. Nam sit amet orci nisl. Praesent imperdiet vestibulum sem, et feugiat tellus posuere vitae. Donec iaculis efficitur arcu id gravida. Integer nec vehicula orci. Etiam ut purus a leo consectetur lobortis. Donec efficitur velit eu quam volutpat lobortis. Quisque congue tellus a ullamcorper consequat.\n\nSed venenatis, erat non rutrum rhoncus, nulla lorem venenatis libero, ut rutrum diam libero non lacus. Suspendisse potenti. Donec porta turpis quis metus egestas luctus. Mauris faucibus nec sem eu pharetra. Maecenas sit amet bibendum libero. Proin tortor nisl, lobortis nec condimentum nec, dignissim quis lorem. Nunc ac mauris et augue bibendum eleifend in ut dui. Nulla at sodales risus. Vestibulum vel erat eros. Nunc gravida tellus lorem.\n\nCurabitur eros magna, tincidunt consectetur neque in, pulvinar fringilla lorem. In a eros mauris. Aenean vulputate massa eget elit efficitur aliquam. Quisque gravida suscipit sem, et bibendum nunc fringilla ut. Donec non interdum libero. Mauris molestie dictum odio, quis facilisis enim lobortis sit amet. Suspendisse felis elit, varius vel placerat eu, vestibulum at magna.\n\nSuspendisse potenti. Donec interdum, sem a pharetra accumsan, sem massa aliquet mi, ut facilisis elit eros vitae enim. Proin at ultricies quam. Nulla ut ante at orci suscipit porta quis sed nisl. Maecenas tempor eu lectus ut tincidunt. Vivamus felis lectus, iaculis ut pellentesque eget, blandit id nisl. Nullam placerat turpis et dui dignissim pretium. Curabitur non condimentum odio. Nullam dictum scelerisque sem, nec lobortis diam dapibus varius. In vulputate tincidunt mi.\n\nCurabitur fermentum sollicitudin massa, quis eleifend sapien lacinia pulvinar. Nulla at congue neque. Nulla vel dapibus ipsum, ac blandit augue. Fusce cursus dignissim arcu, nec tristique quam accumsan et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque iaculis ipsum ligula, non tincidunt enim pharetra sit amet. Aliquam quam libero, ultrices id bibendum quis, condimentum vitae dui. Sed scelerisque ultricies mollis. Mauris id erat mollis, suscipit erat vitae, congue nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur rhoncus libero sapien, at laoreet urna volutpat eu. In hac habitasse platea dictumst. Aenean et orci vitae elit viverra elementum. Duis quis augue magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.', '', 18, '2021-07-02'),
-(2, 'New Testing 2', 'Vestibulum interdum nibh mauris, ut rutrum justo congue non. Aenean et ipsum lobortis, sodales arcu quis, condimentum urna. Integer vel ornare purus. Praesent ac dolor quis quam vulputate tristique at at eros. Sed pretium rhoncus efficitur. Proin lectus risus, laoreet porttitor lectus vitae, blandit faucibus tortor. Cras pellentesque felis elit, sed malesuada est condimentum sit amet. Proin sem dui, gravida non ultricies vitae, rutrum non erat. Integer mattis tincidunt mi eget rhoncus. Quisque pharetra tempor nunc, a malesuada felis. Aliquam eget ullamcorper ipsum. Phasellus eleifend, arcu nec feugiat ullamcorper, lectus neque vestibulum lorem, eu interdum nulla enim sed diam. Vestibulum posuere est sit amet congue sagittis. Donec mattis quis nisl vitae scelerisque. Ut a dignissim mi. Aenean maximus nec est in rutrum.', '', 18, '2021-07-30');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -344,11 +321,13 @@ CREATE TABLE `user` (
   `email` varchar(128) NOT NULL,
   `profile_picture` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
+  `gender` char(1) NOT NULL,
+  `dob` date NOT NULL,
   `city` varchar(128) NOT NULL,
-  `country_code` varchar(2) NOT NULL,
+  `country` varchar(128) NOT NULL,
   `position` varchar(128) NOT NULL,
   `company` varchar(128) NOT NULL,
-  `about` varchar(128) NOT NULL,
+  `about` varchar(256) NOT NULL,
   `twitter` varchar(128) NOT NULL,
   `instagram` varchar(128) NOT NULL,
   `linkedin` varchar(128) NOT NULL,
@@ -361,8 +340,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `profile_picture`, `password`, `city`, `country_code`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`) VALUES
-(18, 'Pravda Mohammed', 'hasyim@hasyim.com', 'Koala.jpg', '$2y$10$g/mntjTKY8Qv7Y.cHQI1wuw2GKJfoS5udmSgUt7ZjwvKHU1YsDDrm', 'South Jakarta', 'ID', 'Junior Web Developer', 'NUADU ASIA Lte', 'I\'m Pravda\r\n', 'vunhalen', 'pravdam', '', 2, 1, 1626192997);
+INSERT INTO `user` (`id`, `name`, `email`, `profile_picture`, `password`, `gender`, `dob`, `city`, `country`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`) VALUES
+(27, 'Pravda Mohammed', 'pravdam329@gmail.com', '7d768a08f5640a834a837cb52a08bcd4.jpeg', '$2y$10$s2c0K74tm1XoMrdCXT/VyOauIty0N80AMCyZz6PWUvl6VgSntQ1k2', 'M', '1999-02-03', 'Jakarta', 'Isle of Man', 'Branch Manager', 'Google Indonesia Inc.', 'zldknmhcjadn. njdcajdnbcda. skndcjhsancda', 'twitter', 'pravdam', 'umbre', 2, 1, 1626859548);
 
 -- --------------------------------------------------------
 
@@ -384,9 +363,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (3, 2, 2),
 (7, 1, 3),
-(8, 1, 2),
 (9, 2, 4),
-(11, 2, 5);
+(13, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -408,7 +386,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (2, 'User'),
 (3, 'Menu'),
 (4, 'News'),
-(5, 'Jobs');
+(5, 'Articles');
 
 -- --------------------------------------------------------
 
@@ -481,24 +459,21 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (14, 'pravdam329@gmail.com', '0f1AXG6Yv4BXios9F95+CwSw3RUDtE6s7fzeLyQtFvA=', 1626010781),
 (15, 'pravdam329@gmail.com', 'kJifWW0jKeF36erRA1EjKlX1PtjcLxAdBO6/RzIOSwM=', 1626103158),
 (16, 'theweeknd@parampaa.com', 'gv3Nm0SqeuXb1SN5e52mnWEUZndiL3VrI7rmezgT364=', 1626103328),
-(17, 'hasyim@hasyim.com', 'zXkzjtWIsM8RO7ZNG3m+whw/4uSzt1oNcG7N25AO3Gk=', 1626192997);
+(17, 'hasyim@hasyim.com', 'zXkzjtWIsM8RO7ZNG3m+whw/4uSzt1oNcG7N25AO3Gk=', 1626192997),
+(18, 'gunsnros3s@gmail.com', 'TR9z3utu2CqV+yKc0RvL/DOVUvEYgjwD+0YNHLUAZsA=', 1626337886),
+(19, 'fredericomacheda@gmail.com', '6ZKuBXQMbVabnLOxY5Uy/S/DrxD1SVCXH8yN8igyo3Q=', 1626573178),
+(20, 'david@degea.com', '0B1H6k6+JOVj9rzOv5lOjTSH9XPGFpFQLFUc3rccOFw=', 1626573413),
+(21, 'pravdam329@gmail.com', 'amek2EATBp7JApBE3Dst71wGvTN6D83C5KgpAwYkbEw=', 1626859548);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `jobs`
+-- Indexes for table `articles`
 --
-ALTER TABLE `jobs`
+ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `news`
---
-ALTER TABLE `news`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `author_id` (`author_id`) USING BTREE;
 
 --
 -- Indexes for table `user`
@@ -541,28 +516,22 @@ ALTER TABLE `user_token`
 --
 
 --
--- AUTO_INCREMENT for table `jobs`
+-- AUTO_INCREMENT for table `articles`
 --
-ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `news`
---
-ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `articles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -586,7 +555,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

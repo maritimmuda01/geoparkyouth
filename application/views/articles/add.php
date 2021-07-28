@@ -7,9 +7,9 @@ $this->load->view('_layout/header');
         <section class="section">
           <div class="section-header">
             <div class="section-header-back">
-              <a href="<?php echo base_url(); ?>news" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+              <a href="<?php echo base_url(); ?>articles" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Write News</h1>
+            <h1>Write Articles</h1>
           </div>
 
           <div class="section-body">
@@ -17,9 +17,9 @@ $this->load->view('_layout/header');
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Write Your News</h4>
+                    <h4>Write Your Articles</h4>
                   </div>
-                  <?php echo form_open_multipart('news/add_news');?>
+                  <?php echo form_open_multipart('articles/add_articles');?>
                     <div class="card-body">
                       <div class="form-group row mb-4">
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>
@@ -39,7 +39,7 @@ $this->load->view('_layout/header');
                           <div class="form-group profile-pic-wrapper pic-holder image-preview">
                             <img id="profilePic" class="pic">
                             <label for="image-upload" id="image-label">Choose File</label>
-                            <input type="file" class="uploadimage" id="newProfilePhoto" name="uploadNews" accept="image/*" >
+                            <input type="file" class="uploadimage" id="newProfilePhoto" name="uploadArticles" accept="image/*" >
                           </div>
                           <!-- <div id="image-preview" class="image-preview">
                             <label for="image-upload" id="image-label">Choose File</label>
