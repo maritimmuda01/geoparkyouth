@@ -121,8 +121,8 @@ if ($this->uri->segment(2) == "layout_transparent") {
   $this->load->view('_layout/sidebar-2');
   
   }elseif ($this->uri->segment(1) == "user" || $this->uri->segment(1) == "jobs" || $this->uri->segment(1) == "articles" ) {
-  $this->load->view('_layout/layout');
-  $this->load->view('_layout/sidebar');
+  $this->load->view('_layout/layout-3');
+  // $this->load->view('_layout/sidebar');
 
 }elseif ($this->uri->segment(1) != "" &&   $this->uri->segment(1) !="auth") {
   $this->load->view('_layout/layout');
