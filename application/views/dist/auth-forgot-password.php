@@ -32,7 +32,7 @@ $this->load->view('dist/_partials/header');
               </div>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Geopark 2018
+              Copyright &copy; Geopark 2021
             </div>
           </div>
         </div>

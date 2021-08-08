@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2021 at 05:19 AM
+-- Generation Time: Aug 08, 2021 at 06:59 PM
 -- Server version: 10.4.20-MariaDB
--- PHP Version: 7.4.21
+-- PHP Version: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,18 +33,17 @@ CREATE TABLE `articles` (
   `content` longtext NOT NULL,
   `image` varchar(256) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `category_id` int(2) NOT NULL,
   `date` date NOT NULL,
-  `time` time NOT NULL
+  `time` time NOT NULL,
+  `is_published` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `content`, `image`, `author_id`, `category_id`, `date`, `time`) VALUES
-(53, 'Manchester United Kebut Transfer Jadon Sancho, Deal Pekan Ini?', '<div class=\"article-content-body__item-page \" data-page=\"1\" data-title=\"\" style=\"line-height: 23px;\"><div class=\"article-content-body__item-content\" data-component-name=\"desktop:read-page:article-content-body:section:text\" style=\"\"><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Manchester United mengajukan tawaran 67 juta paun dengan add-on yang mendorong nilainya hanya melewati 75 juta. Tapi Dortmund bertahan untuk paket total di angka 86 juta.<br></p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Negosiasi berlanjut pada Jumat (11/6/2021). Klub Bundesliga itu berharap&nbsp;Manchester United memenuhi tuntutannya.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Sancho, yang kini tengah bergabung dengan Timnas Inggris di Piala Eropa 2020, sejak musim lalu sudah dikejar oleh&nbsp;Manchester United. Namun kesepakatan yang tak tercapai antara Dortmund dan Mancheter United membuat pemain berusia 21 tahun itu belum dilepas.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Dortmund menginginkan 108 juta paun untuk Sancho tahun lalu. Tetapi, Dortmund membutuhkan dana segar di tengah krisis pandemi COVID-19 sehingga mereka menurunkan harga jual Sancho.</p></div></div>', 'a820208c079eaa08f2b5f5d054f04fcb.jpg', 27, 0, '2021-07-18', '09:07:45'),
-(56, 'Bursa Transfer', '<p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Chelsea telah melepas sejumlah pemain musim panas ini dan mendapatkan tambahan pundi-pundi uang. Fikayo Tomori, Victor Moses, hingga yang terbaru, Olivier Giroud telah \'diuangkan\'.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Langkah ini bukanlah tanpa alasan. Chelsea, membutuhkan banyak tambahan dana guna mendapatkan tanda tangan&nbsp;<a href=\"https://www.bola.com/tag/erling-haaland\" style=\"\">Erling Haaland</a>. Striker Borussia Dortmund berusia 21 tahun itu dicap sebagai solusi tepat di lini serang dalam&nbsp;<a href=\"https://www.bola.com/tag/bursa-transfer-pemain\" style=\"\">bursa transfer pemain</a>&nbsp;musim panas ini.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Awal Juni, Chelsea disebut-sebut siap membayar 170juta pounds kepada Dortmund demi tanda tangan Haaland. Tentu saja, meski The Blues berstatus tim sultan, jumlah tersebut sangatlah banyak.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Oleh karenanya,&nbsp;<a href=\"https://www.bola.com/tag/marina-granovskaia\" style=\"\">Marina Granovskaia</a>&nbsp;langsung bergerak cepat dengan menjual pemain-pemain Chelsea yang dirasa kurang berkontribusi namun bergaji mahal. Alhasil, sejumlah pemain dilego ke klub lain.</p>', 'default.jpg', 27, 0, '2021-07-18', '09:11:37');
+INSERT INTO `articles` (`id`, `title`, `content`, `image`, `author_id`, `date`, `time`, `is_published`) VALUES
+(1, 'Cara Bikin Filter Instagram (IG), Mudah dan Tidak Ribet', '<p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px;\">Berikut ini langkah-langkah cara bikin filter Instagram (IG):</p><ol style=\"padding-left: 15px;\"><li style=\"\">Terlebih dahulu undah program Spark AR karena jadi program utama untuk menyelesaikan pembuatan filter Instagram. Untuk download program Spark AR ini kamu cukup ketik \"download Spark AR\" di Google, dan akan muncul link resmi dari web Spark AR.</li><li style=\"\">Setelah mengunduh program Spark AR, kamu lanjut mengunduh bahan untuk membuat filter Instagram berupa foto untuk diedit menjadi filter dan bahan data file untuk membuat filter Instagram. Untuk bahan ini sudah tersedia paket lengkap yang bisa kamu download langsung di channel YouTube Jasson Powel.</li><li style=\"\">Pindahkan bahan gambar yang sudah diunduh bersama paket file tadi ke HP untuk mengedit filter dari HP kamu, dan edit menggunakan aplikasi editing Lightroom sesuai filter yang kamu inginkan. Dalam mengedit tidak bisa menggunakan sembarang gambar, namun menggunakan gambar yang diperuntukkan membuat filter.</li><li style=\"\">Setelah selesai mengedit dari HP, kirim gambar yang sudah diedit kembali ke komputer atau laptop untuk melakukan pembuatan filter di program Spark AR. Dalam membuat filter ini sangat mudah. Cukup membuka file yang sudah diunduh dan memiliki nama \"Filter Template-Jasson Powell,\" setelah itu tinggal memasukkan file gambar yang sudah diedit ke program Spark AR, lalu filter yang kamu miliki sudah bisa disimpan.</li><li style=\"\">Setelah semua selesai, bisa diunggah di web Spark AR untuk menunggu peninjauan dari pihak Facebook. Kalau tidak ada hal yang menyangkut copyright, filter kamu sudah bisa digunakan dan dibagikan kepada pengguna Instagram lain.</li></ol>', 'f5d93087fd2fa9e507787a97961f945a.jpg', 1, '2021-08-08', '12:49:47', 0);
 
 -- --------------------------------------------------------
 
@@ -341,7 +340,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `profile_picture`, `password`, `gender`, `dob`, `city`, `country`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`) VALUES
-(27, 'Pravda Mohammed', 'pravdam329@gmail.com', '7d768a08f5640a834a837cb52a08bcd4.jpeg', '$2y$10$s2c0K74tm1XoMrdCXT/VyOauIty0N80AMCyZz6PWUvl6VgSntQ1k2', 'M', '1999-02-03', 'Jakarta', 'Isle of Man', 'Branch Manager', 'Google Indonesia Inc.', 'zldknmhcjadn. njdcajdnbcda. skndcjhsancda', 'twitter', 'pravdam', 'umbre', 2, 1, 1626859548);
+(1, 'Pravda Mohammed', 'admin@admin.com', 'a2cacbb4088de0928da320b599b2a313.jpg', '$2y$10$s2c0K74tm1XoMrdCXT/VyOauIty0N80AMCyZz6PWUvl6VgSntQ1k2', 'M', '1999-02-03', 'Jakarta', 'Indonesia', '', '', '', '', '', '', 1, 1, 1626859548),
+(2, 'Geopark User Account', 'user@user.com', '3ec60f48971f02e52934a9c7182f577d.jpg', '$2y$10$s2c0K74tm1XoMrdCXT/VyOauIty0N80AMCyZz6PWUvl6VgSntQ1k2', 'M', '2021-08-04', 'Paris', 'Indonesia', 'Branch Manager', 'Tokopedia', 'Du Hast Mich', 'twittera', 'iga', 'linkedina', 1, 1, 1628082403);
 
 -- --------------------------------------------------------
 
@@ -363,8 +363,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (3, 2, 2),
 (7, 1, 3),
-(9, 2, 4),
-(13, 2, 5);
+(9, 2, 5),
+(13, 1, 5),
+(17, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -463,7 +464,11 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (18, 'gunsnros3s@gmail.com', 'TR9z3utu2CqV+yKc0RvL/DOVUvEYgjwD+0YNHLUAZsA=', 1626337886),
 (19, 'fredericomacheda@gmail.com', '6ZKuBXQMbVabnLOxY5Uy/S/DrxD1SVCXH8yN8igyo3Q=', 1626573178),
 (20, 'david@degea.com', '0B1H6k6+JOVj9rzOv5lOjTSH9XPGFpFQLFUc3rccOFw=', 1626573413),
-(21, 'pravdam329@gmail.com', 'amek2EATBp7JApBE3Dst71wGvTN6D83C5KgpAwYkbEw=', 1626859548);
+(21, 'pravdam329@gmail.com', 'amek2EATBp7JApBE3Dst71wGvTN6D83C5KgpAwYkbEw=', 1626859548),
+(22, 'zidane@zidane.com', '6q/f1Ao1cY2hH4mZ4KjmBiAh2aXfS9XbYaorgOmiTUo=', 1628082403),
+(23, 'zinedine@zidane.com', '1YGJgeXlP7AJlq/HHCq1TbJSmlv8cm2khwNXzEhEyjU=', 1628082459),
+(24, 'user@geopark.com', 'QmJFVl9n3EnV8wG1jmY/5UB3W32tbTbrvU5PoYRX53U=', 1628404507),
+(25, 'pravdam329@gmail.com', 'MzLddE6BBP3FycMj0l0nVgOw0kNdgrWAQPF9AQklJF4=', 1628404529);
 
 --
 -- Indexes for dumped tables
@@ -519,19 +524,19 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -555,7 +560,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

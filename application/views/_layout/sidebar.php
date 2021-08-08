@@ -4,14 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="<?php echo base_url(); ?>dist/index">Geopark</a>
+            <a href="#">Geopark</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="<?php echo base_url(); ?>dist/index">GYF</a>
+            <a href="#">GYF</a>
           </div>
           <ul class="sidebar-menu">
             <li class="dropdown <?php echo $this->uri->segment(3) == '' ? 'active' : ''; ?>">
-              <a href="<?php echo base_url(); ?>admin" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              <a href="<?php echo base_url(); ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             <li class="dropdown <?php echo $this->uri->segment(2) == 'profile' ? 'active' : ''; ?>">
               <a href="<?php echo base_url(); ?>user/profile/<?= $user['id']?>" class="nav-link"><i class="fas fa-user"></i><span>Profile</span></a>
             </li>

@@ -49,7 +49,7 @@ $this->load->view('_layout/header');
                             <td class="align-middle"><?= $num ?></td>
                             <td>
                               <a href="<?php echo base_url(); ?>user/profile/<?= $data->id?>">
-                                <img alt="image" src="<?php echo base_url(); ?>assets/img/profile/<?= $data->profile_picture ?>"class="rounded-circle" width="35" data-toggle="title" title=""> <div class="d-inline-block ml-1"><?= $data->name ?></div>
+                                <img alt="image" src="<?php echo base_url(); ?>assets/img/profile/<?= $data->profile_picture ?>"class="rounded-circle" width="35" height="35" data-toggle="title" title=""> <div class="d-inline-block ml-1"><?= $data->name ?></div>
                               </a>
                             </td>
                             <td class="align-middle"><?= $data->email ?></td>

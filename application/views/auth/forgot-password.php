@@ -33,7 +33,7 @@ $this->load->view('_layout/header');
               Already have an account? <a href="<?php echo base_url(); ?>auth">Create Account</a>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Geopark 2018
+              Copyright &copy; Geopark 2021
             </div>
           </div>
         </div>

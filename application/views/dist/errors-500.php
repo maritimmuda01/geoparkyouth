@@ -31,13 +31,13 @@ $this->load->view('dist/_partials/header');
                 </div>
               </form>
               <div class="mt-3">
-                <a href="<?php echo base_url(); ?>dist/index">Back to Home</a>
+                <a href="<?php echo base_url(); ?>dist/index">Back Home</a>
               </div>
             </div>
           </div>
         </div>
         <div class="simple-footer mt-5">
-          Copyright &copy; Geopark 2018
+          Copyright &copy; Geopark 2021
         </div>
       </div>
     </section>

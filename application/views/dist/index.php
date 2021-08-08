@@ -143,7 +143,7 @@ $this->load->view('dist/_partials/header');
                       <img class="mr-3 rounded" width="55" src="<?php echo base_url(); ?>assets/img/products/product-4-50.png" alt="product">
                       <div class="media-body">
                         <div class="float-right"><div class="font-weight-600 text-muted text-small">67 Sales</div></div>
-                        <div class="media-title">iBook Pro 2018</div>
+                        <div class="media-title">iBook Pro 2021</div>
                         <div class="mt-1">
                           <div class="budget-price">
                             <div class="budget-price-square bg-primary" data-width="84%"></div>
@@ -236,7 +236,7 @@ $this->load->view('dist/_partials/header');
                           <img alt="image" src="<?php echo base_url(); ?>assets/img/products/product-4-50.png" class="img-fluid">
                         </div>
                         <div class="product-details">
-                          <div class="product-name">iBook Pro 2018</div>
+                          <div class="product-name">iBook Pro 2021</div>
                           <div class="product-review">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -384,7 +384,7 @@ $this->load->view('dist/_partials/header');
                         <td><a href="#">INV-87239</a></td>
                         <td class="font-weight-600">Kusnadi</td>
                         <td><div class="badge badge-warning">Unpaid</div></td>
-                        <td>July 19, 2018</td>
+                        <td>July 19, 2021</td>
                         <td>
                           <a href="#" class="btn btn-primary">Detail</a>
                         </td>
@@ -393,7 +393,7 @@ $this->load->view('dist/_partials/header');
                         <td><a href="#">INV-48574</a></td>
                         <td class="font-weight-600">Hasan Basri</td>
                         <td><div class="badge badge-success">Paid</div></td>
-                        <td>July 21, 2018</td>
+                        <td>July 21, 2021</td>
                         <td>
                           <a href="#" class="btn btn-primary">Detail</a>
                         </td>
@@ -402,7 +402,7 @@ $this->load->view('dist/_partials/header');
                         <td><a href="#">INV-76824</a></td>
                         <td class="font-weight-600">Muhamad Nuruzzaki</td>
                         <td><div class="badge badge-warning">Unpaid</div></td>
-                        <td>July 22, 2018</td>
+                        <td>July 22, 2021</td>
                         <td>
                           <a href="#" class="btn btn-primary">Detail</a>
                         </td>
@@ -411,7 +411,7 @@ $this->load->view('dist/_partials/header');
                         <td><a href="#">INV-84990</a></td>
                         <td class="font-weight-600">Agung Ardiansyah</td>
                         <td><div class="badge badge-warning">Unpaid</div></td>
-                        <td>July 22, 2018</td>
+                        <td>July 22, 2021</td>
                         <td>
                           <a href="#" class="btn btn-primary">Detail</a>
                         </td>
@@ -420,7 +420,7 @@ $this->load->view('dist/_partials/header');
                         <td><a href="#">INV-87320</a></td>
                         <td class="font-weight-600">Ardian Rahardiansyah</td>
                         <td><div class="badge badge-success">Paid</div></td>
-                        <td>July 28, 2018</td>
+                        <td>July 28, 2021</td>
                         <td>
                           <a href="#" class="btn btn-primary">Detail</a>
                         </td>

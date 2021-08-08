@@ -58,7 +58,7 @@ $this->load->view('dist/_partials/header');
                           <div class="ticket-desc">
                             <div>Irwansyah Saputra</div>
                             <div class="bullet"></div>
-                            <div>July 18, 2018</div>
+                            <div>July 18, 2021</div>
                           </div>
                         </div>
                       </div>

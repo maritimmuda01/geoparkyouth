@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title><?php echo 'Page Not Found' ?></title>
+  <title><?php echo 'Blocked' ?></title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/bootstrap/css/bootstrap.min.css">
@@ -133,9 +133,9 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
       <div class="container mt-5">
         <div class="page-error">
           <div class="page-inner">
-            <h1>404</h1>
+            <h1>403</h1>
             <div class="page-description">
-              The page you were looking for could not be found.
+              Access denied. Page blocked.
             </div>
             <div class="page-search">
               <div class="mt-3">

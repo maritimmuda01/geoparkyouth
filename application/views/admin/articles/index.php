@@ -52,7 +52,7 @@ $this->load->view('_layout/header');
                             </td>
                             <td>
                               <a href="<?php echo base_url(); ?>user/profile/<?= $data->author_id?>">
-                                <img alt="image" src="<?php echo base_url(); ?>assets/img/profile/<?= $data->author_image ?>"class="rounded-circle" width="35" data-toggle="title" title=""> <div class="d-inline-block ml-1"><?= $data->author ?></div>
+                                <img alt="image" src="<?php echo base_url(); ?>assets/img/profile/<?= $data->author_image ?>"class="rounded-circle" width="35" height="35" data-toggle="title" title=""> <div class="d-inline-block ml-1"><?= $data->author ?></div>
                               </a>
                             </td>
                             <td class="align-middle"><?= date("d M Y",strtotime($data->date))." ".date("H:i",strtotime($data->time))  ?></td>

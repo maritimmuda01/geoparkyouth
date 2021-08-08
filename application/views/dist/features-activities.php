@@ -13,7 +13,7 @@ $this->load->view('dist/_partials/header');
             </div>
           </div>
           <div class="section-body">
-            <h2 class="section-title">September 2018</h2>
+            <h2 class="section-title">September 2021</h2>
             <div class="row">
               <div class="col-12">
                 <div class="activities">

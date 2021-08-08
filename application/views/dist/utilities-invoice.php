@@ -54,7 +54,7 @@ $this->load->view('dist/_partials/header');
                       <div class="col-md-6 text-md-right">
                         <address>
                           <strong>Order Date:</strong><br>
-                          September 19, 2018<br><br>
+                          September 19, 2021<br><br>
                         </address>
                       </div>
                     </div>
