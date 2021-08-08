@@ -10,6 +10,7 @@ class User extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('M_articles');
         $this->load->model('M_country');
+        $this->load->model('M_user');
     }
 
     public function index()
@@ -22,11 +23,16 @@ class User extends CI_Controller
     }
 
 
-    public function profile()
+    public function profile($id = null)
     {
+        if (!isset($id)) redirect('errors');
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] = $data['user']['name'].' | Profile';
+        $data['profile'] = $this->db->get_where('user', ["id"=> $id])->row_array();
+
+        if (!$data['profile']) redirect('errors');
+
+        $data['title'] = $data['profile']['name'].' | Profile';
         $data['total_articles'] = $this->M_articles->total_articles_by_id();
 
         $this->load->view('user/profile', $data);
@@ -53,7 +59,7 @@ class User extends CI_Controller
 
     public function profile_update()
     {
-        
+        $user['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data   = $this->input->post();
 
         if(isset($_FILES["profile_picture"]["name"]))
@@ -111,7 +117,7 @@ class User extends CI_Controller
                 if ($this->form_validation->run() == TRUE) {
                     $this->db->query($sql);
                     $this->session->set_flashdata('message', 'success');
-                    redirect("user/profile", $data);
+                    redirect("user/settings", $data);
                 }else {
                     $this->session->set_flashdata('message', 'failed');
                     redirect("user/settings", $data);

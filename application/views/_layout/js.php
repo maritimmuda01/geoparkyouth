@@ -40,6 +40,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
   
   <script src="<?php echo base_url(); ?>assets/modules/sticky-kit.js"></script>
+
+
+  <script src="<?php echo base_url(); ?>assets/modules/datatables/datatables.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/modules-datatables.js"></script>
+
+  
+  <script src="<?php echo base_url(); ?>assets/modules/simple-weather/jquery.simpleWeather.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/chart.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+
+  <script src="<?php echo base_url(); ?>assets/modules/prism/prism.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/bootstrap-modal.js"></script>
   
   <!-- JS Libraies -->
 <?php
@@ -49,17 +67,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
   <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "index_0") { ?>
-  <script src="<?php echo base_url(); ?>assets/modules/simple-weather/jquery.simpleWeather.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/chart.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/jquery.vmap.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "bootstrap_modal") { ?>
-  <script src="<?php echo base_url(); ?>assets/modules/prism/prism.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "components_gallery") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
@@ -95,12 +102,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "modules_chartjs") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/chart.min.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "modules_datatables") { ?>
-  <script src="<?php echo base_url(); ?>assets/modules/datatables/datatables.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "modules_owl_carousel") { ?>
   <script src="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
@@ -140,9 +141,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "index_0") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/index-0.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "bootstrap_modal") { ?>
-  <script src="<?php echo base_url(); ?>assets/js/page/bootstrap-modal.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "components_chat_box") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/components-chat-box.js"></script>
@@ -191,9 +189,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "modules_chartjs") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-chartjs.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "modules_datatables") { ?>
-  <script src="<?php echo base_url(); ?>assets/js/page/modules-datatables.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "modules_ion_icons") { ?>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-ion-icons.js"></script>

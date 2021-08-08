@@ -1,15 +1,103 @@
+$('.tombol-hapus').on('click', function (e){
+
+  e.preventDefault();
+  const href = $(this).attr('href');
+  swal({
+      title: 'Are you sure?',
+      text: 'Data will be deleted!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((result) => {
+      if (result) {
+        document.location.href=href;
+      }
+    });
+
+});
+
+$('.publish').on('click', function (e){
+
+  e.preventDefault();
+  const href = $(this).attr('href');
+  swal({
+      title: 'Are you sure?',
+      text: 'Article will be published!',
+      icon: 'info',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((result) => {
+      if (result) {
+        document.location.href=href;
+      }
+    });
+
+});
+
+$('.role_change').on('click', function (e){
+
+  e.preventDefault();
+  const href = $(this).attr('href');
+  swal({
+      title: 'Change this account role?',
+      text: "You're about to change this account's role. Are you sure?",
+      icon: 'info',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((result) => {
+      if (result) {
+        document.location.href=href;
+      }
+    });
+
+});
+
+$('.unpublish').on('click', function (e){
+
+  e.preventDefault();
+  const href = $(this).attr('href');
+  swal({
+      title: 'Are you sure?',
+      text: 'Article will be unpublished!',
+      icon: 'info',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((result) => {
+      if (result) {
+        document.location.href=href;
+      }
+    });
+
+});
+
 const flashData = $('.flash-data').data('flashdata');
 
 if(flashData == 'success'){
-    swal('Done!', 'Your changes are saved!', 'success');
+    swal('Done!', 'Your changes are successfully saved!', 'success');
 }
 
 if(flashData == 'password-success'){
-    swal('Done!', 'Password updated successfully!', 'success');
+    swal('Done!', 'Password changed successfully!', 'success');
+}
+
+if(flashData == 'deleted'){
+    swal('Done!', 'Data deleted successfully!', 'success');
+}
+
+if(flashData == 'published'){
+    swal('Done!', 'Published successfully!', 'success');
+}
+
+if(flashData == 'unpublished'){
+    swal('Done!', 'Unpublished successfully!', 'success');
 }
 
 if(flashData == 'failed'){
-    swal('Update Failed!', 'Please check your input!', 'error');
+    swal('Update Failed!', 'Please try again!', 'error');
 }
 
 if(flashData == 'wrong-password'){
@@ -19,6 +107,7 @@ if(flashData == 'wrong-password'){
 if(flashData == 'same-password'){
     swal('Failed!', 'Cannot change to the same password!', 'error');
 }
+
 
 
 // Profile
@@ -52,7 +141,7 @@ $(document).on("change", ".uploadimage", function () {
         // If upload successful
         if (Math.random() < 0.9) {
           $(wrapper).append(
-            '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i> Profile image updated successfully</div>'
+            '<div class="snackbar show" role="alert"><i class="fa fa-check-circle text-success"></i> Image updated successfully</div>'
           );
         $.ajax({
          url:'',

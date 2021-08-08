@@ -287,6 +287,10 @@ select.form-control:not([size]):not([multiple]) {
   height: 45px;
 }
 
+.article-header{
+  height: 300px;
+}
+
 .custom-switch {
   -webkit-user-select: none;
   -moz-user-select: none;

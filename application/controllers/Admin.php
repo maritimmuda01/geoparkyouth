@@ -7,18 +7,103 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->library('form_validation');
+        $this->load->model('M_articles');
+        $this->load->model('M_country'); 
+        $this->load->model('M_user');    
     }
 
     public function index()
     {
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'Admin | Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['total_account'] = count($this->M_user->select_all());
+        $data['total_articles'] = $this->M_articles->total_articles();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
         $this->load->view('admin/index', $data);
-        $this->load->view('templates/footer');
+    }
+
+    //User
+    public function user_management()
+    {
+        $data['title'] = 'Admin | User Management';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataUser'] = $this->M_user->select_all();
+
+        $this->load->view('admin/user/index', $data);
+    }
+
+    public function user_role_to_admin($id)
+    {
+        if (!isset($id)) redirect('admin/user_management');
+
+        if ($this->M_user->user_role_to_admin($id)) {
+            $this->session->set_flashdata('message', 'success');
+            redirect(site_url('admin/user_management'));
+        }
+    } 
+
+    public function user_role_to_user($id)
+    {
+        if (!isset($id)) redirect('admin/user_management');
+
+        if ($this->M_user->user_role_to_user($id)) {
+            $this->session->set_flashdata('message', 'success');
+            redirect(site_url('admin/user_management'));
+        }
+    } 
+
+    public function user_delete($id = null)
+    {
+        if (!isset($id)) redirect('admin/user_management');
+
+        if ($this->M_user->user_delete($id)) {
+            $this->session->set_flashdata('message', 'deleted');
+            redirect(site_url('admin/user_management'));
+        }
+    }
+
+    //Articles
+    public function articles_management()
+    {
+        $data['title'] = 'Admin | Articles Management';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataArticles'] = $this->M_articles->select_all();
+
+        // var_dump($data['dataArticles']);
+        // exit();
+
+        $this->load->view('admin/articles/index', $data);
+    }
+
+    public function articles_publish($id = null)
+    {
+        if (!isset($id)) redirect('admin/articles_management');
+
+        if ($this->M_articles->articles_publish($id)) {
+            $this->session->set_flashdata('message', 'published');
+            redirect(site_url('admin/articles_management'));
+        }
+    } 
+
+    public function articles_unpublish($id = null)
+    {
+        if (!isset($id)) redirect('admin/articles_management');
+
+        if ($this->M_articles->articles_unpublish($id)) {
+            $this->session->set_flashdata('message', 'unpublished');
+            redirect(site_url('admin/articles_management'));
+        }
+    } 
+
+    public function articles_delete($id = null)
+    {
+        if (!isset($id)) redirect('admin/articles_management');
+
+        if ($this->M_articles->articles_delete($id)) {
+            $this->session->set_flashdata('message', 'deleted');
+            redirect(site_url('admin/articles_management'));
+        }
     }
 
 

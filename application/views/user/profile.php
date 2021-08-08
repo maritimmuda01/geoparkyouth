@@ -4,14 +4,14 @@ $this->load->view('_layout/header');
 ?>
 <!-- Main Content -->
 <div class="main-content">
-  <!-- <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>   -->
+  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
   <section class="section">
     <div class="section-body">
       <div class="row mt-lg-12">
         <div class="col-12 col-md-12 col-lg-8 ">
           <div class="card profile-widget">
             <div class="profile-widget-header">                     
-              <img alt="image" src="<?= base_url('assets/img/profile/') . $user['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
+              <img alt="image" src="<?= base_url('assets/img/profile/') . $profile['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
               <div class="profile-widget-items">
                 <div class="profile-widget-item">
                   <div class="profile-widget-item-label">Articles</div>
@@ -29,38 +29,38 @@ $this->load->view('_layout/header');
             </div>
             <div class="profile-widget-description">
               <div class="profile-widget-name">
-                <h4><?= $user['name']; ?></h4>
-                <?php if ($user['position'] || $user['company']) {
+                <h4><?= $profile['name']; ?></h4>
+                <?php if ($profile['position'] || $profile['company']) {
                   echo "<div class='text-muted d-inline font-weight-light'>";
-                  if ($user['position'] && $user['company']){
-                    echo $user['position']." at ";
+                  if ($profile['position'] && $profile['company']){
+                    echo $profile['position']." at ";
                   }
-                  echo $user['company'];
+                  echo $profile['company'];
                   echo "</div>";
                 }
                 ?>
                 <div class="d-inline font-weight-light">
-                  <h6><?php if($user['city']){ echo $user['city'].', ';} echo $user['country'] ?> </h6> 
+                  <h6><?php if($profile['city']){ echo $profile['city'].', ';} echo $profile['country'] ?> </h6> 
                 </div>
               </div>
-              <?= $user['about']?>
+              <?= $profile['about']?>
             </div>
             <?php
-            if ($user['twitter'] != "" || $user['instagram'] != "" || $user['linkedin'] != "") { ?>
+            if ($profile['twitter'] != "" || $profile['instagram'] != "" || $profile['linkedin'] != "") { ?>
               <div class="card-footer">
                 <?php
-                if ($user['twitter'] != "") { ?>
-                  <a href="https://twitter.com/<?= $user['twitter']; ?>" class="btn btn-social-icon btn-twitter mr-1">
+                if ($profile['twitter'] != "") { ?>
+                  <a href="https://twitter.com/<?= $profile['twitter']; ?>" class="btn btn-social-icon btn-twitter mr-1">
                     <i class="fab fa-twitter"></i>
                   </a>
                 <?php }
-                if ($user['instagram'] != "") { ?>
-                  <a href="https://instagram.com/<?= $user['instagram']; ?>" class="btn btn-social-icon btn-instagram">
+                if ($profile['instagram'] != "") { ?>
+                  <a href="https://instagram.com/<?= $profile['instagram']; ?>" class="btn btn-social-icon btn-instagram">
                     <i class="fab fa-instagram"></i>
                   </a>
                 <?php }
-                if ($user['linkedin'] != "") { ?>
-                  <a href="https://linkedin.com/in/<?= $user['linkedin']; ?>" class="btn btn-social-icon btn-linkedin">
+                if ($profile['linkedin'] != "") { ?>
+                  <a href="https://linkedin.com/in/<?= $profile['linkedin']; ?>" class="btn btn-social-icon btn-linkedin">
                     <i class="fab fa-linkedin"></i>
                   </a>
                 <?php }

@@ -15,10 +15,23 @@ class Articles extends CI_Controller
     {
         $data['title'] = 'Articles';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['dataArticles'] = $this->M_articles->select_all();
+        $data['dataArticles'] = $this->M_articles->select_published();
 
         $this->load->view('articles/index', $data);
     }
+
+    public function single($id = null)
+    {
+        if (!isset($id)) redirect('errors');
+        
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['single'] = $this->db->get_where('articles', ["id"=> $id])->row_array();
+
+        if (!$data['single']) redirect('errors');
+
+        $data['title'] = $data['single']['title'];
+
+        $this->load->view('articles/single', $data);    }
 
     public function write_articles()
     {
@@ -73,17 +86,21 @@ class Articles extends CI_Controller
         $this->form_validation->set_rules('title', 'Title', 'trim|required');
         $this->form_validation->set_rules('content', 'content', 'trim|requires');
 
+        if ($author['user']['role_id']==1) {
+            $is_published = '1';
+        }else{
+            $is_published = '0';  
+        }
+
         $sql = [
                 'title'         => $this->input->post('title'),
                 'content'       => $this->input->post('content'),
                 'author_id'     => $author['user']['id'],
                 'date'          => date('Y-m-d'),
                 'image'         => $image,
+                'is_published'  => $is_published,
                 'time'          => date('H:i:s')    
             ];
-
-        // var_dump($sql['time']);
-        // exit();
 
         $this->db->insert('articles', $sql);
         redirect('articles');

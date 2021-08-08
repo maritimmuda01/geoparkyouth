@@ -18,13 +18,13 @@ $this->load->view('_layout/header');
               <div class="col-12 col-md-4 col-lg-4">
                 <article class="article article-style-c">
                   <div class="article-header">
-                    <a href="ajshjd.com"><div class="article-image" data-background="<?php echo base_url(); ?>assets/img/articles/<?= $data->articles_image; ?>">
+                    <a href="<?= base_url(); ?>articles/single/<?= $data->id?>"><div class="article-image" data-background="<?php echo base_url(); ?>assets/img/articles/<?= $data->articles_image; ?>">
                     </div></a>
                   </div>
                   <div class="article-details">
                     <div class="article-category"><a href="#">Articles</a> <div class="bullet"></div> <a href="#"><?php echo date("j F Y",strtotime($data->date)) ; ?></a></div>
                     <div class="article-title">
-                      <h2><a href="#"><?php echo $data->title ?></a></h2>
+                      <h2><a href="<?= base_url(); ?>articles/single/<?= $data->id?>"><?php echo $data->title ?></a></h2>
                     </div>
                     <div class="article-user">
                       <img alt="image" src="<?= base_url('assets/img/profile/') . $data->image; ?>">
@@ -33,7 +33,7 @@ $this->load->view('_layout/header');
                           Author
                         </div>
                         <div class="user-detail-name">
-                          <a href="#"><?php echo $data->author?></a>
+                          <a href="<?= base_url(); ?>user/profile/<?= $data->author_id?>"><?php echo $data->author?></a>
                         </div>
                         <!-- <div class="text-job"><?php echo $data->position." at ".$data->company?></div> -->
                       </div>

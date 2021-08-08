@@ -20,7 +20,7 @@ $("#swal-5").click(function() {
 	swal('Good Job', 'You clicked the button!', 'error');
 });
 
-$("#swal-6").click(function() {
+$("#swal-6").click(function(url) {
   swal({
       title: 'Are you sure?',
       text: 'Once deleted, you will not be able to recover this imaginary file!',

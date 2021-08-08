@@ -13,7 +13,13 @@ class Auth extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('email')) {
-            redirect('user');
+            // var_dump($this->session->userdata('role_id'));
+            // exit();
+            if ($this->session->userdata('role_id') == 1) {
+                        redirect('admin');
+                    } else {
+                        redirect('user');
+                    }
         }
 
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
@@ -47,6 +53,8 @@ class Auth extends CI_Controller
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
+                    // var_dump($user['role_id']);
+                    // exit();
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
                         redirect('admin');

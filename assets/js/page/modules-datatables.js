@@ -30,7 +30,9 @@ $("[data-checkboxes]").each(function() {
 
 $("#table-1").dataTable({
   "columnDefs": [
-    { "sortable": false, "targets": [2,3] }
+    { "sortable": false, "targets": [0,2,9],
+    "orderable": false, "targets": [0,2,9],
+    "searchable": false, "targets": 0 }
   ]
 });
 $("#table-2").dataTable({

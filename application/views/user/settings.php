@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('_layout/header');
 ?>
 <!-- Main Content -->
-<!-- <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div> -->
+<div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div> 
 <div class="main-content">
   <section class="section">
     <div class="section-body">
@@ -12,7 +12,7 @@ $this->load->view('_layout/header');
         <div class="col-md-4">
           <div class="card">
             <div class="card-header">
-              <a href="<?php echo base_url(); ?>user/profile" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>  
+              <a href="<?php echo base_url(); ?>user/profile/<?= $user['id']?>" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>  
               <h4>Settings</h4>
             </div>
             <div class="card-body">
