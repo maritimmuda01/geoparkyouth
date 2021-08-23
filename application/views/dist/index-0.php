@@ -117,7 +117,7 @@ $this->load->view('dist/_partials/header');
                 <div class="card-body">             
                   <ul class="list-unstyled list-unstyled-border">
                     <li class="media">
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar">
                       <div class="media-body">
                         <div class="float-right text-primary">Now</div>
                         <div class="media-title">Farhan A Mujib</div>
@@ -125,7 +125,7 @@ $this->load->view('dist/_partials/header');
                       </div>
                     </li>
                     <li class="media">
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" alt="avatar">
                       <div class="media-body">
                         <div class="float-right">12m</div>
                         <div class="media-title">Ujang Maman</div>
@@ -133,7 +133,7 @@ $this->load->view('dist/_partials/header');
                       </div>
                     </li>
                     <li class="media">
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-3.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-3.png" alt="avatar">
                       <div class="media-body">
                         <div class="float-right">17m</div>
                         <div class="media-title">Rizal Fakhri</div>
@@ -141,7 +141,7 @@ $this->load->view('dist/_partials/header');
                       </div>
                     </li>
                     <li class="media">
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" alt="avatar">
                       <div class="media-body">
                         <div class="float-right">21m</div>
                         <div class="media-title">Alfa Zulkarnain</div>
@@ -175,25 +175,25 @@ $this->load->view('dist/_partials/header');
                   <div class="row pb-2">
                     <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                       <div class="avatar-item mb-0">
-                        <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" class="img-fluid" data-toggle="tooltip" title="Alfa Zulkarnain">
+                        <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" class="img-fluid" data-toggle="tooltip" title="Alfa Zulkarnain">
                         <div class="avatar-badge" title="Editor" data-toggle="tooltip"><i class="fas fa-wrench"></i></div>
                       </div>
                     </div>
                     <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                       <div class="avatar-item mb-0">
-                        <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="img-fluid" data-toggle="tooltip" title="Egi Ferdian">
+                        <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="img-fluid" data-toggle="tooltip" title="Egi Ferdian">
                         <div class="avatar-badge" title="Admin" data-toggle="tooltip"><i class="fas fa-cog"></i></div>
                       </div>
                     </div>
                     <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                       <div class="avatar-item mb-0">
-                        <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="img-fluid" data-toggle="tooltip" title="Jaka Ramadhan">
+                        <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="img-fluid" data-toggle="tooltip" title="Jaka Ramadhan">
                         <div class="avatar-badge" title="Author" data-toggle="tooltip"><i class="fas fa-pencil-alt"></i></div>
                       </div>
                     </div>
                     <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                       <div class="avatar-item mb-0">
-                        <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="img-fluid" data-toggle="tooltip" title="Ryan">
+                        <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="img-fluid" data-toggle="tooltip" title="Ryan">
                         <div class="avatar-badge" title="Admin" data-toggle="tooltip"><i class="fas fa-cog"></i></div>
                       </div>
                     </div>
@@ -332,7 +332,7 @@ $this->load->view('dist/_partials/header');
                       <ul class="list-unstyled list-unstyled-border">
                         <li class="media">
                           <a href="#">
-                            <img class="mr-3 rounded" width="50" src="<?php echo base_url(); ?>assets/img/products/product-1-50.png" alt="product">
+                            <img class="mr-3 rounded" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/products/product-1-50.png" alt="product">
                           </a>
                           <div class="media-body">
                             <div class="media-right">$405</div>
@@ -342,7 +342,7 @@ $this->load->view('dist/_partials/header');
                         </li>
                         <li class="media">
                           <a href="#">
-                            <img class="mr-3 rounded" width="50" src="<?php echo base_url(); ?>assets/img/products/product-2-50.png" alt="product">
+                            <img class="mr-3 rounded" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/products/product-2-50.png" alt="product">
                           </a>
                           <div class="media-body">
                             <div class="media-right">$499</div>
@@ -353,7 +353,7 @@ $this->load->view('dist/_partials/header');
                         </li>
                         <li class="media">
                           <a href="#">
-                            <img class="mr-3 rounded" width="50" src="<?php echo base_url(); ?>assets/img/products/product-3-50.png" alt="product">
+                            <img class="mr-3 rounded" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/products/product-3-50.png" alt="product">
                           </a>
                           <div class="media-body">
                             <div class="media-right">$149</div>
@@ -381,7 +381,7 @@ $this->load->view('dist/_partials/header');
                         <input type="checkbox" class="custom-control-input" id="cbx-1">
                         <label class="custom-control-label" for="cbx-1"></label>
                       </div>
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" alt="avatar">
                       <div class="media-body">
                         <div class="badge badge-pill badge-danger mb-1 float-right">Not Finished</div>
                         <h6 class="media-title"><a href="#">Redesign header</a></h6>
@@ -393,7 +393,7 @@ $this->load->view('dist/_partials/header');
                         <input type="checkbox" class="custom-control-input" id="cbx-2" checked="">
                         <label class="custom-control-label" for="cbx-2"></label>
                       </div>
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" alt="avatar">
                       <div class="media-body">
                         <div class="badge badge-pill badge-primary mb-1 float-right">Completed</div>
                         <h6 class="media-title"><a href="#">Add a new component</a></h6>
@@ -405,7 +405,7 @@ $this->load->view('dist/_partials/header');
                         <input type="checkbox" class="custom-control-input" id="cbx-3" >
                         <label class="custom-control-label" for="cbx-3"></label>
                       </div>
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" alt="avatar">
                       <div class="media-body">
                         <div class="badge badge-pill badge-warning mb-1 float-right">Progress</div>
                         <h6 class="media-title"><a href="#">Fix modal window</a></h6>
@@ -417,7 +417,7 @@ $this->load->view('dist/_partials/header');
                         <input type="checkbox" class="custom-control-input" id="cbx-4">
                         <label class="custom-control-label" for="cbx-4"></label>
                       </div>
-                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar">
+                      <img class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar">
                       <div class="media-body">
                         <div class="badge badge-pill badge-danger mb-1 float-right">Not Finished</div>
                         <h6 class="media-title"><a href="#">Remove unwanted classes</a></h6>
@@ -484,7 +484,7 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                           </td>
                           <td>
                             <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -501,7 +501,7 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                           </td>
                           <td>
                             <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -518,7 +518,7 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                           </td>
                           <td>
                             <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -535,7 +535,7 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                           </td>
                           <td>
                             <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -552,7 +552,7 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                           </td>
                           <td>
                             <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
@@ -569,7 +569,7 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                            <a href="#" class="font-weight-600"><img src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                           </td>
                           <td>
                             <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>

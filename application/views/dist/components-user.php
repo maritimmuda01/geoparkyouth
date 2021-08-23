@@ -23,7 +23,7 @@ $this->load->view('dist/_partials/header');
                 <div class="card author-box card-primary">
                   <div class="card-body">
                     <div class="author-box-left">
-                      <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle author-box-picture">
+                      <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle author-box-picture">
                       <div class="clearfix"></div>
                       <a href="#" class="btn btn-primary mt-3 follow-btn" data-follow-action="alert('follow clicked');" data-unfollow-action="alert('unfollow clicked');">Follow</a>
                     </div>
@@ -69,7 +69,7 @@ $this->load->view('dist/_partials/header');
                     <div class="owl-carousel owl-theme" id="users-carousel">
                       <div>
                         <div class="user-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="img-fluid">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="img-fluid">
                           <div class="user-details">
                             <div class="user-name">Hasan Basri</div>
                             <div class="text-job text-muted">Web Developer</div>
@@ -81,7 +81,7 @@ $this->load->view('dist/_partials/header');
                       </div>
                       <div>
                         <div class="user-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="img-fluid">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="img-fluid">
                           <div class="user-details">
                             <div class="user-name">Kusnaedi</div>
                             <div class="text-job text-muted">Mobile Developer</div>
@@ -93,7 +93,7 @@ $this->load->view('dist/_partials/header');
                       </div>
                       <div>
                         <div class="user-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-3.png" class="img-fluid">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-3.png" class="img-fluid">
                           <div class="user-details">
                             <div class="user-name">Bagus Dwi Cahya</div>
                             <div class="text-job text-muted">UI Designer</div>
@@ -105,7 +105,7 @@ $this->load->view('dist/_partials/header');
                       </div>
                       <div>
                         <div class="user-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="img-fluid">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="img-fluid">
                           <div class="user-details">
                             <div class="user-name">Wildan Ahdian</div>
                             <div class="text-job text-muted">Project Manager</div>
@@ -117,7 +117,7 @@ $this->load->view('dist/_partials/header');
                       </div>
                       <div>
                         <div class="user-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" class="img-fluid">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" class="img-fluid">
                           <div class="user-details">
                             <div class="user-name">Deden Febriansyah</div>
                             <div class="text-job text-muted">IT Support</div>
@@ -134,7 +134,7 @@ $this->load->view('dist/_partials/header');
               <div class="col-12 col-sm-12 col-lg-5">
                 <div class="card profile-widget">
                   <div class="profile-widget-header">                     
-                    <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle profile-widget-picture">
+                    <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle profile-widget-picture">
                     <div class="profile-widget-items">
                       <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Posts</div>
@@ -181,25 +181,25 @@ $this->load->view('dist/_partials/header');
                     <div class="row">
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="img-fluid" data-toggle="tooltip" title="Syahdan Ubaidillah">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="img-fluid" data-toggle="tooltip" title="Syahdan Ubaidillah">
                           <div class="avatar-badge" title="Editor" data-toggle="tooltip"><i class="fas fa-wrench"></i></div>
                         </div>
                       </div>
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="img-fluid" data-toggle="tooltip" title="Danny Stenvenson">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="img-fluid" data-toggle="tooltip" title="Danny Stenvenson">
                           <div class="avatar-badge" title="Admin" data-toggle="tooltip"><i class="fas fa-cog"></i></div>
                         </div>
                       </div>
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-3.png" class="img-fluid" data-toggle="tooltip" title="Riko Huang">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-3.png" class="img-fluid" data-toggle="tooltip" title="Riko Huang">
                           <div class="avatar-badge" title="Author" data-toggle="tooltip"><i class="fas fa-pencil-alt"></i></div>
                         </div>
                       </div>
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="img-fluid" data-toggle="tooltip" title="Luthfi Hakim">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="img-fluid" data-toggle="tooltip" title="Luthfi Hakim">
                           <div class="avatar-badge" title="Author" data-toggle="tooltip"><i class="fas fa-pencil-alt"></i></div>
                         </div>
                       </div>
@@ -207,25 +207,25 @@ $this->load->view('dist/_partials/header');
                     <div class="row">
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" class="img-fluid" data-toggle="tooltip" title="Alfa Zulkarnain">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" class="img-fluid" data-toggle="tooltip" title="Alfa Zulkarnain">
                           <div class="avatar-badge" title="Editor" data-toggle="tooltip"><i class="fas fa-wrench"></i></div>
                         </div>
                       </div>
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="img-fluid" data-toggle="tooltip" title="Egi Ferdian">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="img-fluid" data-toggle="tooltip" title="Egi Ferdian">
                           <div class="avatar-badge" title="Admin" data-toggle="tooltip"><i class="fas fa-cog"></i></div>
                         </div>
                       </div>
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="img-fluid" data-toggle="tooltip" title="Jaka Ramadhan">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="img-fluid" data-toggle="tooltip" title="Jaka Ramadhan">
                           <div class="avatar-badge" title="Author" data-toggle="tooltip"><i class="fas fa-pencil-alt"></i></div>
                         </div>
                       </div>
                       <div class="col-6 col-sm-3 col-lg-3 mb-4 mb-md-0">
                         <div class="avatar-item">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="img-fluid" data-toggle="tooltip" title="Ryan">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="img-fluid" data-toggle="tooltip" title="Ryan">
                           <div class="avatar-badge" title="Admin" data-toggle="tooltip"><i class="fas fa-cog"></i></div>
                         </div>
                       </div>
@@ -243,7 +243,7 @@ $this->load->view('dist/_partials/header');
                   <div class="card-body">
                     <ul class="list-unstyled list-unstyled-border list-unstyled-noborder">
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="70" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="70" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png">
                         <div class="media-body">
                           <div class="media-right"><div class="text-primary">Approved</div></div>
                           <div class="media-title mb-1">Rizal Fakhri</div>
@@ -261,7 +261,7 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </li>
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="70" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="70" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png">
                         <div class="media-body">
                           <div class="media-right"><div class="text-warning">Pending</div></div>
                           <div class="media-title mb-1">Bambang Uciha</div>
@@ -279,7 +279,7 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </li>
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="70" src="<?php echo base_url(); ?>assets/img/avatar/avatar-3.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="70" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-3.png">
                         <div class="media-body">
                           <div class="media-right"><div class="text-primary">Approved</div></div>
                           <div class="media-title mb-1">Ujang Maman</div>
@@ -308,7 +308,7 @@ $this->load->view('dist/_partials/header');
                   <div class="card-body">
                     <ul class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder">
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png">
                         <div class="media-body">
                           <div class="media-title">Rizal Fakhri</div>
                           <div class="text-job text-muted">Web Developer</div>
@@ -324,7 +324,7 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </li>
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png">
                         <div class="media-body">
                           <div class="media-title">Irwansyah Saputra</div>
                           <div class="text-job text-muted">Web Developer</div>
@@ -340,7 +340,7 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </li>
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png">
                         <div class="media-body">
                           <div class="media-title">Hasan Basri</div>
                           <div class="text-job text-muted">Web Developer</div>
@@ -366,7 +366,7 @@ $this->load->view('dist/_partials/header');
                   <div class="card-body">
                     <ul class="list-unstyled user-details list-unstyled-border list-unstyled-noborder">
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png">
                         <div class="media-body">
                           <div class="media-title">Rizal Fakhri</div>
                           <div class="text-job text-muted">Web Developer</div>
@@ -387,7 +387,7 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </li>
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png">
                         <div class="media-body">
                           <div class="media-title">Irwansyah Saputra</div>
                           <div class="text-job text-muted">Web Developer</div>
@@ -408,7 +408,7 @@ $this->load->view('dist/_partials/header');
                         </div>
                       </li>
                       <li class="media">
-                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png">
+                        <img alt="image" class="mr-3 rounded-circle" width="50" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png">
                         <div class="media-body">
                           <div class="media-title">Hasan Basri</div>
                           <div class="text-job text-muted">Web Developer</div>

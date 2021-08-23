@@ -204,7 +204,7 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
                           </td>
                           <td>2021-01-20</td>
                           <td><div class="badge badge-success">Completed</div></td>
@@ -224,9 +224,9 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-3.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-3.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
                           </td>
                           <td>2021-04-10</td>
                           <td><div class="badge badge-info">Todo</div></td>
@@ -246,8 +246,8 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
                           </td>
                           <td>2021-01-29</td>
                           <td><div class="badge badge-warning">In Progress</div></td>
@@ -267,10 +267,10 @@ $this->load->view('dist/_partials/header');
                             </div>
                           </td>
                           <td>
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
-                            <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
+                            <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
                           </td>
                           <td>2021-01-16</td>
                           <td><div class="badge badge-success">Completed</div></td>
@@ -328,7 +328,7 @@ $this->load->view('dist/_partials/header');
                               </div>
                             </td>
                             <td>
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Wildan Ahdian">
                             </td>
                             <td>2021-01-20</td>
                             <td><div class="badge badge-success">Completed</div></td>
@@ -347,9 +347,9 @@ $this->load->view('dist/_partials/header');
                               </div>
                             </td>
                             <td>
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-3.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Nur Alpiana">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-3.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hariono Yusup">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Bagus Dwi Cahya">
                             </td>
                             <td>2021-04-10</td>
                             <td><div class="badge badge-info">Todo</div></td>
@@ -368,8 +368,8 @@ $this->load->view('dist/_partials/header');
                               </div>
                             </td>
                             <td>
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Hasan Basri">
                             </td>
                             <td>2021-01-29</td>
                             <td><div class="badge badge-warning">In Progress</div></td>
@@ -388,10 +388,10 @@ $this->load->view('dist/_partials/header');
                               </div>
                             </td>
                             <td>
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
-                              <img alt="image" src="<?php echo base_url(); ?>assets/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Rizal Fakhri">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Isnap Kiswandi">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-4.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Yudi Nawawi">
+                              <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png" class="rounded-circle" width="35" data-toggle="tooltip" title="Khaerul Anwar">
                             </td>
                             <td>2021-01-16</td>
                             <td><div class="badge badge-success">Completed</div></td>

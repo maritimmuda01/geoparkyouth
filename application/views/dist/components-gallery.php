@@ -28,14 +28,14 @@ $this->load->view('dist/_partials/header');
                       </div>
                       <div class="card-body">
                         <div class="gallery">
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img01.jpg" data-title="Image 1"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img02.jpg" data-title="Image 2"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img03.jpg" data-title="Image 3"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img04.jpg" data-title="Image 4"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img05.jpg" data-title="Image 5"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img06.jpg" data-title="Image 6"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img07.jpg" data-title="Image 7"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img08.jpg" data-title="Image 8"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" data-title="Image 1"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img02.jpg" data-title="Image 2"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img03.jpg" data-title="Image 3"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img04.jpg" data-title="Image 4"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img05.jpg" data-title="Image 5"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img06.jpg" data-title="Image 6"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img07.jpg" data-title="Image 7"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" data-title="Image 8"></div>
                         </div>
                       </div>
                     </div>
@@ -47,17 +47,17 @@ $this->load->view('dist/_partials/header');
                       </div>
                       <div class="card-body">
                         <div class="gallery">
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img05.jpg" data-title="Image 1"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img08.jpg" data-title="Image 2"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img04.jpg" data-title="Image 3"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img11.jpg" data-title="Image 4"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img02.jpg" data-title="Image 5"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img05.jpg" data-title="Image 6"></div>
-                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img03.jpg" data-title="Image 7"></div>
-                          <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/img/news/img02.jpg" data-title="Image 8">
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img05.jpg" data-title="Image 1"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" data-title="Image 2"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img04.jpg" data-title="Image 3"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img11.jpg" data-title="Image 4"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img02.jpg" data-title="Image 5"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img05.jpg" data-title="Image 6"></div>
+                          <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img03.jpg" data-title="Image 7"></div>
+                          <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img02.jpg" data-title="Image 8">
                             <div>+2</div>
                           </div>
-                          <div class="gallery-item gallery-hide" data-image="<?php echo base_url(); ?>assets/img/news/img11.jpg" data-title="Image 9"></div>
+                          <div class="gallery-item gallery-hide" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img11.jpg" data-title="Image 9"></div>
                         </div>
                       </div>
                     </div>
@@ -71,20 +71,20 @@ $this->load->view('dist/_partials/header');
                   </div>
                   <div class="card-body">
                     <div class="gallery gallery-md">
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img03.jpg" data-title="Image 1"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img14.jpg" data-title="Image 2"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img08.jpg" data-title="Image 3"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img05.jpg" data-title="Image 4"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img11.jpg" data-title="Image 5"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img09.jpg" data-title="Image 6"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img12.jpg" data-title="Image 8"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img13.jpg" data-title="Image 9"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img14.jpg" data-title="Image 10"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img15.jpg" data-title="Image 11"></div>
-                      <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/img/news/img08.jpg" data-title="Image 12">
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img03.jpg" data-title="Image 1"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img14.jpg" data-title="Image 2"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" data-title="Image 3"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img05.jpg" data-title="Image 4"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img11.jpg" data-title="Image 5"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img09.jpg" data-title="Image 6"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img12.jpg" data-title="Image 8"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img13.jpg" data-title="Image 9"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img14.jpg" data-title="Image 10"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img15.jpg" data-title="Image 11"></div>
+                      <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" data-title="Image 12">
                         <div>+2</div>
                       </div>
-                      <div class="gallery-item gallery-hide" data-image="<?php echo base_url(); ?>assets/img/news/img01.jpg" data-title="Image 9"></div>
+                      <div class="gallery-item gallery-hide" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" data-title="Image 9"></div>
                     </div>
                   </div>
                 </div>
@@ -96,12 +96,12 @@ $this->load->view('dist/_partials/header');
                   </div>
                   <div class="card-body">
                     <div class="gallery gallery-fw" data-item-height="100">
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img09.jpg" data-title="Image 1"></div>
-                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img10.jpg" data-title="Image 2"></div>
-                      <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/img/news/img08.jpg" data-title="Image 3">
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img09.jpg" data-title="Image 1"></div>
+                      <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img10.jpg" data-title="Image 2"></div>
+                      <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" data-title="Image 3">
                         <div>+2</div>
                       </div>
-                      <div class="gallery-item gallery-hide" data-image="<?php echo base_url(); ?>assets/img/news/img01.jpg" data-title="Image 4"></div>
+                      <div class="gallery-item gallery-hide" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" data-title="Image 4"></div>
                     </div>
                   </div>
                 </div>

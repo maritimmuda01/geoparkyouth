@@ -290,9 +290,9 @@ $this->load->view('dist/_partials/header');
                   <div class="card-body">
                     <div class="mb-2 text-muted">Click the picture below to see the magic!</div>
                     <div class="chocolat-parent">
-                      <a href="<?php echo base_url(); ?>assets/img/example-image.jpg" class="chocolat-image" title="Just an example">
+                      <a href="<?php echo base_url(); ?>assets/dashboard/img/example-image.jpg" class="chocolat-image" title="Just an example">
                         <div data-crop-image="285">
-                          <img alt="image" src="<?php echo base_url(); ?>assets/img/example-image.jpg" class="img-fluid">
+                          <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/example-image.jpg" class="img-fluid">
                         </div>
                       </a>
                     </div>

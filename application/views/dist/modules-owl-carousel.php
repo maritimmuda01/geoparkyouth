@@ -26,10 +26,10 @@ $this->load->view('dist/_partials/header');
                   </div>
                   <div class="card-body">
                     <div class="owl-carousel owl-theme slider" id="slider1">
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img01.jpg"></div>
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img08.jpg"></div>
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img10.jpg"></div>
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img09.jpg"></div>
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg"></div>
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg"></div>
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img10.jpg"></div>
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img09.jpg"></div>
                     </div>
                   </div>
                 </div>
@@ -41,28 +41,28 @@ $this->load->view('dist/_partials/header');
                   </div>
                   <div class="card-body">
                     <div class="owl-carousel owl-theme slider" id="slider2">
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img01.jpg">
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg">
                         <div class="slider-caption">
                           <div class="slider-title">Image 1</div>
                           <div class="slider-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                           tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                       </div>
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img08.jpg">
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg">
                         <div class="slider-caption">
                           <div class="slider-title">Image 2</div>
                           <div class="slider-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                           tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                       </div>
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img10.jpg">
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img10.jpg">
                         <div class="slider-caption">
                           <div class="slider-title">Image 3</div>
                           <div class="slider-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                           tempor incididunt ut labore et dolore magna aliqua.</div>
                         </div>
                       </div>
-                      <div><img alt="image" src="<?php echo base_url(); ?>assets/img/news/img09.jpg">
+                      <div><img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/news/img09.jpg">
                         <div class="slider-caption">
                           <div class="slider-title">Image 4</div>
                           <div class="slider-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

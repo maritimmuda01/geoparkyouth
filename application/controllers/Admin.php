@@ -9,6 +9,7 @@ class Admin extends CI_Controller
         is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('M_articles');
+        $this->load->model('M_categories');
         $this->load->model('M_country'); 
         $this->load->model('M_user');    
     }
@@ -69,6 +70,8 @@ class Admin extends CI_Controller
         $data['title'] = 'Admin | Articles Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataArticles'] = $this->M_articles->select_all();
+        $data['dataCategories'] = $this->M_categories->select_all();
+
 
         // var_dump($data['dataArticles']);
         // exit();
@@ -104,6 +107,16 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('message', 'deleted');
             redirect(site_url('admin/articles_management'));
         }
+    }
+
+    //Categories
+    public function categories()
+    {
+        $data['title'] = 'Admin | Categories Management';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataCategories'] = $this->M_categories->select_all();
+
+        $this->load->view('admin/categories/index', $data);
     }
 
 

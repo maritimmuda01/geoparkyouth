@@ -9,6 +9,7 @@ class Articles extends CI_Controller
         is_logged_in();
         $this->load->library('form_validation');
         $this->load->model('M_articles');
+        $this->load->model('M_categories');
     }
 
     public function index()
@@ -16,6 +17,7 @@ class Articles extends CI_Controller
         $data['title'] = 'Articles';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataArticles'] = $this->M_articles->select_published();
+        $data['dataCategories'] = $this->M_categories->select_all();
 
         $this->load->view('articles/index', $data);
     }
@@ -51,7 +53,7 @@ class Articles extends CI_Controller
         if(isset($_FILES["uploadArticles"]["name"]))
         {
 
-            $config['upload_path']          = './assets/img/articles/';
+            $config['upload_path']          = './assets/dashboard/img/articles/';
             $config['allowed_types']        = 'jpg|png|jpeg';
             $config['overwrite']            = TRUE;
             $config['remove_spaces']        = TRUE;
@@ -70,13 +72,13 @@ class Articles extends CI_Controller
 
                 //Compress Image
                 $config['image_library']='gd2';
-                $config['source_image']='./assets/img/articles'.$gbr['file_name'];
+                $config['source_image']='./assets/dashboard/img/articles'.$gbr['file_name'];
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '50%';
                 $config['width']= 600;
                 $config['height']= 400;
-                $config['new_image']= './assets/img/profile/articles'.$gbr['file_name'];
+                $config['new_image']= './assets/dashboard/img/profile/articles'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
                 $image = $gbr['file_name'];

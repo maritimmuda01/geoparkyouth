@@ -65,7 +65,7 @@ $this->load->view('dist/_partials/header');
                       <div class="ticket-content">
                         <div class="ticket-header">
                           <div class="ticket-sender-picture img-shadow">
-                            <img src="<?php echo base_url(); ?>assets/img/avatar/avatar-5.png" alt="image">
+                            <img src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-5.png" alt="image">
                           </div>
                           <div class="ticket-detail">
                             <div class="ticket-title">
@@ -93,10 +93,10 @@ $this->load->view('dist/_partials/header');
                           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                           <div class="gallery">
-                            <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img01.jpg" data-title="Image 1"></div>
-                            <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img02.jpg" data-title="Image 2"></div>
-                            <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/img/news/img03.jpg" data-title="Image 3"></div>
-                            <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/img/news/img04.jpg" data-title="Image 4">
+                            <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" data-title="Image 1"></div>
+                            <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img02.jpg" data-title="Image 2"></div>
+                            <div class="gallery-item" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img03.jpg" data-title="Image 3"></div>
+                            <div class="gallery-item gallery-more" data-image="<?php echo base_url(); ?>assets/dashboard/img/news/img04.jpg" data-title="Image 4">
                               <div>+2</div>
                             </div>
                           </div>

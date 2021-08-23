@@ -30,13 +30,13 @@ $this->load->view('dist/_partials/header');
                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img01.jpg" alt="First slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img07.jpg" alt="Second slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img07.jpg" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img08.jpg" alt="Third slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" alt="Third slide">
                         </div>
                       </div>
                     </div>
@@ -55,13 +55,13 @@ $this->load->view('dist/_partials/header');
                       </ol>
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img01.jpg" alt="First slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img07.jpg" alt="Second slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img07.jpg" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img08.jpg" alt="Third slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" alt="Third slide">
                         </div>
                       </div>
                       <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
@@ -90,7 +90,7 @@ $this->load->view('dist/_partials/header');
                       </ol>
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img01.jpg" alt="First slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" alt="First slide">
                           <div class="carousel-caption d-none d-md-block">
                             <h5>Heading</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -98,7 +98,7 @@ $this->load->view('dist/_partials/header');
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img07.jpg" alt="Second slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img07.jpg" alt="Second slide">
                           <div class="carousel-caption d-none d-md-block">
                             <h5>Heading</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -106,7 +106,7 @@ $this->load->view('dist/_partials/header');
                           </div>
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img08.jpg" alt="Third slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" alt="Third slide">
                           <div class="carousel-caption d-none d-md-block">
                             <h5>Heading</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -133,13 +133,13 @@ $this->load->view('dist/_partials/header');
                     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img01.jpg" alt="First slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img07.jpg" alt="Second slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img07.jpg" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/img/news/img08.jpg" alt="Third slide">
+                          <img class="d-block w-100" src="<?php echo base_url(); ?>assets/dashboard/img/news/img08.jpg" alt="Third slide">
                         </div>
                       </div>
                       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">

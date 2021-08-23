@@ -65,7 +65,7 @@ class User extends CI_Controller
         if(isset($_FILES["profile_picture"]["name"]))
         {
 
-            $config['upload_path']          = './assets/img/profile/';
+            $config['upload_path']          = './assets/dashboard/img/profile/';
             $config['allowed_types']        = 'jpg|png|jpeg';
             $config['overwrite']            = TRUE;
             $config['remove_spaces']        = TRUE;
@@ -84,13 +84,13 @@ class User extends CI_Controller
 
                 //Compress Image
                 $config['image_library']='gd2';
-                $config['source_image']='./assets/img/profile'.$gbr['file_name'];
+                $config['source_image']='./assets/dashboard/img/profile'.$gbr['file_name'];
                 $config['create_thumb']= FALSE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '50%';
                 $config['width']= 600;
                 $config['height']= 400;
-                $config['new_image']= './assets/img/profile/thumb'.$gbr['file_name'];
+                $config['new_image']= './assets/dashboard/img/profile/thumb'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
  

@@ -135,7 +135,7 @@ $this->load->view('dist/_partials/header');
                           <label class="imagecheck mb-4">
                             <input name="imagecheck" type="checkbox" value="1" class="imagecheck-input"  />
                             <figure class="imagecheck-figure">
-                              <img src="<?php echo base_url(); ?>assets/img/news/img01.jpg" alt="}" class="imagecheck-image">
+                              <img src="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg" alt="}" class="imagecheck-image">
                             </figure>
                           </label>
                         </div>
@@ -143,7 +143,7 @@ $this->load->view('dist/_partials/header');
                           <label class="imagecheck mb-4">
                             <input name="imagecheck" type="checkbox" value="2" class="imagecheck-input"  checked />
                             <figure class="imagecheck-figure">
-                              <img src="<?php echo base_url(); ?>assets/img/news/img02.jpg" alt="}" class="imagecheck-image">
+                              <img src="<?php echo base_url(); ?>assets/dashboard/img/news/img02.jpg" alt="}" class="imagecheck-image">
                             </figure>
                           </label>
                         </div>
@@ -151,7 +151,7 @@ $this->load->view('dist/_partials/header');
                           <label class="imagecheck mb-4">
                             <input name="imagecheck" type="checkbox" value="3" class="imagecheck-input"  />
                             <figure class="imagecheck-figure">
-                              <img src="<?php echo base_url(); ?>assets/img/news/img03.jpg" alt="}" class="imagecheck-image">
+                              <img src="<?php echo base_url(); ?>assets/dashboard/img/news/img03.jpg" alt="}" class="imagecheck-image">
                             </figure>
                           </label>
                         </div>
@@ -159,7 +159,7 @@ $this->load->view('dist/_partials/header');
                           <label class="imagecheck mb-4">
                             <input name="imagecheck" type="checkbox" value="4" class="imagecheck-input"  checked />
                             <figure class="imagecheck-figure">
-                              <img src="<?php echo base_url(); ?>assets/img/news/img04.jpg" alt="}" class="imagecheck-image">
+                              <img src="<?php echo base_url(); ?>assets/dashboard/img/news/img04.jpg" alt="}" class="imagecheck-image">
                             </figure>
                           </label>
                         </div>
@@ -167,7 +167,7 @@ $this->load->view('dist/_partials/header');
                           <label class="imagecheck mb-4">
                             <input name="imagecheck" type="checkbox" value="5" class="imagecheck-input"  />
                             <figure class="imagecheck-figure">
-                              <img src="<?php echo base_url(); ?>assets/img/news/img05.jpg" alt="}" class="imagecheck-image">
+                              <img src="<?php echo base_url(); ?>assets/dashboard/img/news/img05.jpg" alt="}" class="imagecheck-image">
                             </figure>
                           </label>
                         </div>
@@ -175,7 +175,7 @@ $this->load->view('dist/_partials/header');
                           <label class="imagecheck mb-4">
                             <input name="imagecheck" type="checkbox" value="6" class="imagecheck-input"  />
                             <figure class="imagecheck-figure">
-                              <img src="<?php echo base_url(); ?>assets/img/news/img06.jpg" alt="}" class="imagecheck-image">
+                              <img src="<?php echo base_url(); ?>assets/dashboard/img/news/img06.jpg" alt="}" class="imagecheck-image">
                             </figure>
                           </label>
                         </div>

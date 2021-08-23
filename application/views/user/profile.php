@@ -6,12 +6,14 @@ $this->load->view('_layout/header');
 <div class="main-content">
   <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
   <section class="section">
+    <div class="section-header">
+    </div>
     <div class="section-body">
       <div class="row mt-lg-12">
         <div class="col-12 col-md-12 col-lg-8 ">
           <div class="card profile-widget">
             <div class="profile-widget-header">                     
-              <img alt="image" src="<?= base_url('assets/img/profile/') . $profile['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
+              <img alt="image" src="<?= base_url('assets/dashboard/img/profile/') . $profile['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
               <div class="profile-widget-items">
                 <div class="profile-widget-item">
                   <div class="profile-widget-item-label">Articles</div>
