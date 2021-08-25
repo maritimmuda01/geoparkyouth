@@ -20,8 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="<?php echo base_url(); ?>user/profile/<?= $user['id']?>" class="nav-link"><i class="fas fa-user-alt"></i><span>Profile</span></a>
             </li>
 
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'articles' ? 'active' : ''; ?>">
-              <a href="<?php echo base_url(); ?>articles/" class="nav-link"><i class="fas fa-newspaper"></i><span>Articles</span></a>
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'articles' ? 'active' : ''; ?>">
+              <a href="<?php echo base_url(); ?>user/articles/" class="nav-link"><i class="fas fa-newspaper"></i><span>Articles</span></a>
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(1) == 'elibrary' ? 'active' : ''; ?>">
@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php } ?>
           </ul>
           <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="<?php echo base_url(); ?>auth/logout ?>" class="btn btn-primary btn-lg btn-block btn-icon-split">
+            <a href="<?php echo base_url(); ?>auth/logout?>" class="btn btn-primary btn-lg btn-block btn-icon-split">
               <i class="fas fa-sign-out-alt"></i> Log Out
             </a>
           </div>

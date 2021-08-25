@@ -11,7 +11,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap-social/bootstrap-social.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/jquery-selectric/selectric.css">

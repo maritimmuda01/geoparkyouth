@@ -608,9 +608,9 @@ select.form-control:not([size]):not([multiple]) {
       .card .card-header .form-control + .input-group-btn .btn {
         margin-top: -1px; }
     .card .card-header h4 {
-      font-size: 16px;
+      font-size: 24px;
       line-height: 28px;
-      color: #18a4e0;
+      color: #34395e;
       padding-right: 10px;
       margin-bottom: 0; }
       .card .card-header h4 + .card-header-action,

@@ -43,7 +43,7 @@ $("#modal-4").fireModal({
 });
 
 $("#modal-5").fireModal({
-  title: 'Login',
+  title: 'Add New Category',
   body: $("#modal-login-part"),
   footerClass: 'bg-whitesmoke',
   autoFocus: false,
@@ -52,22 +52,29 @@ $("#modal-5").fireModal({
     let form_data = $(e.target).serialize();
     console.log(form_data)
 
-    // DO AJAX HERE
-    let fake_ajax = setTimeout(function() {
-      form.stopProgress();
-      modal.find('.modal-body').prepend('<div class="alert alert-info">Please check your browser console</div>')
+    
 
-      clearInterval(fake_ajax);
-    }, 1500);
+    var name = $('input[name="name"]').val();
+     $.ajax({
+        url: '<?php echo base_url(); ?>admin/add_categories_process',
+        type: 'POST',
+        data: {name:name},
+        success: function(response){
+            $('input[name="name"]').val("");
+            $("#modal-5").modal('hide');
+            categories();
+        }
+    })
 
     e.preventDefault();
+
   },
   shown: function(modal, form) {
     console.log(form)
   },
   buttons: [
     {
-      text: 'Login',
+      text: 'Save',
       submit: true,
       class: 'btn btn-primary btn-shadow',
       handler: function(modal) {

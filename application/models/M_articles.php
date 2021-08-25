@@ -5,7 +5,7 @@ class M_articles extends CI_Model {
 
 	public function select_all() {
 
-		$data = $this->db->query('SELECT articles.id as id, articles.title as title, articles.content as content, articles.image as image, articles.author_id as author_id, articles.date as date, articles.time as time, user.name as author, user.id as author_id, user.position as position, user.company as company, user.profile_picture as author_image, articles.image as articles_image, articles.is_published as is_published, articles.category_id as category_id, categories.name as category_name, categories.attr as category_attr FROM articles, user, categories WHERE articles.author_id = user.id AND articles.category_id = categories.id ORDER BY articles.date DESC, articles.time DESC');
+		$data = $this->db->query('SELECT articles.id as id, articles.title as title, articles.content as content, articles.image as image, articles.author_id as author_id, articles.date as date, articles.time as time, user.name as author, user.id as author_id, user.position as position, user.company as company, user.profile_picture as author_image, user.country as author_country, articles.image as articles_image, articles.is_published as is_published, articles.category_id as category_id, categories.name as category_name, categories.attr as category_attr FROM articles, user, categories WHERE articles.author_id = user.id AND articles.category_id = categories.id ORDER BY articles.date DESC, articles.time DESC');
 
 		return $data->result();
 	}

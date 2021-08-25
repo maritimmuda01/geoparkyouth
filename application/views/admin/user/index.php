@@ -17,14 +17,23 @@ $this->load->view('_layout/header');
                 <div class="card">
                   <div class="card-body">
                     <div class="form-row">
-                      <div class="form-group col-lg-9">
+                      <div class="form-group col-lg-8">
                       </div>
-                      <div class="form-group col-lg-3">
+                        <div class="form-group col-lg-2">
+                          <label class="form-label">Country</label>
+                          <select class="form-control" id="dropdown2">
+                            <option value="">All</option>
+                            <?php foreach ($dataCountry as $data) { 
+                              echo "<option value='$data->iso'>$data->nicename</option>";
+                             } ?>
+                          </select>
+                        </div>
+                      <div class="form-group col-lg-2">
                         <label class="form-label">Show Role</label>
                         <select class="form-control" id="dropdown1">
                           <option value="">All Role</option>
-                          <option value="Admin">Admin</option>
-                          <option value="User">User</option>
+                          <option value="1">Admin</option>
+                          <option value="2">User</option>
                         </select>
                       </div>
                     </div>
@@ -34,7 +43,9 @@ $this->load->view('_layout/header');
                           <tr>
                             <th>Name</th>
                             <th>Email</th>
+                            <th></th>
                             <th>Country</th>
+                            <th></th>
                             <th class="text-center">Role</th>
                           </tr>
                         </thead>
@@ -57,7 +68,9 @@ $this->load->view('_layout/header');
                               </a>
                             </td>
                             <td class="align-middle"><?= $data->email ?></td>
-                            <td class="align-middle"><?= $data->country?> </td>
+                            <td class=""><?= $data->country ?> </td>
+                            <td class=""><?= $data->nicename ?> </td>
+                            <td><?= $data->role_id ?></td>
                             <td class="text-center">
                               <?php if ($data->id != $user['id']) { ?>
                               <div class="btn-group">
@@ -68,7 +81,7 @@ $this->load->view('_layout/header');
                                 <div class="dropdown-menu">
                                   <a class="dropdown-item role_change" href="<?php echo base_url('admin/user_'.$url.'/'.$data->id); ?>">Change Role</a>
                                   <div class="dropdown-divider"></div>
-                                  <a class="dropdown-item tombol-hapus" href="<?php echo base_url('admin/user_delete/'.$data->id); ?>">Delete Account</a>
+                                  <a class="dropdown-item has-icon text-danger delete-confirm" href="<?php echo base_url('admin/user_delete/'.$data->id); ?>"><i class="fa fa-trash"></i> Delete Account</a>
                                 </div>
                               <?php } ?>
                             </td>

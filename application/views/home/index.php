@@ -457,7 +457,7 @@ $this->load->view('home/_layout/header');
 <!-- /blog -->
 
 <!-- contact -->
-<section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
+<!-- <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -485,7 +485,7 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /contact -->
 
 <?php

@@ -78,6 +78,7 @@ class Auth extends CI_Controller
 
     public function registration()
     {
+
         $data['dataCountry'] = $this->M_country->select_all();
 
         if ($this->session->userdata('email')) {
@@ -103,11 +104,12 @@ class Auth extends CI_Controller
             $email = $this->input->post('email', true);
 
             $data = [
-                'name' => htmlspecialchars($this->input->post('name', true)),
-                'email' => htmlspecialchars($email),
+                'name' => ucwords(htmlspecialchars($this->input->post('name', true))),
+                'email' => strtolower(htmlspecialchars($email)),
                 'profile_picture' => 'default.png',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'country' => $this->input->post('country'),
+                'city' => ucwords($this->input->post('city')),
                 'dob' => date('Y-m-d'), 
                 'role_id' => 2,
                 'is_active' => 1,

@@ -46,22 +46,25 @@ $this->load->view('_layout/header');
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label for="country">Country</label>
-                    <select class="form-control select2" name="country">
-                      <option selected disabled>Select country...</option>
-                      <?php
-                        foreach ($dataCountry as $data){ ?>
-                            <option value=
-                            "<?php echo $data->name ?>"><?php echo $data->name ?></option>
-                        <?php }
-                      ?>
-                    </select>
-                      <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
-                    <div class="invalid-feedback">
+                  <div class=row>
+                    <div class="form-group col-6">
+                      <label for="country">Country</label>
+                      <select name="country" class="form-control">
+                        <option value="">Select Country</option>
+                        <?php foreach ($dataCountry as $data) { 
+                          echo "<option value='$data->iso'>$data->nicename</option>";
+                         } ?>
+                      </select>
+                      <div class="invalid-feedback">
+                      </div>
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="city">City</label>
+                      <input type="text" name="city" class="form-control" autofocus value="<?= set_value('name'); ?>">
+                      <div class="invalid-feedback">
+                      </div>
                     </div>
                   </div>
-
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
                       Register
@@ -81,5 +84,7 @@ $this->load->view('_layout/header');
       </div>
     </section>
   </div>
+
+
 
 <?php $this->load->view('_layout/js'); ?>

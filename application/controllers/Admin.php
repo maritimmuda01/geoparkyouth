@@ -7,10 +7,11 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        
         $this->load->library('form_validation');
         $this->load->model('M_articles');
+        $this->load->model('M_country');
         $this->load->model('M_categories');
-        $this->load->model('M_country'); 
         $this->load->model('M_user');    
     }
 
@@ -30,6 +31,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Admin | User Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataUser'] = $this->M_user->select_all();
+        $data['dataCountry'] = $this->M_country->select_all();
 
         $this->load->view('admin/user/index', $data);
     }
@@ -71,7 +73,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataArticles'] = $this->M_articles->select_all();
         $data['dataCategories'] = $this->M_categories->select_all();
-
+        $data['dataCountry'] = $this->M_country->select_all();
 
         // var_dump($data['dataArticles']);
         // exit();
@@ -84,7 +86,7 @@ class Admin extends CI_Controller
         if (!isset($id)) redirect('admin/articles_management');
 
         if ($this->M_articles->articles_publish($id)) {
-            $this->session->set_flashdata('message', 'published');
+            $this->session->set_flashdata('message', 'success');
             redirect(site_url('admin/articles_management'));
         }
     } 
@@ -94,7 +96,7 @@ class Admin extends CI_Controller
         if (!isset($id)) redirect('admin/articles_management');
 
         if ($this->M_articles->articles_unpublish($id)) {
-            $this->session->set_flashdata('message', 'unpublished');
+            $this->session->set_flashdata('message', 'success');
             redirect(site_url('admin/articles_management'));
         }
     } 
@@ -114,12 +116,54 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Admin | Categories Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['dataCategories'] = $this->M_categories->select_all();
 
         $this->load->view('admin/categories/index', $data);
     }
 
+    public function showAllCategories(){
+        $result = $this->M_categories->showAllCategories();
+        echo json_encode($result);
+    }
 
+    function addCategories(){
+        $result = $this->M_categories->addCategories();
+        $msg['type'] = 'add';
+        $msg['success'] = false;
+        if ($result) {
+            $msg['success'] = true;
+        }
+
+        echo json_encode($msg);
+    }
+
+    public function editCategories(){
+        $result = $this->M_categories->editCategories();
+        echo json_encode($result);
+    }
+
+    public function updateCategories(){
+        $result = $this->M_categories->updateCategories();
+        $msg['success'] = false;
+        $msg['type'] = 'edit';
+        if ($result) {
+            $msg['success'] = true;
+        }
+
+        echo json_encode($msg);
+
+    }
+
+    public function deleteCategories(){
+        $result = $this->M_categories->deleteCategories();
+        $msg['success'] = false;
+        if($result){
+            $msg['success'] = true;
+        }
+        // var_dump($result);
+        echo json_encode($msg);
+    }
+
+    //Role
     public function role()
     {
         $data['title'] = 'Role';

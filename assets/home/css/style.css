@@ -1,24 +1,24 @@
 /*!------------------------------------------------------------------
 [MAIN STYLESHEET]
 
-PROJECT:	Project Name
-VERSION:	Versoin Number
+PROJECT:  Project Name
+VERSION:  Versoin Number
 -------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [TABLE OF CONTENTS]
 -------------------------------------------------------------------*/
 /*  typography */
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Montserrat:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Roboto:300,400,500,700");
 @font-face {
-  font-family: 'Montserrat';
-  src: url("../plugins/fonts/Montserrat.woff") format("woff");
+  font-family: 'Nunito';
+  src: url("../plugins/fonts/Nunito.woff") format("woff");
   font-style: normal;
   font-display: swap;
 }
 
 body {
   line-height: 1.2;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
   color: #4c4c4c;
@@ -29,7 +29,7 @@ p, .paragraph {
   color: #4c4c4c;
   font-size: 15px;
   line-height: 1.8;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 p-lg, .paragraph-lg {
@@ -38,7 +38,8 @@ p-lg, .paragraph-lg {
 
 h1, h2, h3, h4, h5, h6 {
   color: #000;
-  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-family: "Nunito", serif;
   line-height: 1.2;
 }
 
@@ -81,7 +82,7 @@ h6, .h6 {
 /* Button style */
 .btn {
   font-size: 22px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", serif;
   text-transform: capitalize;
   padding: 16px 44px;
   border-radius: 5px;
@@ -217,7 +218,7 @@ a:hover {
 
 .section-title {
   margin-bottom: 80px;
-  font-family: "Montserrat";
+  font-family: "Nunito";
 }
 
 .bg-cover {
@@ -327,13 +328,11 @@ a:hover {
 }
 
 .font-secondary {
-  font-family: "Nunito", sans-serif !important;
+  font-family: "Nunito", serif !important;
 }
 
 .font-tertiary {
-  font-family: "Montserrat" !important;
-  font-weight: 600;
-  font-size: 50px;
+  font-family: "Nunito" !important;
 }
 
 .shadow {
@@ -423,18 +422,18 @@ textarea.form-control {
 
 /* /card */
 .navigation {
-  padding: 0px 130px;
+  padding: 40px 130px;
   transition: .3s ease;
 }
 
 .navigation.nav-bg {
-  background-color: #18A4E0;
-  padding: 0px 100px;
+  background-color: #41228e;
+  padding: 15px 100px;
 }
 
 @media (max-width: 991px) {
   .navigation.nav-bg {
-    padding: 0px 20px;
+    padding: 15px 20px;
   }
 }
 
@@ -446,19 +445,13 @@ textarea.form-control {
 }
 
 .navbar .nav-item .nav-link {
-  font-family: "Montserrat";
-  font-weight: 600;
+  font-family: "Nunito";
   text-transform: uppercase;
   padding: 15px;
 }
 
 .navbar .nav-item.active {
-  display: inline-block;
-  width: 25%;
-  padding: .75rem 0;
-  margin: 0;
-  text-decoration: none;
-  color: #333;
+  font-weight: bold;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -784,7 +777,7 @@ blockquote {
 }
 
 .content strong {
-  font-family: "Nunito", sans-serif;
+  font-family: "Nunito", serif;
   font-size: 22px;
   font-weight: normal;
   color: #000;

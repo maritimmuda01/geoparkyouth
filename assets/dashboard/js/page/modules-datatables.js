@@ -15,13 +15,26 @@ $(document).ready(function() {
     } );
  
     var table = $('#table-1').DataTable( {
+      "columnDefs": [
+        {
+          "targets" : [2, 4],
+          "visible" : false
+        }
+      ],
         orderCellsTop: true,
         fixedHeader: true
     } );
 
   $("#dropdown1").on("change", function() {
     table
-      .columns(3)
+      .columns(4)
+      .search(this.value)
+      .draw();
+  });
+
+  $("#dropdown2").on("change", function() {
+    table
+      .columns(2)
       .search(this.value)
       .draw();
   });
@@ -47,6 +60,12 @@ $(document).ready(function() {
     } );
 
     var table = $("#example").DataTable({
+      "columnDefs": [
+        {
+          "targets" : [5],
+          "visible" : false
+        }
+      ],
       "scrollX": "980px",
       "order": [],
       orderCellsTop: true,
@@ -71,32 +90,11 @@ $(document).ready(function() {
       .draw();
   });
 
-});
-
-$(document).ready(function() {
-
-  // $('#categories thead tr').clone(true).appendTo( '#categories thead' );
-  //   $('#categories thead tr:eq(1) th').each( function (i) {
-  //     responsive: true;
-  //       var title = $(this).text();
-  //       $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
- 
-  //       $( 'input', this ).on( 'keyup change', function () {
-  //           if ( table.column(i).search() !== this.value ) {
-  //               table
-  //                   .column(i)
-  //                   .search( this.value )
-  //                   .draw();
-  //           }
-  //       } );
-  //   } );
-
-    var table = $("#categories").DataTable({
-      "scrollX": "980px",
-      "order": [],
-      "columnDefs": [
-    { "width": "80%", "targets": 0 }
-  ]
-    });
+    $("#country").on("change", function() {
+    table
+      .columns(5)
+      .search(this.value)
+      .draw();
+  });
 
 });

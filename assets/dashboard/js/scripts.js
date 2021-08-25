@@ -339,11 +339,11 @@ $(function() {
   if(jQuery().summernote) {   
     $(".summernote").summernote({
        dialogsInBody: true,
-      minHeight: 250,
+      minHeight: 500,
     });
     $(".summernote-simple").summernote({
        dialogsInBody: true,
-      minHeight: 150,
+      minHeight: 500,
       toolbar: [
         ['style', ['bold', 'italic', 'underline', 'clear']],
         ['font', ['strikethrough']],
