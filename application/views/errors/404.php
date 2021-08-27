@@ -139,7 +139,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
             </div>
             <div class="page-search">
               <div class="mt-3">
-                <a href="<?php echo base_url(); ?>auth">Back Home</a>
+                <a href="<?php echo base_url(); ?>">Back Home</a>
               </div>
             </div>
           </div>

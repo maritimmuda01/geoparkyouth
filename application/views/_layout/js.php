@@ -53,6 +53,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <script src="<?php echo base_url(); ?>assets/dashboard/modules/prism/prism.js"></script>
   <!-- <script src="<?php echo base_url(); ?>assets/dashboard/js/page/bootstrap-modal.js"></script> -->
+
+  <script src="<?php echo base_url(); ?>assets/dashboard/modules/izitoast/js/iziToast.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/dashboard/modules/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/dashboard/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script src="<?php echo base_url(); ?>assets/dashboard/modules/jqvmap/dist/maps/jquery.vmap.indonesia.js"></script>
+  <script src="<?php echo base_url(); ?>assets/dashboard/js/page/modules-vector-map.js"></script>
+
+  <script src="<?php echo base_url(); ?>assets/dashboard/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
+  
+  <script src="<?php echo base_url(); ?>assets/dashboard/js/page/components-user.js"></script>
   
   <!-- JS Libraies -->
 <?php
@@ -79,9 +89,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 }elseif ($this->uri->segment(2) == "components_table") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/modules/jquery-ui/jquery-ui.min.js"></script>
 <?php
-}elseif ($this->uri->segment(2) == "components_user") { ?>
-  <script src="<?php echo base_url(); ?>assets/dashboard/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
-<?php
 }elseif ($this->uri->segment(2) == "forms_editor") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/modules/summernote/summernote-bs4.js"></script>
   <script src="<?php echo base_url(); ?>assets/dashboard/modules/codemirror/lib/codemirror.js"></script>
@@ -103,12 +110,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "modules_sparkline") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/modules/jquery.sparkline.min.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "modules_vector_map") { ?>
-  <script src="<?php echo base_url(); ?>assets/dashboard/modules/izitoast/js/iziToast.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/dashboard/modules/jqvmap/dist/jquery.vmap.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/dashboard/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="<?php echo base_url(); ?>assets/dashboard/modules/jqvmap/dist/maps/jquery.vmap.indonesia.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "features_post_create") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/modules/summernote/summernote-bs4.js"></script>
@@ -148,9 +149,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "components_table") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/js/page/components-table.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "components_user") { ?>
-  <script src="<?php echo base_url(); ?>assets/dashboard/js/page/components-user.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "forms_advanced_form") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/js/page/forms-advanced-forms.js"></script>
@@ -196,9 +194,6 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <?php
 }elseif ($this->uri->segment(2) == "modules_toastr") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/js/page/modules-toastr.js"></script>
-<?php
-}elseif ($this->uri->segment(2) == "modules_vector_map") { ?>
-  <script src="<?php echo base_url(); ?>assets/dashboard/js/page/modules-vector-map.js"></script>
 <?php
 }elseif ($this->uri->segment(2) == "features_post_create") { ?>
   <script src="<?php echo base_url(); ?>assets/dashboard/js/page/features-post-create.js"></script>

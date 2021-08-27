@@ -55,7 +55,6 @@ $('#visitorMap').vectorMap(
   selectedRegions: false,
   showTooltip: true,
   pins: {
-    id: '<div class="jqvmap-circle"></div>',
     my: '<div class="jqvmap-circle"></div>',
     th: '<div class="jqvmap-circle"></div>',
     sy: '<div class="jqvmap-circle"></div>',

@@ -30,7 +30,7 @@ $this->load->view('_layout/header');
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Already have an account? <a href="<?php echo base_url(); ?>auth">Create Account</a>
+              Already have an account? <a href="<?php echo base_url(); ?>auth">Login</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Geopark 2021

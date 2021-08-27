@@ -1226,7 +1226,6 @@ tr:first-child > td > .fc-day-grid-event {
   color: #191d21;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 .user-item .user-details .user-cta {
   margin-top: 10px;

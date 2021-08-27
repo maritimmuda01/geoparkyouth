@@ -17,13 +17,23 @@ $(document).ready(function() {
     var table = $('#table-1').DataTable( {
       "columnDefs": [
         {
-          "targets" : [2, 4],
+          "targets" : [2, 4, 5],
           "visible" : false
         }
       ],
         orderCellsTop: true,
         fixedHeader: true
     } );
+
+    $('.filter-checkbox').on('change', function(e){
+      var searchTerms = []
+      $.each($('.filter-checkbox'), function(i,elem){
+        if($(elem).prop('checked')){
+          searchTerms.push("^" + $(this).val() + "$")
+        }
+      })
+      table.column(2).search(searchTerms.join('|'), true, false, true).draw();
+    });
 
   $("#dropdown1").on("change", function() {
     table
@@ -34,7 +44,7 @@ $(document).ready(function() {
 
   $("#dropdown2").on("change", function() {
     table
-      .columns(2)
+      .columns(5)
       .search(this.value)
       .draw();
   });

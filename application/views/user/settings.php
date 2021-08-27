@@ -63,15 +63,15 @@ $this->load->view('_layout/header');
                               <div class="selectgroup selectgroup-pills">
                                 <label class="selectgroup-item">
                                   <input type="radio" name="gender" value="M" class="selectgroup-input" <?php if($user['gender']=='M') echo 'checked'?> >
-                                  <span class="selectgroup-button" >Male</span>
+                                  <span class="selectgroup-button" ><i class="fas fa-mars"></i> Male</span>
                                 </label>
                                 <label class="selectgroup-item">
                                   <input type="radio" name="gender" value="F" class="selectgroup-input" <?php if($user['gender']=='F') echo 'checked'?> >
-                                  <span class="selectgroup-button">Female</span>
+                                  <span class="selectgroup-button"><i class="fas fa-venus"></i> Female</span>
                                 </label>
                                 <label class="selectgroup-item">
                                   <input type="radio" name="gender" value="O" class="selectgroup-input" <?php if($user['gender']=='O') echo 'checked'?> >
-                                  <span class="selectgroup-button">Other</span>
+                                  <span class="selectgroup-button"><i class="fas fa-genderless"></i> Other</span>
                                 </label>
                               </div>  
                             </div>

@@ -95,6 +95,7 @@ class Auth extends CI_Controller
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
         $this->form_validation->set_rules('country', 'Country', 'required');
+        $this->form_validation->set_rules('gender', 'Gender', 'required');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Create Account';
@@ -102,15 +103,24 @@ class Auth extends CI_Controller
 
         } else {
             $email = $this->input->post('email', true);
+            $country = $this->input->post('country');
+            if ($this->input->post('gender')== 'M' ) {
+                $image = 'def_male.png';
+            } else if ($this->input->post('gender')== 'F') {
+                $image = 'def_female.png';
+            } else {
+                $image = 'def_0.png';
+            }
 
             $data = [
                 'name' => ucwords(htmlspecialchars($this->input->post('name', true))),
                 'email' => strtolower(htmlspecialchars($email)),
-                'profile_picture' => 'default.png',
+                // 'member_code' => 'code'
+                'profile_picture' => $image,
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'country' => $this->input->post('country'),
-                'city' => ucwords($this->input->post('city')),
-                'dob' => date('Y-m-d'), 
+                'country' => $country,
+                'gender' => $this->input->post('gender'),
+                'dob' => '0000-00-00', 
                 'role_id' => 2,
                 'is_active' => 1,
                 'date_created' => time()
@@ -288,12 +298,15 @@ class Auth extends CI_Controller
             redirect('auth');
         }
 
+        // var_dump($this->session->userdata('reset_email'));
+        // exit();
+
         $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[3]|matches[password2]');
         $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[3]|matches[password1]');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Change Password';
-            $this->load->view('user/settings');
+            $this->load->view('auth/reset-password', $data);
         } else {
             $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
             $email = $this->session->userdata('reset_email');

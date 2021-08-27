@@ -2017,6 +2017,12 @@ a.bb {
 .img-shadow {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); }
 
+
+img.img-fluid {
+    width: 140px;
+    height: 100px;
+}
+
 .colors {
   display: flex;
   flex-wrap: wrap;
@@ -3086,5 +3092,16 @@ img {
   }
 }
 
+.userCard {
+  display: none;
+}
 
+.userflag{
+  height: 25px;
+  top: 0px;
+  left: 0px;
+}
 
+.card .card-body.find-user{
+  
+}

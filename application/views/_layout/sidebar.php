@@ -11,12 +11,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <ul class="sidebar-menu">
 
-            <?php if ($user['role_id'] == 1) { ?>
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'admin' && $this->uri->segment(2) == '' ? 'active' : ''; ?>">
-              <a href="<?php echo base_url(); ?>" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-            <?php } ?>
+            <li class="dropdown <?php echo $this->uri->segment(1) == 'admin' && $this->uri->segment(2) == '' ? 'active' : ''; ?> <?php echo $this->uri->segment(1) == 'user' && $this->uri->segment(2) == '' ? 'active' : ''; ?>">
+              <a href="<?php echo base_url();?>auth" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
 
-            <li class="dropdown <?php echo $this->uri->segment(2) == 'profile' && $this->uri->segment(3) == $user['role_id'] ? 'active' : ''; ?>">
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'profile' && $this->uri->segment(3) == $user['id'] ? 'active' : ''; ?>">
               <a href="<?php echo base_url(); ?>user/profile/<?= $user['id']?>" class="nav-link"><i class="fas fa-user-alt"></i><span>Profile</span></a>
             </li>
 
@@ -32,8 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="<?php echo base_url(); ?>job-portal/" class="nav-link"><i class="fas fa-briefcase"></i><span>Job Portal</span></a>
             </li>
 
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'find-user' ? 'active' : ''; ?>">
-              <a href="<?php echo base_url(); ?>job-portal/" class="nav-link"><i class="fas fa-search"></i><span>Find Others</span></a>
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'find_user' ? 'active' : ''; ?> <?php echo $this->uri->segment(2) == 'profile' && $this->uri->segment(3) != $user['id'] ? 'active' : ''; ?>">
+              <a href="<?php echo base_url(); ?>user/find_user/" class="nav-link"><i class="fas fa-search"></i><span>Find Others</span></a>
             </li>
 
             <?php if ($user['role_id'] == 1) { ?>

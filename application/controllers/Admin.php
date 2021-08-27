@@ -17,7 +17,7 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Admin | Dashboard';
+        $data['title'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['total_account'] = count($this->M_user->select_all());
         $data['total_articles'] = $this->M_articles->total_articles();
@@ -28,7 +28,7 @@ class Admin extends CI_Controller
     //User
     public function user_management()
     {
-        $data['title'] = 'Admin | User Management';
+        $data['title'] = 'User Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataUser'] = $this->M_user->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
@@ -69,7 +69,7 @@ class Admin extends CI_Controller
     //Articles
     public function articles_management()
     {
-        $data['title'] = 'Admin | Articles Management';
+        $data['title'] = 'Articles Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataArticles'] = $this->M_articles->select_all();
         $data['dataCategories'] = $this->M_categories->select_all();
@@ -114,7 +114,7 @@ class Admin extends CI_Controller
     //Categories
     public function categories()
     {
-        $data['title'] = 'Admin | Categories Management';
+        $data['title'] = 'Categories Management';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('admin/categories/index', $data);

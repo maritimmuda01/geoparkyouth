@@ -45,8 +45,24 @@ $this->load->view('_layout/header');
                       <input id="password2" type="password" class="form-control" name="password2">
                     </div>
                   </div>
-
                   <div class=row>
+                    <div class="form-group col-md-6">
+                      <label for="gender">Gender</label>
+                      <div class="selectgroup selectgroup-pills">
+                        <label class="selectgroup-item">
+                          <input type="radio" name="gender" value="M" class="selectgroup-input" >
+                          <span class="selectgroup-button" ><i class="fas fa-mars"></i> Male</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="radio" name="gender" value="F" class="selectgroup-input">
+                          <span class="selectgroup-button"><i class="fas fa-venus"></i> Female</span>
+                        </label>
+                        <label class="selectgroup-item">
+                          <input type="radio" name="gender" value="O" class="selectgroup-input">
+                          <span class="selectgroup-button"><i class="fas fa-genderless"></i> Other</span>
+                        </label>
+                      </div>  
+                    </div>
                     <div class="form-group col-6">
                       <label for="country">Country</label>
                       <select name="country" class="form-control">
@@ -55,12 +71,7 @@ $this->load->view('_layout/header');
                           echo "<option value='$data->iso'>$data->nicename</option>";
                          } ?>
                       </select>
-                      <div class="invalid-feedback">
-                      </div>
-                    </div>
-                    <div class="form-group col-6">
-                      <label for="city">City</label>
-                      <input type="text" name="city" class="form-control" autofocus value="<?= set_value('name'); ?>">
+                      <?= form_error('country', '<small class="text-danger">', '</small>'); ?>
                       <div class="invalid-feedback">
                       </div>
                     </div>
@@ -74,7 +85,7 @@ $this->load->view('_layout/header');
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Already have an account? <a href="<?php echo base_url(); ?>">Log In</a>
+              Already have an account? <a href="<?php echo base_url(); ?>auth">Log In</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Geopark 2021

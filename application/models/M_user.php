@@ -5,15 +5,9 @@ class M_user extends CI_Model {
 
 	public function select_all(){
 
-		$data = $this->db->query("SELECT user.id as id, user.name as name, user.email as email, user.profile_picture as profile_picture, user.gender as gender, user.dob as dob, user.country as country, user.city as city, user.position as position, user.company as compay, user.twitter as twitter, user.instagram as instagram, user.linkedin as linkedin, user.role_id as role_id, country.iso as iso, country.nicename as nicename FROM user,country WHERE user.country = country.iso AND is_active=1 ORDER BY name ");
+		$data = $this->db->query("SELECT user.id as id, user.name as name, user.email as email, user.profile_picture as profile_picture, user.gender as gender, user.dob as dob, user.country as country, user.city as city, user.position as position, user.company as company, user.twitter as twitter, user.instagram as instagram, user.linkedin as linkedin, user.role_id as role_id, country.iso as iso, country.nicename as nicename FROM user,country WHERE user.country = country.iso AND is_active=1 AND user.id != 1 ORDER BY name ");
 
 		return $data->result();
-
-	}
-
-	public function select_profile($id){
-
-		return $this->db->get_where('user', ["id"=> $id])->row_array();
 
 	}
 

@@ -69,7 +69,7 @@ $this->load->view('_layout/header');
                 </div>
               </div>
             </div>                  
-          </div>
+          </div>          
         </section>
       </div>
 <?php $this->load->view('_layout/footer'); ?>

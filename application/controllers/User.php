@@ -34,7 +34,7 @@ class User extends CI_Controller
 
         if (!$data['profile']) redirect('errors');
 
-        $data['title'] = $data['profile']['name'].' | Profile';
+        $data['title'] = $data['profile']['name'];
         $data['total_articles'] = $this->M_articles->total_articles_by_id();
 
         $this->load->view('user/profile', $data);
@@ -253,5 +253,14 @@ class User extends CI_Controller
         $this->db->insert('articles', $sql);
         $this->session->set_flashdata('message', 'success');
         redirect('user/articles');
+    }
+
+    public function find_user(){
+        $data['title'] = 'Find Others';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataUser'] = $this->M_user->select_all(); 
+
+        $this->load->view('user/find_user', $data);
+
     }
 }
