@@ -12,6 +12,7 @@ class User extends CI_Controller
         $this->load->model('M_user');
         $this->load->model('M_categories');
         $this->load->model('M_country');
+        $this->load->model('M_jobs');
     }
 
     public function index()
@@ -175,6 +176,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataArticles'] = $this->M_articles->select_published();
         $data['dataCategories'] = $this->M_categories->select_all();
+        $data['dataCountry'] = $this->M_country->select_all();
 
         $this->load->view('user/articles/index', $data);
     }
@@ -218,12 +220,12 @@ class User extends CI_Controller
                 //Compress Image
                 $config['image_library']='gd2';
                 $config['source_image']='./assets/dashboard/img/articles'.$gbr['file_name'];
-                $config['create_thumb']= FALSE;
+                $config['create_thumb']= TRUE;
                 $config['maintain_ratio']= FALSE;
                 $config['quality']= '50%';
                 $config['width']= 600;
                 $config['height']= 400;
-                $config['new_image']= './assets/dashboard/img/profile/articles'.$gbr['file_name'];
+                $config['new_image']= './assets/dashboard/img/articles'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
                 $image = $gbr['file_name'];
@@ -231,7 +233,7 @@ class User extends CI_Controller
         }
 
         $this->form_validation->set_rules('title', 'Title', 'trim|required');
-        $this->form_validation->set_rules('content', 'content', 'trim|requires');
+        $this->form_validation->set_rules('content', 'content', 'trim|required');
 
         if ($author['user']['role_id']==1) {
             $is_published = '1';
@@ -251,10 +253,15 @@ class User extends CI_Controller
             ];
 
         $this->db->insert('articles', $sql);
-        $this->session->set_flashdata('message', 'success');
+        if ($author['user']['role_id']==1) {  
+            $this->session->set_flashdata('message', 'success');
+        }else{
+            $this->session->set_flashdata('message', 'pending');
+        }
         redirect('user/articles');
     }
 
+    // Find User
     public function find_user(){
         $data['title'] = 'Find Others';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -262,5 +269,61 @@ class User extends CI_Controller
 
         $this->load->view('user/find_user', $data);
 
+    }
+
+    //Jobs
+    public function jobs()
+    {
+        $data['title'] = 'Jobs';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataJobs'] = $this->M_jobs->select_all();
+
+        $this->load->view('user/jobs/index', $data);
+    }
+
+    public function jobs_single($id = null)
+    {
+        if (!isset($id)) redirect('errors');
+        
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['single'] = $this->M_jobs->select_single($id);
+
+        if (!$data['single']) redirect('errors');
+
+        $data['title'] = "Job at ".$data['single']['position'];
+
+        $this->load->view('user/jobs/single', $data);    
+    }
+
+    public function post_jobs()
+    {
+        $data['title'] = 'Write Jobs';
+        $data['dataCategories'] = $this->M_categories->select_all();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('user/jobs/add', $data);
+    }
+
+    public function add_jobs()
+    {   
+        $author['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('position', 'Position', 'trim|required');
+        $this->form_validation->set_rules('company', 'Company', 'trim|required');
+
+        $sql = [
+                'position'      => ucwords(addslashes($this->input->post('position'))),
+                'company'       => ucwords(addslashes($this->input->post('company'))),
+                'location'      => ucwords(addslashes($this->input->post('location'))),
+                'type'          => $this->input->post('type'),
+                'description'   => $this->input->post('description'),
+                'author_id'     => $author['user']['id'],
+                'created_date'  => date('Y-m-d'),
+                'created_time'  => date('H:i:s')   
+            ];
+
+        $this->db->insert('jobs', $sql);
+        $this->session->set_flashdata('message', 'success');
+        redirect('user/jobs');
     }
 }

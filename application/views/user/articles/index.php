@@ -2,87 +2,101 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('_layout/header');
 ?>
-<!-- Main Content -->
+      <!-- Main Content -->
       <div class="main-content">
+        <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
         <section class="section">
           <div class="section-header">
           </div>
+
           <div class="section-body">
             <div class="row">
-              <div class="col-12 col-md-4 col-lg-4">
-                <article class="article article-style-c">
-                  <div class="article-header">
-                    <div class="article-image" data-background="<?php echo base_url(); ?>assets/dashboard/img/news/img13.jpg">
+              <div class="col-12 col-sm-12 col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Articles</h4>
+                    <div class="card-header-action">
+                      <a href="<?= base_url() ?>user/write_articles" class="btn btn-info">
+                        <i class="far fa-edit"></i> Write New
+                      </a>
                     </div>
                   </div>
-                  <div class="article-details">
-                    <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#">5 Days</a></div>
-                    <div class="article-title">
-                      <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
-                    </div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. </p>
-                    <div class="article-user">
-                      <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-1.png">
-                      <div class="article-user-details">
-                        <div class="user-detail-name">
-                          <a href="#">Hasan Basri</a>
+                  <div class="card-body">
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="form-row">
+                          <div class="form-group col-lg-10">
+                            <label class="form-label">Filter Categories</label>
+                            <div class="selectgroup selectgroup-pills panel-body " id="category">
+                              <div class="selectgroup-item">
+                                <?php foreach ($dataCategories as $data) { ?>
+                                <label class="selectgroup-item">
+                                  <input type="checkbox" value="<?= $data->name ?>" class="selectgroup-input filter-checkbox">
+                                  <span class="selectgroup-button"><?= $data->attr ?></span>
+                                </label>
+                                <?php } ?>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group col-lg-2">
+                            <label class="form-label">Author's Country</label>
+                            <select class="form-control" id="country">
+                              <option value="">All</option>
+                              <?php foreach ($dataCountry as $data) { 
+                                echo "<option value='$data->iso'>$data->nicename</option>";
+                               } ?>
+                            </select>
+                          </div>
                         </div>
-                        <div class="text-job">Web Developer</div>
+                        <div class="table-responsive">
+                          <table id="user-articles" class="display table table-striped">
+                            <thead>                                 
+                              <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <?php foreach ($dataArticles as $data) {
+                                if ($data->is_published == 1) {
+                                  $color = 'primary';
+                                  $status = 'Published';
+                                  $action = 'Unpublish';
+                                  $url = 'unpublish';
+                                } elseif ($data->is_published == 0) {
+                                  $color = 'warning';
+                                  $status = 'Pending';
+                                  $action = 'Publish';
+                                  $url = 'publish';
+                                }
+                               ?>                                
+                              <tr>
+                                <td class="align-middle">
+                                  <a href="<?php echo base_url(); ?>home/single/<?= $data->id?>" target="_blank"><?= $data->title ?></a>
+                                </td>
+                                <td class="align-middle">
+                                  <a href="<?php echo base_url(); ?>user/profile/<?= $data->author_id?>">
+                                    <div class="d-inline-block ml-1"><?= $data->author ?></div>
+                                  </a>
+                                </td>
+                                <td class="align-middle"><?= $data->category_attr?></td>
+                                <td class="align-middle"><span style="display: none"><?= date("Y-m-d",strtotime($data->date))." ".date("H:i",strtotime($data->time))  ?></span><?= date("d F Y",strtotime($data->date))." ".date("H:i",strtotime($data->time))  ?>
+                                </td>
+                                <td>
+                                  <?= $data->author_country; ?>
+                                </td>
+                              </tr>
+                            <?php } ?>
+                            </tbody>
+                          </table>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </article>
-              </div>
-              <div class="col-12 col-md-4 col-lg-4">
-                <article class="article article-style-c">
-                  <div class="article-header">
-                    <div class="article-image" data-background="<?php echo base_url(); ?>assets/dashboard/img/news/img14.jpg">
-                    </div>
-                  </div>
-                  <div class="article-details">
-                    <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#">5 Days</a></div>
-                    <div class="article-title">
-                      <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
-                    </div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. </p>
-                    <div class="article-user">
-                      <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-3.png">
-                      <div class="article-user-details">
-                        <div class="user-detail-name">
-                          <a href="#">Rizal Fakhri</a>
-                        </div>
-                        <div class="text-job">UX Designer</div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </div>
-              <div class="col-12 col-md-4 col-lg-4">
-                <article class="article article-style-c">
-                  <div class="article-header">
-                    <div class="article-image" data-background="<?php echo base_url(); ?>assets/dashboard/img/news/img01.jpg">
-                    </div>
-                  </div>
-                  <div class="article-details">
-                    <div class="article-category"><a href="#">News</a> <div class="bullet"></div> <a href="#">5 Days</a></div>
-                    <div class="article-title">
-                      <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
-                    </div>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. </p>
-                    <div class="article-user">
-                      <img alt="image" src="<?php echo base_url(); ?>assets/dashboard/img/avatar/avatar-2.png">
-                      <div class="article-user-details">
-                        <div class="user-detail-name">
-                          <a href="#">Irwansyah Saputra</a>
-                        </div>
-                        <div class="text-job">Mobile Developer</div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                </div>
               </div>
             </div>
           </div>

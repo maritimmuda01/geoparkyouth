@@ -112,6 +112,10 @@ if (flashData == 'same-password') {
     swal('Failed!', "New password can't be the same as old password", 'error');
 }
 
+if (flashData == 'pending') {
+    swal('Done!', 'Your article is waiting to be published by the administrator', 'success');
+}
+
 
 
 // Profile

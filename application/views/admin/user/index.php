@@ -15,9 +15,6 @@ $this->load->view('_layout/header');
                 <div class="card">
                   <div class="card-header">
                     <h4>User Management</h4>
-                    <div class="card-header-action">
-                      <button class="btn btn-info" id="btnAdd"><i class="far fa-edit"></i> Add New</button>
-                    </div>
                   </div>
                   <div class="card-body">
                     <div class="form-row">

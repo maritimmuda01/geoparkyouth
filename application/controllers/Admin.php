@@ -12,7 +12,9 @@ class Admin extends CI_Controller
         $this->load->model('M_articles');
         $this->load->model('M_country');
         $this->load->model('M_categories');
-        $this->load->model('M_user');    
+        $this->load->model('M_user');   
+        $this->load->model('M_jobs');    
+ 
     }
 
     public function index()
@@ -21,6 +23,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['total_account'] = count($this->M_user->select_all());
         $data['total_articles'] = $this->M_articles->total_articles();
+        $data['total_jobs'] = $this->M_jobs->total_jobs();
 
         $this->load->view('admin/index', $data);
     }

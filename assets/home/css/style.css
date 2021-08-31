@@ -85,7 +85,7 @@ h6, .h6 {
   font-family: "Nunito", serif;
   text-transform: capitalize;
   padding: 16px 44px;
-  border-radius: 5px;
+  border-radius: 50px;
   font-weight: 600;
   border: 0;
   position: relative;
@@ -108,36 +108,59 @@ h6, .h6 {
 }
 
 .btn-xs {
-  padding: 5px 10px;
-  font-size: 15px;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .btn-primary {
-  background: #41228e;
+  background: #18A4E0;
   color: #fff;
 }
 
 .btn-primary:active {
-  background: #542cb7 !important;
+  background: #0253B3 !important;
 }
 
 .btn-primary:hover {
-  background: #542cb7;
+  background: #0253B3;
 }
 
 .btn-primary.focus, .btn-primary.active {
-  background: #542cb7 !important;
+  background: #0253B3 !important;
   box-shadow: none !important;
 }
 
+.btn-outline-primary {
+  border: 2px solid;
+  border-color: #18A4E0; 
+  background: #fff;
+  color: #18A4E0;
+}
+
+.btn-outline-primary:active {
+  background: #18A4E0 !important;
+}
+
+.btn-outline-primary:hover {
+  background: #18A4E0;
+  color: #fff;
+}
+
+.btn-outline-primary.focus, .btn-outline-primary.active {
+  background: #18A4E0 !important;
+  box-shadow: none !important;
+}
+
+
 .btn-transparent {
   background: transparent;
-  color: #41228e;
+  color: #18A4E0;
   font-weight: bold;
 }
 
 .btn-transparent:active, .btn-transparent:hover {
-  color: #41228e;
+  color: #18A4E0;
 }
 
 body {
@@ -146,12 +169,12 @@ body {
 }
 
 ::-moz-selection {
-  background: #542cb7;
+  background: #0253B3;
   color: #fff;
 }
 
 ::selection {
-  background: #542cb7;
+  background: #0253B3;
   color: #fff;
 }
 
@@ -200,11 +223,11 @@ select:focus {
 }
 
 a.text-dark:hover {
-  color: #41228e !important;
+  color: #18A4E0 !important;
 }
 
 a:hover {
-  color: #41228e;
+  color: #18A4E0;
 }
 
 .slick-slide {
@@ -252,7 +275,10 @@ a:hover {
 }
 
 .bg-primary {
-  background: #41228e !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
 }
 
 .bg-gray {
@@ -260,7 +286,7 @@ a:hover {
 }
 
 .text-primary {
-  color: #41228e !important;
+  color: #18A4E0 !important;
 }
 
 .text-color {
@@ -397,7 +423,7 @@ a:hover {
 }
 
 .form-control:focus {
-  border-color: #41228e;
+  border-color: #18A4E0;
   outline: 0;
   box-shadow: none !important;
 }
@@ -416,7 +442,26 @@ textarea.form-control {
   border: 0;
 }
 
+.card-img-top {
+  object-fit: cover;  
+  height: 240px;
+}
+
+.card-title {
+ -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+text-overflow: ellipsis;
+
+}
+
+.card-body {
+  min-height: 170px;
+}
+
 .card-footer {
+  background: #fff;
   border: 0;
 }
 
@@ -427,8 +472,8 @@ textarea.form-control {
 }
 
 .navigation.nav-bg {
-  background-color: #41228e;
-  padding: 15px 100px;
+  background-color: #18A4E0;
+  padding: 0px 100px;
 }
 
 @media (max-width: 991px) {
@@ -440,7 +485,7 @@ textarea.form-control {
 @media (max-width: 991px) {
   .navigation {
     padding: 20px;
-    background: #41228e;
+    background: #18A4E0;
   }
 }
 
@@ -449,6 +494,7 @@ textarea.form-control {
   text-transform: uppercase;
   padding: 15px;
 }
+
 
 .navbar .nav-item.active {
   font-weight: bold;
@@ -607,7 +653,7 @@ textarea.form-control {
 }
 
 .hover-bg-primary:hover {
-  background: #41228e;
+  background: #18A4E0;
 }
 
 .hover-bg-primary:hover * {
@@ -616,7 +662,7 @@ textarea.form-control {
 
 .active-bg-primary {
   transition: .3s ease;
-  background: #41228e;
+  background: #18A4E0;
 }
 
 .active-bg-primary * {
@@ -767,7 +813,7 @@ blockquote {
   display: inline-block;
   padding: 10px 20px;
   background: #eaeaea;
-  border-left: 2px solid #41228e;
+  border-left: 2px solid #18A4E0;
   font-style: italic;
   font-size: 22px;
 }
@@ -909,4 +955,15 @@ blockquote {
   font-weight: bold;
 }
 
+.thumbnail-text {
+  font-size: 10pt;
+}
+
+.cat-label {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.bullet{
+  content: '\2022'; }
 /*# sourceMappingURL=maps/style.css.map */

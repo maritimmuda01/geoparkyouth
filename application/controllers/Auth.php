@@ -108,7 +108,7 @@ class Auth extends CI_Controller
                 $image = 'def_male.png';
             } else if ($this->input->post('gender')== 'F') {
                 $image = 'def_female.png';
-            } else {
+            } else if ($this->input->post('gender')== 'O'){
                 $image = 'def_0.png';
             }
 

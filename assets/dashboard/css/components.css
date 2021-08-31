@@ -1224,6 +1224,7 @@ tr:first-child > td > .fc-day-grid-event {
 .user-item .user-details .user-name {
   font-weight: 600;
   color: #191d21;
+  /*text-overflow: ellipsis;*/
   white-space: nowrap;
   overflow: hidden;
 }

@@ -26,8 +26,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="<?php echo base_url(); ?>e-library/" class="nav-link"><i class="fas fa-book-open"></i><span>E-Library</span></a>
             </li>
 
-            <li class="dropdown <?php echo $this->uri->segment(1) == 'job-portal' ? 'active' : ''; ?>">
-              <a href="<?php echo base_url(); ?>job-portal/" class="nav-link"><i class="fas fa-briefcase"></i><span>Job Portal</span></a>
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'jobs' ? 'active' : ''; ?>">
+              <a href="<?php echo base_url(); ?>user/jobs/" class="nav-link"><i class="fas fa-briefcase"></i><span>Jobs</span></a>
             </li>
 
             <li class="dropdown <?php echo $this->uri->segment(2) == 'find_user' ? 'active' : ''; ?> <?php echo $this->uri->segment(2) == 'profile' && $this->uri->segment(3) != $user['id'] ? 'active' : ''; ?>">
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php } ?>
           </ul>
           <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="<?php echo base_url(); ?>auth/logout?>" class="btn btn-primary btn-lg btn-block btn-icon-split">
+            <a href="<?php echo base_url(); ?>auth/logout?>" class="btn btn-danger btn-lg btn-block btn-icon-split">
               <i class="fas fa-sign-out-alt"></i> Log Out
             </a>
           </div>

@@ -11,7 +11,7 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-  <div class="layer-bg w-100">
+  <!-- <div class="layer-bg w-100">
     <img class="img-fluid w-100" src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-bg.png" alt="bg-shape">
   </div>
   <div class="layer" id="l2">
@@ -37,14 +37,14 @@ $this->load->view('home/_layout/header');
   </div>
   <div class="layer" id="l9">
     <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
-  </div>
+  </div> -->
   <!-- social icon -->
-  <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
+  <!-- <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
     <li class="mb-3"><a class="text-white" href="#"><i class="ti-facebook"></i></a></li>
     <li class="mb-3"><a class="text-white" href="#"><i class="ti-instagram"></i></a></li>
     <li class="mb-3"><a class="text-white" href="#"><i class="ti-dribbble"></i></a></li>
     <li class="mb-3"><a class="text-white" href="#"><i class="ti-twitter"></i></a></li>
-  </ul>
+  </ul> -->
   <!-- /social icon -->
 </section>
 <!-- /hero area -->
@@ -54,11 +54,13 @@ $this->load->view('home/_layout/header');
   <div class="container">
     <div class="row">
       <div class="col-lg-10 mx-auto text-center">
-        <p class="font-secondary paragraph-lg text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <a href="about.html" class="btn btn-transparent">know more</a>
+        <p class="font-secondary paragraph-lg text-dark">
+          Maritim Muda Nusantara didirikan dengan fokus utama: <br>
+          Penyiapan SDM bidang kemaritiman yang profesional, beretika, berdedikasi, dan mampu mengedepankan kepentingan nasional<br>
+          Pengembangan IPTEK kemaritiman yang mutakhir, efektif, efisien, dan ramah lingkungan <br>
+          Penguatan budaya maritim
+        </p>
+        <a href="about.html" class="btn btn-outline-primary">know more</a>
       </div>
     </div>
   </div>
@@ -66,7 +68,7 @@ $this->load->view('home/_layout/header');
 <!-- /about -->
 
 <!-- skills -->
-<section class="section">
+<!-- <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -114,11 +116,11 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /skills -->
 
 <!-- experience -->
-<section class="section">
+<!-- <section class="section">
   <div class="container">
     <div class="row justify-content-around">
       <div class="col-lg-12 text-center">
@@ -144,11 +146,11 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- ./experience -->
 
 <!-- education -->
-<section class="section position-relative">
+<!-- <section class="section position-relative">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
@@ -204,13 +206,13 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-  <!-- bg image -->
-  <img class="img-fluid edu-bg-image w-100" src="<?php echo base_url(); ?>assets/home/images/backgrounds/education-bg.png" alt="bg-image">
-</section>
+  bg image -->
+  <!-- <img class="img-fluid edu-bg-image w-100" src="<?php echo base_url(); ?>assets/home/images/backgrounds/education-bg.png" alt="bg-image"> 
+</section> -->
 <!-- /education -->
 
 <!-- services -->
-<section class="section">
+<!-- <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -248,11 +250,11 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /services -->
 
 <!-- portfolio -->
-<section class="section">
+<!-- <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -312,72 +314,11 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /portfolio -->
 
-<!-- testimonial -->
-<section class="section bg-primary position-relative testimonial-bg-shapes">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title text-white mb-5">Testimonials</h2>
-      </div>
-      <div class="col-lg-10 mx-auto testimonial-slider">
-        <!-- slider-item -->
-        <div class="text-center testimonial-content">
-          <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-          <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-              ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <img class="img-fluid rounded-circle mb-4 d-inline-block" src="<?php echo base_url(); ?>assets/home/images/testimonial/client-1.png"
-            alt="client-image">
-          <h4 class="text-white">Jesica Gomez</h4>
-          <h6 class="text-light mb-4">CEO, Funder</h6>
-        </div>
-        <!-- slider-item -->
-        <div class="text-center testimonial-content">
-          <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-          <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-              ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
-            voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur.</p>
-          <img class="img-fluid rounded-circle mb-4 d-inline-block" src="<?php echo base_url(); ?>assets/home/images/testimonial/client-1.png"
-            alt="client-image">
-          <h4 class="text-white">Jesica Gomez</h4>
-          <h6 class="text-light mb-4">CEO, Funder</h6>
-        </div>
-        <!-- slider-item -->
-        <div class="text-center testimonial-content">
-          <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-          <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-              ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
-            voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur.</p>
-          <img class="img-fluid rounded-circle mb-4 d-inline-block" src="<?php echo base_url(); ?>assets/home/images/testimonial/client-1.png"
-            alt="client-image">
-          <h4 class="text-white">Jesica Gomez</h4>
-          <h6 class="text-light mb-4">CEO, Funder</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- bg shapes -->
-  <img src="<?php echo base_url(); ?>assets/home/images/backgrounds/map.png" alt="map" class="img-fluid bg-map">
-  <img src="<?php echo base_url(); ?>assets/home/images/illustrations/dots-group-v.png" alt="bg-shape" class="img-fluid bg-shape-1">
-  <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-orange.png" alt="bg-shape" class="img-fluid bg-shape-2">
-  <img src="<?php echo base_url(); ?>assets/home/images/illustrations/dots-group-sm.png" alt="bg-shape" class="img-fluid bg-shape-3">
-  <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-pink-round.png" alt="bg-shape" class="img-fluid bg-shape-4">
-  <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-cyan.png" alt="bg-shape" class="img-fluid bg-shape-5">
-</section>
-<!-- /testimonial -->
-
 <!-- client logo slider -->
-<section class="section pb-0">
+<!-- <section class="section pb-0">
   <div class="container">
     <div class="client-logo-slider d-flex align-items-center">
       <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
@@ -402,11 +343,11 @@ $this->load->view('home/_layout/header');
           src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="client-logo"></a>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /client logo slider -->
 
 <!-- blog -->
-<section class="section">
+<!-- <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -453,7 +394,7 @@ $this->load->view('home/_layout/header');
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- /blog -->
 
 <!-- contact -->

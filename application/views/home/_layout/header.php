@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
   
 
-<header class="navigation fixed-top">
+<header class="navigation <?php echo $this->uri->segment(2) != 'single' ? 'navigation-main' : ''; ?> fixed-top <?php echo $this->uri->segment(2) == 'single' ? 'nav-bg' : ''; ?>">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand font-tertiary h3" href="index.html"><img src="<?php echo base_url(); ?>assets/home/images/logo.png" alt="Myself"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -43,14 +43,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div class="collapse navbar-collapse text-center" id="navigation">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="nav-item <?php echo $this->uri->segment(1) == '' ? 'active' : ''; ?>">
           <a class="nav-link" href="<?= base_url(); ?>">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item ">
           <a class="nav-link" href="about.html">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?= base_url(); ?>home/news">Media</a>
+        <li class="nav-item <?php echo $this->uri->segment(2) == 'media' ? 'active' : ''; ?>">
+          <a class="nav-link" href="<?= base_url(); ?>home/media">Media</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url(); ?>auth">Log In</a>

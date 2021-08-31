@@ -56,12 +56,14 @@ $this->load->view('_layout/header');
                       </div>
                     </div>
                   </div>
+                  <div class="card-footer bg-whitesmoke">
+                    <b>Note:</b> Your article will be <code>pending</code> until the administrator publish your article. <br>
+                    <a href="#">See more.</a>
+                  </div>    
                   <div class="card-footer text-right bg-whitesmoke">
                     <button class="btn btn-primary"><i class="far fa-edit"></i> Create Post</button>
                   </div>
-                  <div class="card-footer bg-whitesmoke">
-                    <b>Note:</b> Your article will be pending until the administrator publish your article. <a href=""><br>See more.</a>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -71,4 +73,4 @@ $this->load->view('_layout/header');
 <?php $this->load->view('_layout/footer'); ?>
 
 
-                  </form>
+                  

@@ -1943,6 +1943,9 @@ a.bb {
 
 .text-job {
   font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;

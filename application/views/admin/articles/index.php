@@ -84,7 +84,7 @@ $this->load->view('_layout/header');
                                ?>                                
                               <tr>
                                 <td class="align-middle">
-                                  <a href="<?php echo base_url(); ?>articles/single/<?= $data->id?>"><?= $data->title ?></a>
+                                  <a href="<?php echo base_url(); ?>home/single/<?= $data->id?>" target="_blank"><?= $data->title ?></a>
                                 </td>
                                 <td class="align-middle">
                                   <a href="<?php echo base_url(); ?>user/profile/<?= $data->author_id?>">
