@@ -15,18 +15,6 @@ $this->load->view('_layout/header');
             <div class="profile-widget-header">                     
               <img alt="image" src="<?= base_url('assets/dashboard/img/profile/') . $profile['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
               <div class="profile-widget-items">
-                <div class="profile-widget-item">
-                  <div class="profile-widget-item-label">Articles</div>
-                  <div class="profile-widget-item-value"><?php echo $total_articles ?></div>
-                </div>
-                <div class="profile-widget-item">
-                  <div class="profile-widget-item-label">Opinion</div>
-                  <div class="profile-widget-item-value">6,8K</div>
-                </div>
-                <div class="profile-widget-item">
-                  <div class="profile-widget-item-label">E-Library</div>
-                  <div class="profile-widget-item-value">2,1K</div>
-                </div>
               </div>
             </div>
             <div class="profile-widget-description">
@@ -42,32 +30,34 @@ $this->load->view('_layout/header');
                 }
                 ?>
                 <div class="d-inline font-weight-light">
-                  <h6><?php if($profile['city']){ echo $profile['city'].', ';} echo $country['nicename']; ?> </h6> 
+                  <h6><?php if($profile['geotype']){ echo $profile['geotype'].', ';} echo $country['nicename']; ?> </h6> 
                 </div>
               </div>
               <?= $profile['about']?>
             </div>
-            <?php
-            if ($profile['twitter'] != "" || $profile['instagram'] != "" || $profile['linkedin'] != "") { ?>
-              <div class="card-footer">
-                <?php
-                if ($profile['twitter'] != "") { ?>
-                  <a href="https://twitter.com/<?= $profile['twitter']; ?>" class="btn btn-social-icon btn-twitter mr-1">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                <?php }
-                if ($profile['instagram'] != "") { ?>
-                  <a href="https://instagram.com/<?= $profile['instagram']; ?>" class="btn btn-social-icon btn-instagram">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                <?php }
-                if ($profile['linkedin'] != "") { ?>
-                  <a href="https://linkedin.com/in/<?= $profile['linkedin']; ?>" class="btn btn-social-icon btn-linkedin">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                <?php }
-                ?>
-              </div>  
+            <div class="card-footer">
+              <a href="mailto:<?= $profile['email']; ?>" class="btn btn-social-icon btn-primary" data-toggle="tooltip" title="<?= $profile['email']; ?>">
+                <i class="fa fa-envelope"></i>
+              </a>
+              <?php
+              if ($profile['twitter'] != "" || $profile['instagram'] != "" || $profile['linkedin'] != "") {
+              if ($profile['twitter'] != "") { ?>
+                <a href="https://twitter.com/<?= $profile['twitter']; ?>" class="btn btn-social-icon btn-twitter mr-1" data-toggle="tooltip" title="<?= $profile['twitter']; ?>" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              <?php }
+              if ($profile['instagram'] != "") { ?>
+                <a href="https://instagram.com/<?= $profile['instagram']; ?>" class="btn btn-social-icon btn-instagram" data-toggle="tooltip" title="<?= $profile['instagram']; ?>" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              <?php }
+              if ($profile['linkedin'] != "") { ?>
+                <a href="https://linkedin.com/in/<?= $profile['linkedin']; ?>" class="btn btn-social-icon btn-linkedin" data-toggle="tooltip" title="<?= $profile['linkedin']; ?>" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              <?php }
+              ?>
+            </div>  
             <?php } ?>
           </div>
         </div>

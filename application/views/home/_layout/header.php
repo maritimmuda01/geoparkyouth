@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <head>
   <meta charset="utf-8">
-  <title><?= $title ?> Geopark Youth Forum</title>
+  <title><?= $title ?> Global Geopark Youth Hub</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,25 +35,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <header class="navigation <?php echo $this->uri->segment(2) != 'single' ? 'navigation-main' : ''; ?> fixed-top <?php echo $this->uri->segment(2) == 'single' ? 'nav-bg' : ''; ?>">
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="index.html"><img src="<?php echo base_url(); ?>assets/home/images/logo.png" alt="Myself"></a>
+    <a class="navbar-brand font-tertiary h3" href="<?= base_url()?>"><img src="<?php echo base_url(); ?>assets/home/images/logo.png" alt="Myself"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item <?php echo $this->uri->segment(1) == '' ? 'active' : ''; ?>">
-          <a class="nav-link" href="<?= base_url(); ?>">Home</a>
+      <ul class="navbar-nav ml-auto navbar-links">
+        <li class="navbar-dropdown nav-item ">
+          <a class="nav-link" href="#">About</a>
+          <div class="dropdown">
+            <a href="#">Global Geopark Youth Hub</a>
+            <a href="#">Geopark</a>
+            <a href="#">Global Geopark Network</a>
+            <a href="https://maritimmuda.id/" target="_blank">Maritim Muda</a>
+          </div>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="about.html">About</a>
+        <li class="navbar-dropdown nav-item ">
+          <a class="nav-link" href="#">Youth Forum</a>
+          <div class="dropdown">
+            <a href="#">UNESCO Global Geopark Youth Forum</a>
+            <a href="#">Indonesia</a>
+          </div>
         </li>
         <li class="nav-item <?php echo $this->uri->segment(2) == 'media' ? 'active' : ''; ?>">
           <a class="nav-link" href="<?= base_url(); ?>home/media">Media</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?= base_url(); ?>auth">Log In</a>
+        <li class="navbar-dropdown nav-item ">
+          <a class="nav-link" href="#">Membership</a>
+          <div class="dropdown">
+            <a href="<?= base_url(); ?>auth">Login</a>
+            <a href="<?= base_url(); ?>auth/registration">Registration</a>
+          </div>
         </li>
       </ul>
     </div>

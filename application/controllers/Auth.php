@@ -80,6 +80,9 @@ class Auth extends CI_Controller
     {
 
         $data['dataCountry'] = $this->M_country->select_all();
+        $data['dataType'] = $this->M_country->select_type();
+        $data['dataName'] = $this->M_country->select_name();
+
 
         if ($this->session->userdata('email')) {
             redirect('user');
@@ -119,6 +122,8 @@ class Auth extends CI_Controller
                 'profile_picture' => $image,
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'country' => $country,
+                'geotype' => $this->input->post('geotype'),
+                'geoname' => $this->input->post('geoname'),
                 'gender' => $this->input->post('gender'),
                 'dob' => '0000-00-00', 
                 'role_id' => 2,

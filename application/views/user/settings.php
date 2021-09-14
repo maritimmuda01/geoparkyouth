@@ -81,23 +81,17 @@ $this->load->view('_layout/header');
                             </div>
                           </div>
                           <div class="form-row">
-                            <div class="form-group col-6">
-                              <label for="country">Country</label>
-                              <select name="country" class="form-control">
-                                <?php foreach ($dataCountry as $data) { ?>
-                                <option value='<?= $data->iso ?>' <?php if ($user['country']==$data->iso) {
-                                  echo "selected";
-                                } ?> ><?= $data->nicename ?></option>
-                                <?php } ?>
-                              </select>
-                              <div class="invalid-feedback">
-                              </div>
+                            <div class="form-group col-md-4">
+                              <label for="position">Geopark Country</label>
+                              <input type="text" class="form-control-plaintext" value="<?= $user['country']; ?>" readonly="">
                             </div>
-                            <div class="form-group col-6">
-                              <label for="city">City</label>
-                              <input type="text" name="city" class="form-control" value="<?= $user['city'] ?>">
-                              <div class="invalid-feedback">
-                              </div>
+                            <div class="form-group col-md-4">
+                              <label for="position">Geopark Type</label>
+                              <input type="text" class="form-control-plaintext" value="<?= $user['geotype']; ?>" readonly="">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="position">Geopark Name</label>
+                              <input type="text" class="form-control-plaintext" value="<?= $user['geoname']; ?>" readonly="">
                             </div>
                           </div>
                           <div class="form-row">

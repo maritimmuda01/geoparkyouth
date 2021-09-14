@@ -7,7 +7,12 @@ $this->load->view('home/_layout/header');
   <div class="container">
     <div class="row">
       <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary text-center">Geopark Youth Forum</h1>
+        <h2 class="text-white font-tertiary text-center">Global Geopark Youth Hub</h2>
+        <h4 class="text-white font-tertiary text-center">Connecting Global Youth for Sustaining Geoparks</h4>
+        <div class="text-center">
+          <br>
+          <a href="about.html" class="btn btn-outline-primary btn-sm">Join Us</a>
+        </div>
       </div>
     </div>
   </div>
@@ -53,6 +58,9 @@ $this->load->view('home/_layout/header');
 <section class="section">
   <div class="container">
     <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">About Us</h2>
+      </div>
       <div class="col-lg-10 mx-auto text-center">
         <p class="font-secondary paragraph-lg text-dark">
           Maritim Muda Nusantara didirikan dengan fokus utama: <br>
@@ -60,7 +68,6 @@ $this->load->view('home/_layout/header');
           Pengembangan IPTEK kemaritiman yang mutakhir, efektif, efisien, dan ramah lingkungan <br>
           Penguatan budaya maritim
         </p>
-        <a href="about.html" class="btn btn-outline-primary">know more</a>
       </div>
     </div>
   </div>
@@ -318,32 +325,30 @@ $this->load->view('home/_layout/header');
 <!-- /portfolio -->
 
 <!-- client logo slider -->
-<!-- <section class="section pb-0">
+<section class="section">
   <div class="container">
-    <div class="client-logo-slider d-flex align-items-center">
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-1.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-2.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-3.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-4.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-1.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-2.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-3.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-4.png" alt="client-logo"></a>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="col-lg-12 text-center">
+          <h5 class="">Developed by</h5>
+        </div>
+        <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/maritimmuda.png" alt="client-logo" target="_blank"></a>
+      </div>
+      <div class="col-lg-6">
+        <div class="col-lg-12 text-center">
+          <h5 class="">Supported by</h5>
+        </div>
+        <a href="#" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/bappenas.png" alt="client-logo" target="_blank"></a>
+      </div>
+      <div class="col-lg-3">
+        <div class="col-lg-12 text-center">
+          <h5 class="">In collaboration with</h5>
+        </div>
+        <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="client-logo" target="_blank"></a>
+      </div>
     </div>
   </div>
-</section> -->
+</section>
 <!-- /client logo slider -->
 
 <!-- blog -->

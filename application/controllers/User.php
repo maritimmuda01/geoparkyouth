@@ -13,15 +13,13 @@ class User extends CI_Controller
         $this->load->model('M_categories');
         $this->load->model('M_country');
         $this->load->model('M_jobs');
+        $this->load->model('M_notifications');
     }
 
     public function index()
     {
-        $data['title'] = 'Home';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['dataArticles'] = $this->M_articles->select_all();   
-
-        $this->load->view('user/index', $data);
+        redirect('user/profile/'.$data['user']['id']);
     }
 
 
@@ -30,6 +28,9 @@ class User extends CI_Controller
         if (!isset($id)) redirect('errors');
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['notif'] = $this->M_notifications->select_all($id);
+        // var_dump($data['notif']);
+        // exit();
         $data['profile'] = $this->db->get_where('user', ["id"=> $id])->row_array();
         $data['country'] = $this->db->get_where('country', ["iso"=> $data['profile']['country']])->row_array();
 
@@ -107,7 +108,6 @@ class User extends CI_Controller
                 $this->form_validation->set_rules('linkedin', 'Linkedin', 'trim');
 
                 $name = ucwords(addslashes($data['name']));
-                $city = ucwords(addslashes($data['city']));
                 $position = ucwords(addslashes($data['position']));
                 $company = ucwords(addslashes($data['company']));
                 $about = addslashes($data['about']);
@@ -116,7 +116,7 @@ class User extends CI_Controller
                 $linkedin = strtolower(addslashes($data['linkedin']));
 
 
-                $sql = "UPDATE user SET name='" .$name ."', gender='" .$data['gender'] ."', dob='" .$data['dob'] ."', city='" .$city ."', country='" .$data['country'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$twitter."', instagram='" .$instagram ."', linkedin='" .$linkedin ."' WHERE id='" .$data['id'] ."'";
+                $sql = "UPDATE user SET name='" .$name ."', gender='" .$data['gender'] ."', dob='" .$data['dob'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$twitter."', instagram='" .$instagram ."', linkedin='" .$linkedin ."' WHERE id='" .$data['id'] ."'";
 
 
                 if ($this->form_validation->run() == TRUE) {

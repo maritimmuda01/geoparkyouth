@@ -47,7 +47,7 @@ class M_articles extends CI_Model {
 	}
 
 	public function articles_publish($id)
-	{
+	{	
 		return $this->db->where("id", $id)->update('articles',  array("is_published" => '1'));
 	}
 
