@@ -14,10 +14,10 @@ $this->load->view('_layout/header');
               <div class="col-12 col-sm-12 col-lg-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Articles Management</h4>
+                    <h4>Jobs Management</h4>
                     <div class="card-header-action">
-                      <a href="<?= base_url() ?>user/write_articles" class="btn btn-info">
-                        <i class="far fa-edit"></i> Write New
+                      <a href="<?= base_url() ?>user/post_jobs" class="btn btn-info">
+                        <i class="far fa-edit"></i> Post New
                       </a>
                     </div>
                   </div>
@@ -25,51 +25,44 @@ $this->load->view('_layout/header');
                     <div class="tab-content" id="myTabContent">
                       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="form-row">
-                          <div class="form-group col-lg-8">
+                          <div class="form-group col-lg-10">
                             <label class="form-label">Filter Categories</label>
                             <div class="selectgroup selectgroup-pills panel-body " id="category">
                               <div class="selectgroup-item">
-                                <?php foreach ($dataCategories as $data) { ?>
                                 <label class="selectgroup-item">
-                                  <input type="checkbox" value="<?= $data->name ?>" class="selectgroup-input filter-checkbox">
-                                  <span class="selectgroup-button"><?= $data->attr ?></span>
+                                  <input type="checkbox" value="Full-Time" class="selectgroup-input filter-checkbox">
+                                  <span class="selectgroup-button">Full-Time</span>
                                 </label>
-                                <?php } ?>
+                                <label class="selectgroup-item">
+                                  <input type="checkbox" value="Part-Time" class="selectgroup-input filter-checkbox">
+                                  <span class="selectgroup-button">Part-Time</span>
+                                </label>
+                                <label class="selectgroup-item">
+                                  <input type="checkbox" value="Freelance" class="selectgroup-input filter-checkbox">
+                                  <span class="selectgroup-button">Freelance</span>
+                                </label>
+                                <label class="selectgroup-item">
+                                  <input type="checkbox" value="Internship" class="selectgroup-input filter-checkbox">
+                                  <span class="selectgroup-button">Internship</span>
+                                </label>
                               </div>
                             </div>
                           </div>
-                          <div class="form-group col-lg-2">
-                            <label class="form-label">Author's Country</label>
-                            <select class="form-control" id="country">
-                              <option value="">All</option>
-                              <?php foreach ($dataCountry as $data) { 
-                                echo "<option value='$data->iso'>$data->nicename</option>";
-                               } ?>
-                            </select>
-                          </div>
-                          <div class="form-group col-lg-2">
-                            <label class="form-label">Show Status</label>
-                            <select class="form-control" id="dropdown">
-                              <option value="">All</option>
-                              <option value="Published">Published</option>
-                              <option value="Pending">Pending</option>
-                            </select>
-                          </div>
                         </div>
                         <div class="table-responsive">
-                          <table id="example" class="display table table-striped">
+                          <table id="user-jobs" class="display table table-striped">
                             <thead>                                 
                               <tr>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th>Category</th>
-                                <th>Date</th>
-                                <th class="text-center">Status</th>
-                                <th></th>
+                                <th>Position</th>
+                                <th>Company</th>
+                                <th>Location</th>
+                                <th>Type</th>
+                                <th>Posted By</th>
+                                <th class="text-center"></th>
                               </tr>
                             </thead>
                             <tbody>
-                              <?php foreach ($dataArticles as $data) {
+                              <?php foreach ($dataJobs as $data) {
                                 if ($data->is_published == 1) {
                                   $color = 'primary';
                                   $status = 'Published';
@@ -83,34 +76,32 @@ $this->load->view('_layout/header');
                                 }
                                ?>                                
                               <tr>
-                                <td class="align-middle">
-                                  <a href="<?php echo base_url(); ?>home/single/<?= $data->id?>" target="_blank"><?= $data->title ?></a>
-                                </td>
+                                <td class="align-middle"><?= $data->position ?></td>
+                                <td class="align-middle"><?= $data->company ?></td>
+                                <td class="align-middle"><?= $data->location ?></td>
+                                <td class="align-middle"><?= $data->type ?></td>
                                 <td class="align-middle">
                                   <a href="<?php echo base_url(); ?>user/profile/<?= $data->author_id?>">
                                     <div class="d-inline-block ml-1"><?= $data->author ?></div>
-                                  </a>
                                 </td>
-                                <td class="align-middle"><?= $data->category_attr?></td>
-                                <td class="align-middle">
-                                  <?= date("d F Y H:i",strtotime($data->date)) ?>
-                                </td>
+
                                 <td class="text-center">
                                   <div class="btn-group">
-                                    <button type="button" class="btn btn-<?= $color ?> <?= $url ?>" href="<?php echo base_url('admin/articles_'.$url.'/'.$data->id); ?>"><?= $status ?></button>
+                                    <button type="button" class="btn btn-<?= $color ?> <?= $url ?>" href="<?php echo base_url('admin/jobs_'.$url.'/'.$data->id); ?>"><?= $status ?></button>
                                     <button type="button" class="btn btn-<?= $color ?> dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
                                       <span class="sr-only">Toggle Dropdown</span>
                                     </button>
                                     <div class="dropdown-menu">
-                                      <a class="dropdown-item <?= $url ?>" href="<?php echo base_url('admin/articles_'.$url.'/'.$data->id); ?>"><?= $action ?></a>
+                                      <a class="dropdown-item" href="<?php echo base_url('user/jobs_single/'.$data->id); ?>">See Detail</a>
+                                      <a class="dropdown-item <?= $url ?>" href="<?php echo base_url('admin/jobs_'.$url.'/'.$data->id); ?>"><?= $action ?></a>
                                       <div class="dropdown-divider"></div>
-                                      <a class="dropdown-item has-icon text-danger delete-confirm" href="<?php echo base_url('admin/articles_delete/'.$data->id); ?>"><i class="fa fa-trash"></i> Delete</a>
+                                      <a class="dropdown-item has-icon text-danger delete-confirm" href="<?php echo base_url('admin/jobs_delete/'.$data->id); ?>"><i class="fa fa-trash"></i> Delete</a>
                                     </div>
                                   </div>
                                 </td>
-                                <td>
-                                  <?= $data->author_country; ?>
-                                </td>
+                                <!-- <td class="text-center">
+                                   <a class="btn btn-primary" href="<?php echo base_url('user/jobs_single/'.$data->id); ?>">See Detail</a>
+                                </td> -->
                               </tr>
                             <?php } ?>
                             </tbody>

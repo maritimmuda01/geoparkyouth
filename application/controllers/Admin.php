@@ -69,6 +69,81 @@ class Admin extends CI_Controller
         }
     }
 
+    //Jobs
+    public function jobs_management()
+    {
+        $data['title'] = 'jobs Management';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['dataJobs'] = $this->M_jobs->select_all();
+        $data['dataCategories'] = $this->M_categories->select_all();
+        $data['dataCountry'] = $this->M_country->select_all();
+
+        // var_dump($data['datajobs']);
+        // exit();
+
+        $this->load->view('admin/jobs/index', $data);
+    }
+
+    public function jobs_publish($id = null)
+    {
+        if (!isset($id)) redirect('admin/jobs_management');
+
+        if ($this->M_jobs->jobs_publish($id)) {
+
+            $data['jobs'] = $this->db->get_where('jobs', ['id' => $id])->row_array();
+            $title = $data['jobs']['title'];
+            $receiver_id = $data['jobs']['author_id'];
+
+            $text = "Your jobs post has been approved and published!";
+            $sql = [
+                    'text'  => $text,
+                    'type'  => "jobs",
+                    'type_color' => "success",
+                    'type_icon' => "newspaper",
+                    'receiver_id' => $receiver_id,
+                    'is_read' => 0        
+                ];
+            $this->db->insert('notifications', $sql);   
+
+            $this->session->set_flashdata('message', 'success');
+            redirect(site_url('admin/jobs_management'));
+        }
+    } 
+
+    public function jobs_unpublish($id = null)
+    {
+        if (!isset($id)) redirect('admin/jobs_management');
+
+        if ($this->M_jobs->jobs_unpublish($id)) {
+            $data['jobs'] = $this->db->get_where('jobs', ['id' => $id])->row_array();
+            $title = $data['jobs']['title'];
+            $receiver_id = $data['jobs']['author_id'];
+
+            $text = "Your job post has been unpublished by the administrator!";
+            $sql = [
+                    'text'  => $text,
+                    'type'  => "jobs",
+                    'type_color' => "danger",
+                    'type_icon' => "newspaper",
+                    'receiver_id' => $receiver_id,
+                    'is_read' => 0        
+                ];
+            $this->db->insert('notifications', $sql);
+            $this->session->set_flashdata('message', 'success');
+            redirect(site_url('admin/jobs_management'));
+        }
+    } 
+
+    public function jobs_delete($id = null)
+    {
+        if (!isset($id)) redirect('admin/jobs_management');
+
+        if ($this->M_jobs->jobs_delete($id)) {
+            $this->session->set_flashdata('message', 'deleted');
+            redirect(site_url('admin/jobs_management'));
+        }
+    }
+
     //Articles
     public function articles_management()
     {
@@ -89,6 +164,22 @@ class Admin extends CI_Controller
         if (!isset($id)) redirect('admin/articles_management');
 
         if ($this->M_articles->articles_publish($id)) {
+
+            $data['article'] = $this->db->get_where('articles', ['id' => $id])->row_array();
+            $title = $data['article']['title'];
+            $receiver_id = $data['article']['author_id'];
+
+            $text = "Your article <b>".$title."</b> has been approved and published!";
+            $sql = [
+                    'text'  => $text,
+                    'type'  => "articles",
+                    'type_color' => "success",
+                    'type_icon' => "newspaper",
+                    'receiver_id' => $receiver_id,
+                    'is_read' => 0        
+                ];
+            $this->db->insert('notifications', $sql);   
+
             $this->session->set_flashdata('message', 'success');
             redirect(site_url('admin/articles_management'));
         }
@@ -99,6 +190,20 @@ class Admin extends CI_Controller
         if (!isset($id)) redirect('admin/articles_management');
 
         if ($this->M_articles->articles_unpublish($id)) {
+            $data['article'] = $this->db->get_where('articles', ['id' => $id])->row_array();
+            $title = $data['article']['title'];
+            $receiver_id = $data['article']['author_id'];
+
+            $text = "Your article <b>".$title."</b> has been unpublished by the administrator!";
+            $sql = [
+                    'text'  => $text,
+                    'type'  => "articles",
+                    'type_color' => "danger",
+                    'type_icon' => "newspaper",
+                    'receiver_id' => $receiver_id,
+                    'is_read' => 0        
+                ];
+            $this->db->insert('notifications', $sql);
             $this->session->set_flashdata('message', 'success');
             redirect(site_url('admin/articles_management'));
         }

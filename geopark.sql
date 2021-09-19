@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2021 at 01:53 PM
+-- Generation Time: Sep 19, 2021 at 05:06 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -34,8 +34,7 @@ CREATE TABLE `articles` (
   `image` varchar(256) NOT NULL,
   `author_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `is_published` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -183,8 +182,8 @@ CREATE TABLE `jobs` (
   `type` varchar(128) NOT NULL,
   `description` longtext NOT NULL,
   `author_id` int(11) NOT NULL,
-  `created_date` date NOT NULL,
-  `created_time` time NOT NULL
+  `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `is_published` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -197,18 +196,12 @@ CREATE TABLE `notifications` (
   `id` int(11) NOT NULL,
   `text` varchar(256) NOT NULL,
   `type` varchar(128) NOT NULL,
+  `type_color` varchar(128) NOT NULL,
+  `type_icon` varchar(128) NOT NULL,
   `receiver_id` int(11) NOT NULL,
-  `created_date` date NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `is_read` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`id`, `text`, `type`, `receiver_id`, `created_date`, `is_read`) VALUES
-(1, 'Your Articles has been published', 'articles', 987, '2021-09-14', 0),
-(2, 'asdasdasd', 'jobs', 981, '2021-09-14', 1);
 
 -- --------------------------------------------------------
 
@@ -463,7 +456,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -475,13 +468,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `user`

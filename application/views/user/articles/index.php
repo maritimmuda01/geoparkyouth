@@ -83,7 +83,8 @@ $this->load->view('_layout/header');
                                   </a>
                                 </td>
                                 <td class="align-middle"><?= $data->category_attr?></td>
-                                <td class="align-middle"><span style="display: none"><?= date("Y-m-d",strtotime($data->date))." ".date("H:i",strtotime($data->time))  ?></span><?= date("d F Y",strtotime($data->date))." ".date("H:i",strtotime($data->time))  ?>
+                                <td class="align-middle">
+                                  <?= date("d F Y H:i",strtotime($data->date)) ?>
                                 </td>
                                 <td>
                                   <?= $data->author_country; ?>

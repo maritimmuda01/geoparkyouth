@@ -80,7 +80,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
             </div>
           </li> -->
-          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i>  </a>
+          <?php if ($user['role_id'] == 2 ) {
+            $beep = 0;
+            foreach ($notif as $data) {
+              if ($data->is_read == 0) {
+                $beep++;
+              }
+            }?>
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg <?php if ($beep >0) echo "beep" ?>"><i class="far fa-bell"></i>  </a>
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
               <div class="dropdown-header">Notifications
                 <!-- <div class="float-right">
@@ -89,13 +96,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="dropdown-list-content dropdown-list-icons">
                 <?php foreach ($notif as $data) { ?>
-                <a href="<?= base_url(); ?>user/profile/<?= $user['id']?>" class="dropdown-item <?php if($data->is_read == 1){ echo "dropdown-item-unread";} ?>">
-                  <div class="dropdown-item-icon bg-primary text-white">
-                    <i class="fas fa-code"></i>
+                <a href="<?= base_url(); ?>user/<?= $data->type?>" class="dropdown-item <?php if($data->is_read == 0){ echo "dropdown-item-unread";} ?>">
+                  <div class="dropdown-item-icon bg-<?=$data->type_color?> text-white">
+                    <i class="fa fa-<?=$data->type_icon?>"></i>
                   </div>
                   <div class="dropdown-item-desc">
                     <?= $data->text ?>
-                    <div class="time text-primary"><?= $data->created_date ?></div>
+                    <div class="time text-primary"><?= $data->time ?></div>
                   </div>
                 </a>
                 <?php } ?>
@@ -105,6 +112,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
             </div>
           </li>
+          <?php } ?>
+
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="<?= base_url('assets/dashboard/img/profile/') . $user['profile_picture']; ?>" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block"></div></a>
