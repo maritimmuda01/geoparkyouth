@@ -9,9 +9,9 @@ $this->load->view('_layout/header');
     <div class="section-header">
     </div>
     <div class="section-body">
-      <div class="row mt-lg-12">
-        <div class="col-12 col-md-12 col-lg-8 ">
-          <div class="card profile-widget">
+      <div class="row">
+        <div class="col-8 ">
+          <div class="card profile-widget col-lg-12">
             <div class="profile-widget-header">                     
               <img alt="image" src="<?= base_url('assets/dashboard/img/profile/') . $profile['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
               <div class="profile-widget-items">
@@ -30,7 +30,7 @@ $this->load->view('_layout/header');
                 }
                 ?>
                 <div class="d-inline font-weight-light">
-                  <h6><?php if($profile['geotype']){ echo $profile['geotype'].', ';} echo $country['nicename']; ?> </h6> 
+                  <h6><?php if($profile['geoname']){ echo $profile['geoname'].', ';} if($profile['geotype']){ echo $profile['geotype'].', ';} echo $country['nicename']; ?> </h6> 
                 </div>
               </div>
               <?= $profile['about']?>
@@ -60,6 +60,9 @@ $this->load->view('_layout/header');
             </div>  
             <?php } ?>
           </div>
+        </div>
+        <div class="col-4">
+          as
         </div>
       </div>
     </div>

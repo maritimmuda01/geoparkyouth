@@ -29,6 +29,8 @@ class User extends CI_Controller
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
         // var_dump($data['notif']);
         // exit();
         $data['profile'] = $this->db->get_where('user', ["id"=> $id])->row_array();
@@ -48,6 +50,8 @@ class User extends CI_Controller
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['title'] = 'Settings';
         $data['dataCountry'] = $this->M_country->select_all();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('user/settings', $data);
     }
@@ -57,6 +61,8 @@ class User extends CI_Controller
         $data['title'] = 'Change Password';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('user/changepassword', $data);
     }
@@ -181,6 +187,8 @@ class User extends CI_Controller
         $data['dataArticles'] = $this->M_articles->select_published();
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('user/articles/index', $data);
     }
@@ -191,6 +199,8 @@ class User extends CI_Controller
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('user/articles/add', $data);
     }
@@ -259,7 +269,7 @@ class User extends CI_Controller
 
         $this->db->insert('articles', $sql);
 
-        if ($user['role_id'] == 2) {
+        if ($author['user']['role_id'] == 2) {
             $text = "Your article <b>".$title."</b> has been posted. Waiting for the administrator's approval.";
 
             $sql = [
@@ -288,6 +298,8 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['dataUser'] = $this->M_user->select_all(); 
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('user/find_user', $data);
 
@@ -300,6 +312,8 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['dataJobs'] = $this->M_jobs->select_published();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('user/jobs/index', $data);
     }
@@ -310,6 +324,8 @@ class User extends CI_Controller
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['single'] = $this->M_jobs->select_single($id);
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         if (!$data['single']) redirect('errors');
 
@@ -324,6 +340,8 @@ class User extends CI_Controller
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('user/jobs/add', $data);
     }
@@ -373,5 +391,17 @@ class User extends CI_Controller
             $this->session->set_flashdata('message', 'pending');
         }
         redirect('user/jobs');
+    }
+
+    public function notif ($id){
+        $data['notif'] = $this->db->get_where('notifications', ['id' => $id])->row_array();
+
+        $this->db->set('is_read', '1');
+        $this->db->where('id', $id);
+        $this->db->update('notifications');
+
+        // var_dump($data['notif']);
+        // exit();
+        redirect('user/'.$data['notif']['type']);
     }
 }

@@ -2774,6 +2774,7 @@ body.layout-3 .main-footer {
       color: #78828a;
       text-decoration: none; }
       .main-sidebar .sidebar-menu li a .badge {
+        margin-left: 30px;
         float: right;
         padding: 5px 10px;
         margin-top: 2px; }
@@ -2783,7 +2784,8 @@ body.layout-3 .main-footer {
         text-align: center; }
       .main-sidebar .sidebar-menu li a span {
         margin-top: 3px;
-        width: 100%; }
+        /*width: 100%;*/ }
+
       .main-sidebar .sidebar-menu li a:hover {
         background-color: #f8fafb; }
     .main-sidebar .sidebar-menu li.active a {

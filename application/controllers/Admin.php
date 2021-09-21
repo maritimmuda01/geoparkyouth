@@ -23,6 +23,8 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['total_account'] = count($this->M_user->select_all());
         $data['total_articles'] = $this->M_articles->total_articles();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
         $data['total_jobs'] = $this->M_jobs->total_jobs();
 
         $this->load->view('admin/index', $data);
@@ -35,6 +37,8 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataUser'] = $this->M_user->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         $this->load->view('admin/user/index', $data);
     }
@@ -77,6 +81,8 @@ class Admin extends CI_Controller
         $data['dataJobs'] = $this->M_jobs->select_all();
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         // var_dump($data['datajobs']);
         // exit();
@@ -152,6 +158,8 @@ class Admin extends CI_Controller
         $data['dataArticles'] = $this->M_articles->select_all();
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
         // var_dump($data['dataArticles']);
         // exit();
@@ -226,6 +234,8 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('admin/categories/index', $data);
+        $data['pending_articles'] = $this->M_articles->pending_articles();
+        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
     }
 
     public function showAllCategories(){

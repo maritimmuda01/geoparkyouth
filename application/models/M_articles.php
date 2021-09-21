@@ -39,6 +39,12 @@ class M_articles extends CI_Model {
 		return $data->num_rows();
 	}
 
+	public function pending_articles(){
+		
+		$data = $this->db->query("SELECT * FROM articles WHERE is_published = 0");
+		return $data->num_rows();
+	}
+
 	public function total_articles_by_id() {
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$id = $data['user']['id'];

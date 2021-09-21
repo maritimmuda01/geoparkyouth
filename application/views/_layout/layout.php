@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="dropdown-list-content dropdown-list-icons">
                 <?php foreach ($notif as $data) { ?>
-                <a href="<?= base_url(); ?>user/<?= $data->type?>" class="dropdown-item <?php if($data->is_read == 0){ echo "dropdown-item-unread";} ?>">
+                <a href="<?= base_url(); ?>user/notif/<?= $data->id ?>" class="dropdown-item <?php if($data->is_read == 0){ echo "dropdown-item-unread";} ?>">
                   <div class="dropdown-item-icon bg-<?=$data->type_color?> text-white">
                     <i class="fa fa-<?=$data->type_icon?>"></i>
                   </div>

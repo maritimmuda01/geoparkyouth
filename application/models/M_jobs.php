@@ -30,6 +30,13 @@ class M_jobs extends CI_Model {
 		return $data->num_rows();
 	}
 
+	public function pending_jobs(){
+		
+		$data = $this->db->query("SELECT * FROM jobs WHERE is_published = 0");
+		return $data->num_rows();
+	}
+
+
 		public function jobs_publish($id)
 	{	
 		return $this->db->where("id", $id)->update('jobs',  array("is_published" => '1'));

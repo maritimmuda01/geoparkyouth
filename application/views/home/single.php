@@ -8,7 +8,7 @@ $this->load->view('home/_layout/header');
     <div class="row" style="margin-top: 50px">
       <div class="col-lg-8">
         <h3 class="font-tertiary mb-3"><?= $dataArticles['title']?></h3>
-        <p class="font-secondary"><?= date("l, d F Y",strtotime($dataArticles['date']))." at ".date("H:i",strtotime($dataArticles['time']))  ?> by <span class="text-primary"><?= $dataArticles['author']?></span
+        <p class="font-secondary"><?= date("l, d F Y",strtotime($dataArticles['date']))." at ".date("H:i",strtotime($dataArticles['date']))  ?> by <span class="text-primary"><?= $dataArticles['author']?></span
             class="text-primary"> on <span class="text-primary"><?= $dataArticles['category_attr']?></span></p>
           <img src="<?= base_url()?>assets/dashboard/img/articles/<?= $dataArticles['image']?>" alt="post-thumb" class="img-fluid rounded mb-5">
         <div class="content">
