@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2021 at 05:06 AM
+-- Generation Time: Sep 22, 2021 at 01:56 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.22
 
@@ -130,8 +130,9 @@ INSERT INTO `country` (`iso`, `nicename`) VALUES
 --
 
 CREATE TABLE `geoname` (
-  `iso` varchar(3) NOT NULL,
-  `geotype_id` varchar(3) NOT NULL,
+  `iso` varchar(128) NOT NULL,
+  `geotype_id` varchar(128) NOT NULL,
+  `country_id` varchar(3) NOT NULL,
   `name` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -139,13 +140,26 @@ CREATE TABLE `geoname` (
 -- Dumping data for table `geoname`
 --
 
-INSERT INTO `geoname` (`iso`, `geotype_id`, `name`) VALUES
-('BAT', 'UGG', 'Batur UNESCO Global Geopark'),
-('BEL', 'UGG', 'Belitong UNESCO Global Geopark'),
-('CIP', 'UGG', 'Ciletuh-Palabuhanratu UNESCO Global Geopark'),
-('GUS', 'UGG', 'Gunung Sewu UNESCO Global Geopark'),
-('RIL', 'UGG', 'Rinjani-Lombok UNESCO Global Geopark'),
-('TOB', 'UGG', 'Toba Caldera UNESCO Global Geopark');
+INSERT INTO `geoname` (`iso`, `geotype_id`, `country_id`, `name`) VALUES
+('batur', 'unescoglobalgeopark', 'ID', 'Batur UNESCO Global Geopark'),
+('belitong', 'unescoglobalgeopark', 'ID', 'Belitong UNESCO Global Geopark'),
+('bojonegoro', 'nationalgeopark', 'ID', 'Bojonegoro National Geopark'),
+('ciletuhpalabuhanratu', 'unescoglobalgeopark', 'ID', 'Ciletuh-Palabuhanratu UNESCO Global Geopark'),
+('gunungsewu', 'unescoglobalgeopark', 'ID', 'Gunung Sewu UNESCO Global Geopark'),
+('ijen', 'nationalgeopark', 'ID', 'Ijen National Geopark'),
+('karangsambungkarangbolong', 'nationalgeopark', 'ID', 'Karangsambung Karangbolong'),
+('marospangkep', 'nationalgeopark', 'ID', 'Maros Pangkep National Geopark'),
+('merangin', 'nationalgeopark', 'ID', 'Merangin National Geopark'),
+('meratus', 'nationalgeopark', 'ID', 'Meratus National Geopark'),
+('natuna', 'nationalgeopark', 'ID', 'Natuna National Geopark'),
+('ngaraisianokmaninjau', 'nationalgeopark', 'ID', 'Ngarai Sianok-Maninjau National Geopark'),
+('pongkor', 'nationalgeopark', 'ID', 'Pongkor National Geopark'),
+('rajaampat', 'nationalgeopark', 'ID', 'Raja Ampat National Geopark'),
+('ranahminangsilokek', 'nationalgeopark', 'ID', 'Ranah Minang Silokek National Geopark'),
+('rinjanilombok', 'unescoglobalgeopark', 'ID', 'Rinjani-Lombok UNESCO Global Geopark'),
+('sawahlunto', 'nationalgeopark', 'ID', 'Sawahlunto National Geopark'),
+('tambora', 'nationalgeopark', 'ID', 'Tambora National Geopark'),
+('tobacaldera', 'unescoglobalgeopark', 'ID', 'Toba Caldera UNESCO Global Geopark');
 
 -- --------------------------------------------------------
 
@@ -154,7 +168,7 @@ INSERT INTO `geoname` (`iso`, `geotype_id`, `name`) VALUES
 --
 
 CREATE TABLE `geotype` (
-  `iso` varchar(3) NOT NULL,
+  `iso` varchar(128) NOT NULL,
   `country_id` varchar(3) NOT NULL,
   `name` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -164,9 +178,9 @@ CREATE TABLE `geotype` (
 --
 
 INSERT INTO `geotype` (`iso`, `country_id`, `name`) VALUES
-('ASG', 'ID', 'Aspiring Geopark'),
-('NAG', 'ID', 'National Geopark'),
-('UGG', 'ID', 'UNESCO Global Geopark');
+('aspiringgeopark', 'ID', 'Aspiring Geopark'),
+('nationalgeopark', 'ID', 'National Geopark'),
+('unescoglobalgeopark', 'ID', 'UNESCO Global Geopark');
 
 -- --------------------------------------------------------
 
@@ -237,8 +251,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `member_code`, `email`, `profile_picture`, `password`, `gender`, `dob`, `country`, `geotype`, `geoname`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Geopark Youth Forum', '', 'admin@admin.com', '42350c9fb84b7f15e1792308760944ba.jpg', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1999-02-03', 'ID', '', '', '', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', 'geopark', 'geopark', 'geopark', 1, 1, 1626859548),
-(987, 'Askaj', '', 'user@user.com', 'def_female.png', '$2y$10$XP9UVA3W/NX35ohdC5n4VOT9eKGUpTTzU7.L..Zaz1bxfdi1/sVIm', 'F', '0000-00-00', 'ID', 'UGG', 'GUS', '', '', '', '', '', '', 2, 1, 1631521634);
+(1, 'Geopark Youth Forum', '', 'admin@admin.com', '42350c9fb84b7f15e1792308760944ba.jpg', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1999-02-03', 'ID', '', '', '', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', 'geopark', 'geopark', 'geopark', 1, 1, 1626859548);
 
 -- --------------------------------------------------------
 
@@ -401,6 +414,12 @@ ALTER TABLE `geoname`
   ADD PRIMARY KEY (`iso`);
 
 --
+-- Indexes for table `geotype`
+--
+ALTER TABLE `geotype`
+  ADD PRIMARY KEY (`iso`);
+
+--
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -456,7 +475,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -474,7 +493,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
