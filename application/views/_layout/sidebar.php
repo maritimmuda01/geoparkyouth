@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="#">Geopark</a>
+            <a href="#">GGYF</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="#">GYF</a>
+            <a href="#">GGYF</a>
           </div>
           <ul class="sidebar-menu">
 

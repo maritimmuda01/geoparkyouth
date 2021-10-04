@@ -27,7 +27,7 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login';
-            $this->load->view('auth/login', $data);
+            $this->load->view('auth/signin', $data);
         } else {
             // validasinya success
             $this->_login();
@@ -168,11 +168,11 @@ class Auth extends CI_Controller
 
         $this->email->initialize($config);
 
-        $this->email->from('geopark.mail@gmail.com', 'Geopark Mail');
+        $this->email->from('geopark.mail@gmail.com', 'Global Geopark Youth Hub Mail');
         $this->email->to($this->input->post('email'));
 
         if ($type == 'verify') {
-            $this->email->subject('Geopark Account Verification');
+            $this->email->subject('Global Geopark Youth Hub Account Verification');
             $this->email->message('Click this link to verify you account : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Activate</a>');
         } else if ($type == 'forgot') {
             $this->email->subject('Reset Password');
