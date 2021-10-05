@@ -20,8 +20,13 @@ class Admin extends CI_Controller
     public function index()
     {
         $data['title'] = 'Dashboard';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
+        $data['dataCountry'] = $this->M_country->select_all();
         $data['total_account'] = count($this->M_user->select_all());
+        $data['totalcountries'] = count($this->M_country->select_all());
+        $data['totalUGG'] = count($this->M_country->select_UGG());
+        $data['totalNAG'] = count($this->M_country->select_NAG());
+        $data['totalASG'] = count($this->M_country->select_ASG());
         $data['total_articles'] = $this->M_articles->total_articles();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
@@ -34,7 +39,7 @@ class Admin extends CI_Controller
     public function user_management()
     {
         $data['title'] = 'User Management';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
         $data['dataUser'] = $this->M_user->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
         $data['pending_articles'] = $this->M_articles->pending_articles();
@@ -77,7 +82,7 @@ class Admin extends CI_Controller
     public function jobs_management()
     {
         $data['title'] = 'jobs Management';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
         $data['dataJobs'] = $this->M_jobs->select_all();
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
@@ -154,7 +159,7 @@ class Admin extends CI_Controller
     public function articles_management()
     {
         $data['title'] = 'Articles Management';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
         $data['dataArticles'] = $this->M_articles->select_all();
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['dataCountry'] = $this->M_country->select_all();
@@ -231,7 +236,7 @@ class Admin extends CI_Controller
     public function categories()
     {
         $data['title'] = 'Categories Management';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
 
         $this->load->view('admin/categories/index', $data);
         $data['pending_articles'] = $this->M_articles->pending_articles();
@@ -285,7 +290,7 @@ class Admin extends CI_Controller
     public function role()
     {
         $data['title'] = 'Role';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
 
         $data['role'] = $this->db->get('user_role')->result_array();
 
@@ -300,7 +305,7 @@ class Admin extends CI_Controller
     public function roleAccess($role_id)
     {
         $data['title'] = 'Role Access';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
 
         $data['role'] = $this->db->get_where('user_role', ['id' => $role_id])->row_array();
 

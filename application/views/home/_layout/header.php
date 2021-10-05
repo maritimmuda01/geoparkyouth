@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <head>
   <meta charset="utf-8">
-  <title><?= $title ?> Global Geopark Youth Hub</title>
+  <title><?= $title ?> Global Geopark Youth Forum</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="navbar-dropdown nav-item ">
           <a class="nav-link" href="#">About</a>
           <div class="dropdown">
-            <a href="#">Global Geopark Youth Hub</a>
+            <a href="#">Global Geopark Youth Forum</a>
             <a href="#">Geopark</a>
             <a href="#">Global Geopark Network</a>
             <a href="https://maritimmuda.id/" target="_blank">Maritim Muda</a>

@@ -46,22 +46,19 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap-social/bootstrap-social.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
-<?php
-}elseif ($this->uri->segment(2) == "forms_advanced_form") { ?>
+<?php } ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap-daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/select2/dist/css/select2.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/jquery-selectric/selectric.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
-<?php
-}elseif ($this->uri->segment(2) == "forms_editor") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/summernote/summernote-bs4.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/codemirror/lib/codemirror.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/codemirror/theme/duotone-dark.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/jquery-selectric/selectric.css">
 <?php
-}elseif ($this->uri->segment(2) == "modules_calendar") { ?>
+elseif ($this->uri->segment(2) == "modules_calendar") { ?>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/fullcalendar/fullcalendar.min.css">
 <?php
 }elseif ($this->uri->segment(2) == "modules_datatables") { ?>

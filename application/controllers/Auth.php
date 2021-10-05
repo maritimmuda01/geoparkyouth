@@ -168,11 +168,11 @@ class Auth extends CI_Controller
 
         $this->email->initialize($config);
 
-        $this->email->from('geopark.mail@gmail.com', 'Global Geopark Youth Hub Mail');
+        $this->email->from('geopark.mail@gmail.com', 'Global Geopark Youth Forum Mail');
         $this->email->to($this->input->post('email'));
 
         if ($type == 'verify') {
-            $this->email->subject('Global Geopark Youth Hub Account Verification');
+            $this->email->subject('Global Geopark Youth Forum Account Verification');
             $this->email->message('Click this link to verify you account : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Activate</a>');
         } else if ($type == 'forgot') {
             $this->email->subject('Reset Password');

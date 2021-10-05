@@ -7,7 +7,7 @@ $this->load->view('home/_layout/header');
   <div class="container">
     <div class="row">
       <div class="col-lg-11 mx-auto">
-        <h2 class="text-white font-tertiary text-center">Global Geopark Youth Hub</h2>
+        <h2 class="text-white font-tertiary text-center">Global Geopark Youth Forum</h2>
         <h4 class="text-white font-tertiary text-center">Connecting Global Youth for Sustaining Geoparks</h4>
         <div class="text-center">
           <br>

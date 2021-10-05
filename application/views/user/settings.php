@@ -37,6 +37,7 @@ $this->load->view('_layout/header');
                       <?php echo form_open_multipart('user/profile_update');?>
                       <div class="card">
                         <div class="card-body">
+                          <div class="section-title mt-0">Personal Information</div>
                           <div class="form-group profile-pic-wrapper pic-holder">
                             <img id="profilePic" class="pic" src="<?= base_url('assets/dashboard/img/profile/') . $user['profile_picture']; ?>">
                             <label for="newProfilePhoto" class="upload-file-block">
@@ -81,6 +82,13 @@ $this->load->view('_layout/header');
                             </div>
                           </div>
                           <div class="form-row">
+                            <div class="form-group col-md-12">
+                              <label for="company">About Me</label>
+                              <textarea class="form-control" id="about" name="about" ><?= $user['about']; ?></textarea>
+                            </div>
+                          </div>
+                          <div class="section-title mt-30">Geopark Information</div>
+                          <div class="form-row">
                             <div class="form-group col-md-4">
                               <label for="position">Geopark Country</label>
                               <input type="text" class="form-control-plaintext" value="<?= $user['country']; ?>" readonly="">
@@ -94,41 +102,50 @@ $this->load->view('_layout/header');
                               <input type="text" class="form-control-plaintext" value="<?= $user['geoname']; ?>" readonly="">
                             </div>
                           </div>
+                          <div class="section-title mt-30">Affiliances</div>
                           <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label for="position">Position</label>
-                              <input type="text" class="form-control" id="position" name="position" value="<?= $user['position']; ?>">
-                            </div>
                             <div class="form-group col-md-6">
                               <label for="company">Company</label>
                               <input type="text" class="form-control" id="company" name="company" value="<?= $user['company']; ?>">
                             </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="form-group col-md-12">
-                              <label for="company">About Me</label>
-                              <textarea class="form-control" id="about" name="about" ><?= $user['about']; ?></textarea>
+                            <div class="form-group col-md-6">
+                              <label for="position">Position</label>
+                              <input type="text" class="form-control" id="position" name="position" value="<?= $user['position']; ?>">
                             </div>
                           </div>
+                          <div class="section-title mt-30">Links</div>
                           <div class="form-row">
-                            <div class="form-group col-md-12">
-                              <label for="company">Social</label>
-                              <div class="input-group ">
-                                <div class="input-group-prepend col-sm-12 col-md-4">
-                                  <div class="input-group-text"><i class="fab fa-twitter"></i></div>
-                                  <input type="text" class="form-control" id="twitter" name="twitter" value="<?= $user['twitter']; ?>">
+                            <div class="form-group col-12">
+                              <label>Social</label>
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">twitter.com/</span>
                                 </div>
-                                <div class="input-group-prepend col-sm-12 col-md-4">
-                                  <div class="input-group-text"><i class="fab fa-instagram"></i></div>
-                                  <input type="text" class="form-control" id="instagram" name="instagram" value="<?= $user['instagram']; ?>">
+                                <input type="text" class="form-control" id="twitter" name="twitter" value="<?= $user['twitter']; ?>">
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="fab fa-twitter"></i></span>
                                 </div>
-                                <div class="input-group-prepend col-sm-12 col-md-4">
-                                  <div class="input-group-text"><i class="fab fa-linkedin"></i></div>
-                                  <input type="text" class="form-control" id="linkedin" name="linkedin" value="<?= $user['linkedin']; ?>">
+                              </div>
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">instagram.com/</span>
+                                </div>
+                                <input type="text" class="form-control" id="instagram" name="instagram" value="<?= $user['instagram']; ?>">
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+                                </div>
+                              </div>
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">linkedin.com/</span>
+                                </div>
+                                <input type="text" class="form-control" id="linkedin" name="linkedin" value="<?= $user['linkedin']; ?>">
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
                                 </div>
                               </div>
                             </div>
-                          </div>  
+                          </div>
                         </div>
                         <div class="card-footer">
                           <button class="btn btn-primary">Save</button>
