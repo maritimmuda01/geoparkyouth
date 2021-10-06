@@ -15,6 +15,7 @@ class Home extends CI_Controller
 
     public function index()
     {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = '';
 
         $this->load->view('home/index', $data);
@@ -22,6 +23,7 @@ class Home extends CI_Controller
 
     public function media()
     {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Media —';
         $data['dataArticles'] = $this->M_articles->select_published();
         $data['dataCategories'] = $this->M_categories->select_all();
@@ -30,6 +32,8 @@ class Home extends CI_Controller
     }
 
     public function single($id = null){
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         if (!isset($id)) redirect('errors');
         
@@ -43,18 +47,21 @@ class Home extends CI_Controller
     }
 
     public function about(){
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'About —';
 
         $this->load->view('home/about', $data);
     }
 
     public function maritimmuda(){
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Maritim Muda Nusantara —';
 
         $this->load->view('home/maritimmuda', $data);
     }
 
     public function globalgeoparknetwork(){
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['title'] = 'Global Geopark Network —';
 
         $this->load->view('home/globalgeoparknetwork', $data);

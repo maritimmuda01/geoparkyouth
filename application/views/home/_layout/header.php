@@ -62,6 +62,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="nav-item <?php echo $this->uri->segment(2) == 'media' ? 'active' : ''; ?>">
           <a class="nav-link" href="<?= base_url(); ?>home/media">Media</a>
         </li>
+        <?php if ($this->session->userdata('email')) { ?>
+        <li class="navbar-dropdown nav-item ">
+          <a class="nav-link" href="#">Hi, <?= substr($user['name'], 0, strpos($this->session->userdata('name'), ' ')) ?>!</a>
+          <div class="dropdown">
+            <a href="<?= base_url(); ?>user/profile/<?= $this->session->userdata('id')?>">Profile</a>
+            <a href="<?= base_url(); ?>user/settings">Settings</a>
+            <a href="<?= base_url(); ?>auth/logout">Logout</a>
+          </div>
+        </li>
+        <?php } else { ?>
         <li class="navbar-dropdown nav-item ">
           <a class="nav-link" href="#">Membership</a>
           <div class="dropdown">
@@ -69,6 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a href="<?= base_url(); ?>auth/registration">Registration</a>
           </div>
         </li>
+        <?php } ?>
       </ul>
     </div>
   </nav>

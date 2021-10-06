@@ -11,6 +11,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <ul class="sidebar-menu">
 
+            <li class="dropdown">
+              <a href="<?php echo base_url(); ?>" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+            </li>
+
             <?php if ($user['role_id'] == 1) { ?>
             <li class="dropdown <?php echo $this->uri->segment(1) == 'admin' && $this->uri->segment(2) == '' ? 'active' : ''; ?> <?php echo $this->uri->segment(1) == 'user' && $this->uri->segment(2) == '' ? 'active' : ''; ?>">
               <a href="<?php echo base_url();?>auth" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>

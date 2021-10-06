@@ -10,7 +10,7 @@ $this->load->view('_layout/header');
     </div>
     <div class="section-body">
       <div class="row">
-        <div class="col-8">
+        <div class="col-lg-8 col-sm-12">
           <div class="card profile-widget">
             <div class="profile-widget-header">                     
               <img alt="image" src="<?= base_url('assets/dashboard/img/profile/') . $profile['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
@@ -62,7 +62,7 @@ $this->load->view('_layout/header');
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-sm-12">
           <div class="card">
             <div class="card-body">
               <ul class="list-group">
