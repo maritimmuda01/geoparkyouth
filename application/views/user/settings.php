@@ -89,17 +89,17 @@ $this->load->view('_layout/header');
                           </div>
                           <div class="section-title mt-30">Geopark Information</div>
                           <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                               <label for="position">Geopark Country</label>
-                              <input type="text" class="form-control-plaintext" value="<?= $user['country']; ?>" readonly="">
+                              <input type="text" class="form-control-plaintext" value="<?= $country['nicename']; ?>" readonly="">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                               <label for="position">Geopark Type</label>
-                              <input type="text" class="form-control-plaintext" value="<?= $user['geotype']; ?>" readonly="">
+                              <input type="text" class="form-control-plaintext" value="<?= $geotype['name']; ?>" readonly="">
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-12">
                               <label for="position">Geopark Name</label>
-                              <input type="text" class="form-control-plaintext" value="<?= $user['geoname']; ?>" readonly="">
+                              <input type="text" class="form-control-plaintext" value="<?= $geoname['name']; ?>" readonly="">
                             </div>
                           </div>
                           <div class="section-title mt-30">Affiliances</div>

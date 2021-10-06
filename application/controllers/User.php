@@ -31,10 +31,12 @@ class User extends CI_Controller
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
-        // var_dump($data['notif']);
-        // exit();
         $data['profile'] = $this->db->get_where('user', ["id"=> $id])->row_array();
         $data['country'] = $this->db->get_where('country', ["iso"=> $data['profile']['country']])->row_array();
+        $data['geotype'] = $this->db->get_where('geotype', ["iso"=> $data['profile']['geotype']])->row_array();
+        $data['geoname'] = $this->db->get_where('geoname', ["iso"=> $data['profile']['geoname']])->row_array();
+        $data['total_articles_by_id'] = $this->db->get_where('articles', ['author_id' => $id])->num_rows();
+        $data['total_jobs_by_id'] = $this->db->get_where('articles', ['author_id' => $id])->num_rows();
 
         if (!$data['profile']) redirect('errors');
 
@@ -49,7 +51,9 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['title'] = 'Settings';
-        $data['dataCountry'] = $this->M_country->select_all();
+        $data['country'] = $this->db->get_where('country', ["iso"=> $data['user']['country']])->row_array();
+        $data['geotype'] = $this->db->get_where('geotype', ["iso"=> $data['user']['geotype']])->row_array();
+        $data['geoname'] = $this->db->get_where('geoname', ["iso"=> $data['user']['geoname']])->row_array();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
 
@@ -404,4 +408,6 @@ class User extends CI_Controller
         // exit();
         redirect('user/'.$data['notif']['type']);
     }
+
+    
 }

@@ -35,10 +35,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php if ($user['role_id'] == 1) { ?>
             <li class="menu-header">Administrator</li>
             <li class="dropdown <?php echo $this->uri->segment(2) == 'articles_management' ? 'active' : ''; ?>">
-              <a href="<?php echo base_url(); ?>admin/articles_management" class="nav-link" ><i class="fas fa-newspaper"></i> <span>Articles</span> <?php if ($pending_articles > 0) { echo '<span class="badge badge-warning">'.$pending_articles.'</span>'; } ?></a>
+              <a href="<?php echo base_url(); ?>admin/articles_management" class="nav-link <?php if ($pending_articles > 0) { echo 'beep beep-sidebar'; } ?>" ><i class="fas fa-newspaper"></i> <span>Articles</span></a>
             </li>
             <li class="dropdown <?php echo $this->uri->segment(2) == 'jobs_management' || $this->uri->segment(2) == 'jobs_edit' ? 'active' : ''; ?>">
-              <a href="<?php echo base_url(); ?>admin/jobs_management" class="nav-link" ><i class="fas fa-briefcase"></i> <span>Jobs</span> <?php if ($pending_jobs > 0) { echo '<span class="badge badge-warning">'.$pending_jobs.'</span>'; } ?></a>
+              <a href="<?php echo base_url(); ?>admin/jobs_management" class="nav-link <?php if ($pending_jobs > 0) { echo 'beep beep-sidebar'; } ?>" ><i class="fas fa-briefcase"></i> <span>Jobs</span> </a>
             </li>
             <!-- <li class="dropdown <?php echo $this->uri->segment(2) == 'categories' ? 'active' : ''; ?>">
               <a href="<?php echo base_url(); ?>admin/categories" class="nav-link" ><i class="fas fa-user"></i> <span>Categories</span></a>
