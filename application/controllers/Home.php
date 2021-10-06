@@ -10,7 +10,7 @@ class Home extends CI_Controller
         $this->load->model('M_articles');
         $this->load->model('M_country'); 
         $this->load->model('M_user');
-        $this->load->model('M_categories');    
+        $this->load->model('M_categories');  
     }
 
     public function index()
@@ -40,6 +40,24 @@ class Home extends CI_Controller
         $data['title'] = $data['dataArticles']['title'].' —';
 
         $this->load->view('home/single', $data);
+    }
+
+    public function about(){
+        $data['title'] = 'About —';
+
+        $this->load->view('home/about', $data);
+    }
+
+    public function maritimmuda(){
+        $data['title'] = 'Maritim Muda Nusantara —';
+
+        $this->load->view('home/maritimmuda', $data);
+    }
+
+    public function globalgeoparknetwork(){
+        $data['title'] = 'Global Geopark Network —';
+
+        $this->load->view('home/globalgeoparknetwork', $data);
     }
 
 }

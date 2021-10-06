@@ -46,10 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="navbar-dropdown nav-item ">
           <a class="nav-link" href="#">About</a>
           <div class="dropdown">
-            <a href="#">Global Geopark Youth Forum</a>
+            <a href="<?= base_url()?>home/about">Global Geopark Youth Forum</a>
             <a href="#">Geopark</a>
-            <a href="#">Global Geopark Network</a>
-            <a href="https://maritimmuda.id/" target="_blank">Maritim Muda</a>
+            <a href="<?= base_url()?>home/globalgeoparknetwork">Global Geopark Network</a>
+            <a href="<?= base_url()?>home/maritimmuda">Maritim Muda Nusantara</a>
           </div>
         </li>
         <li class="navbar-dropdown nav-item ">
