@@ -6,17 +6,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="section">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">geopark@geopark.com</p>
+        <div class="col-md-3 footer-text">
+          © <?= date('Y') ?> Global Geopark Youth Forum
         </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Lorem Ipsum</h5>
-          <p class="text-white paragraph-lg font-secondary">LoremIpsum</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">Indonesia</p>
+        <div class="col-md-6 footer-text">
+          © 2021 Global Geopark Youth Forum
+        </div>        
+        <div class="col-md-3 footer-text">
+          +62-812-1846-2281
+          <br>admin@maritimmuda.id
         </div>
       </div>
     </div>
