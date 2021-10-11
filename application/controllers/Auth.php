@@ -128,7 +128,7 @@ class Auth extends CI_Controller
                 'gender' => $this->input->post('gender'),
                 'dob' => '0000-00-00', 
                 'role_id' => 2,
-                'is_active' => 1,
+                'is_active' => 0,
                 'date_created' => time()
             ];
 

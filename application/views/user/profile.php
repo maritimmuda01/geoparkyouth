@@ -54,7 +54,7 @@ $this->load->view('_layout/header');
                 </a>
               <?php }
               if ($profile['linkedin'] != "") { ?>
-                <a href="https://linkedin.com/in/<?= $profile['linkedin']; ?>" class="btn btn-social-icon btn-linkedin" data-toggle="tooltip" title="<?= $profile['linkedin']; ?>" target="_blank">
+                <a href="https://linkedin.com/<?= $profile['linkedin']; ?>" class="btn btn-social-icon btn-linkedin" data-toggle="tooltip" title="<?= $profile['linkedin']; ?>" target="_blank">
                   <i class="fab fa-linkedin"></i>
                 </a>
               <?php } }

@@ -17,7 +17,7 @@ $this->load->view('_layout/header');
                     <div class="user-item">
                       <figure class="avatar mr-2 avatar-xl" style="background: #fff">
                         <img src="<?php echo base_url(); ?>assets/dashboard/img/profile/<?= $data->profile_picture ?>" style="padding-left: 0px; padding-right: 0px;">
-                        <img src="https://hatscripts.github.io/circle-flags/flags/<?= strtolower($data->country) ?>.svg" data-toggle="tooltip" title="<?=$data->nicename ?>" class="avatar-icon" style="height: 25px; width: 25px;">
+                        <!-- <img src="https://hatscripts.github.io/circle-flags/flags/<?= strtolower($data->country) ?>.svg" data-toggle="tooltip" title="<?=$data->nicename ?>" class="avatar-icon" style="height: 25px; width: 25px;"> -->
                       </figure>
                       <div class="user-details">
                         <div class="card-title user-name"><?= $data->name ?></div>

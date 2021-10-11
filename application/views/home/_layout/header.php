@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <header class="navigation <?php echo $this->uri->segment(2) != 'single' ? 'navigation-main' : ''; ?> fixed-top <?php echo $this->uri->segment(2) == 'single' ? 'nav-bg' : ''; ?>">
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="<?= base_url()?>"><img src="<?php echo base_url(); ?>assets/home/images/logo.png" alt="Myself"></a>
+    <a class="navbar-brand font-tertiary h3" href="<?= base_url()?>"><img src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="Myself"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a class="nav-link" href="#">Youth Forum</a>
           <div class="dropdown">
             <a href="#">UNESCO Global Geopark Youth Forum</a>
-            <a href="#">Indonesia</a>
+            <a href="#">Countries of Geopark</a>
           </div>
         </li>
         <li class="nav-item <?php echo $this->uri->segment(2) == 'media' ? 'active' : ''; ?>">
@@ -64,8 +64,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </li>
         <?php if ($this->session->userdata('email')) { ?>
         <li class="navbar-dropdown nav-item ">
-          <a class="nav-link" href="#">Hi, <?= substr($user['name'], 0, strpos($this->session->userdata('name'), ' ')) ?>!</a>
+          <?php if (!strpos($user['name'], ' ')) {
+            $nickname = $user['name'];
+          } else {
+            $nickname = $user['name'];
+          } ?>
+          <a class="nav-link" href="#">Hi, <?=$nickname?> !</a>
           <div class="dropdown">
+            <a href="<?= base_url(); ?>auth">Dashboard</a>
             <a href="<?= base_url(); ?>user/profile/<?= $this->session->userdata('id')?>">Profile</a>
             <a href="<?= base_url(); ?>user/settings">Settings</a>
             <a href="<?= base_url(); ?>auth/logout">Logout</a>

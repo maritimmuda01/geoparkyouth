@@ -25,7 +25,7 @@
                 <div class="card-group">
                     <div class="card mx-auto" style="width:40%">
                         <div class="card-body d-flex justify-content-center align-items-center">
-                            <img class="img-fluid" src="https://hub.maritimmuda.id/img/logo-300.png" alt="">
+                            <img class="img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="">
                         </div>
                     </div>
                     <div class="card p-4">
@@ -110,7 +110,7 @@
                 <a href="<?= base_url() ?>">Global Geopark Youth Forum</a>
                 <!-- <div class="mt-1">Maritim Muda Hub v2.0</div> -->
             </div>
-            <div class="col-md-2 mt-4 text-center text-md-left">
+            <!-- <div class="col-md-2 mt-4 text-center text-md-left">
                 <div class="text-muted">Didukung Oleh:</div>
                 <div class="mt-1">
                     <a href="https://maritim.go.id/" class="text-decoration-none" target="_blank" rel="noopener">
@@ -132,7 +132,7 @@
                         <span>Platform Digital Jejaring Nasional Pemuda Bidang Kemaritiman Pertama di Indonesia</span>
                     </div>
                 </a>
-            </div>
+            </div> -->
         </div>
     </footer>
 </div>

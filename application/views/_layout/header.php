@@ -134,3 +134,5 @@ if ($this->uri->segment(1) == "admin") {
   $this->load->view('_layout/navbar');
 }
 ?>
+
+

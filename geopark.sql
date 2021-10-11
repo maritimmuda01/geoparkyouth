@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2021 at 06:01 AM
+-- Generation Time: Oct 11, 2021 at 08:20 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.34
 
@@ -217,13 +217,6 @@ CREATE TABLE `notifications` (
   `is_read` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`id`, `text`, `type`, `type_color`, `type_icon`, `receiver_id`, `time`, `is_read`) VALUES
-(20, 'Your article <b>Test Artikel</b> has been posted. Waiting for the administrator\'s approval.', 'articles', 'primary', 'newspaper', 988, '2021-09-27 13:37:14', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -233,7 +226,6 @@ INSERT INTO `notifications` (`id`, `text`, `type`, `type_color`, `type_icon`, `r
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
-  `member_code` varchar(11) DEFAULT NULL,
   `email` varchar(128) NOT NULL,
   `profile_picture` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
@@ -257,9 +249,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `member_code`, `email`, `profile_picture`, `password`, `gender`, `dob`, `country`, `geotype`, `geoname`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Geopark Youth Forum', '', 'admin@admin.com', '42350c9fb84b7f15e1792308760944ba.jpg', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1999-02-03', 'ID', '', '', '', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', 'geopark', 'geopark', 'geopark', 1, 1, 1626859548),
-(989, 'PRaVdA MuHmAmMaD', NULL, 'pravdam329@gmail.com', 'def_male.png', '$2y$10$Ne0nFMR4aHmOy3o5xPeVu.NMwIut0G3POlWT56nmiu5ctviOcrQ1K', 'O', '0000-00-00', 'HU', NULL, NULL, '', '', '', '', '', '', 2, 1, 1632807847);
+INSERT INTO `user` (`id`, `name`, `email`, `profile_picture`, `password`, `gender`, `dob`, `country`, `geotype`, `geoname`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`) VALUES
+(1, 'Geopark Admin', 'admin@admin.com', 'def_male.png', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'O', '1999-02-03', 'ID', '', '', 'Administrator', 'Maritim Muda Nusantara', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', 'twitter', 'instagram', 'pravdam', 1, 1, 1626859548),
+(992, 'Geopark User', 'user@user.com', 'def_0.png', '$2y$10$Iq7rIGlsJC4lqMqa5zadRukzQBIxyL3HdNoiPLRaahrX3YP.onWZ6', 'M', '0000-00-00', 'ID', 'unescoglobalgeopark', 'rinjanilombok', '', '', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', '', '', '', 2, 1, 1633338459);
 
 -- --------------------------------------------------------
 
@@ -399,7 +391,11 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 (41, 'aksjd@aksmd.com', 'LfT2qkTL1KjGyrqdKjpOW8QI21DuANO4vHStLAWQ+XU=', 1631521585),
 (42, 'aasdAS@asddc.com', 'VxdVfbGm8lbs3ueA+zczfjPi9pMj6qan5sZmRVJc3H0=', 1631521634),
 (43, 'pravdam329@gmail.com', '9Wtl2uzIJ4RGjPVWO+1nIyEnDWrwJfxsCgAeuPnPDNQ=', 1632749776),
-(44, 'PRAVDAM329@GMAIL.COM', '/HMVFHhHUymiYkgAjtrtz5gKkb604YtCWRTlhJqqczA=', 1632807847);
+(44, 'PRAVDAM329@GMAIL.COM', '/HMVFHhHUymiYkgAjtrtz5gKkb604YtCWRTlhJqqczA=', 1632807847),
+(45, 'pravdam329@gmail.com', 'sk0I/2RFEZg1oPYazbuybyIfYVw7eTGJZrgpaOsM4MU=', 1633338287),
+(46, 'pravdam329@gmail.com', 'EhTrkdvvmNwBdXzCmwm/MUQKKy7stwB5gLfv3vICGKg=', 1633338336),
+(47, 'user@user.com', 'hB3LoFMyHibm9EEcLkcFlV0bdDElQgfArrmx0oEdv14=', 1633338459),
+(48, 'asjdas@amd.com', 'cMbgTujv6g5QJ7mjI1XA1PTHG52xPEei6wliPkkdnPk=', 1633933080);
 
 --
 -- Indexes for dumped tables
@@ -485,7 +481,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -503,13 +499,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=990;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=994;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -539,7 +535,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
