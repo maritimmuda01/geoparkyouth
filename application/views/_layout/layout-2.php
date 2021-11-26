@@ -127,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fas fa-bell"></i>
                   </div>
                   <div class="dropdown-item-desc">
-                    Welcome to Global Geopark Youth Forum template!
+                    Welcome to <?= $site_settings['title'] ?> template!
                     <div class="time">Yesterday</div>
                   </div>
                 </a>

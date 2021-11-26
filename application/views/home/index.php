@@ -7,11 +7,11 @@ $this->load->view('home/_layout/header');
   <div class="container">
     <div class="row">
       <div class="col-lg-11 mx-auto">
-        <h2 class="text-white font-tertiary text-center">Global Geopark Youth Forum</h2>
-        <h4 class="text-white font-tertiary text-center">Connecting Global Youth for Sustaining Geoparks</h4>
+        <h2 class="text-white font-tertiary text-center"><?= $site_settings['title'] ?></h2>
+        <h4 class="text-white font-tertiary text-center"><?= $site_settings['description'] ?></h4>
         <div class="text-center">
           <br>
-          <a href="about.html" class="btn btn-outline-primary btn-sm">Join Us</a>
+          <a href="<?=base_url()?>auth" class="btn btn-outline-primary btn-sm">Join Us</a>
         </div>
       </div>
     </div>
@@ -63,10 +63,7 @@ $this->load->view('home/_layout/header');
       </div>
       <div class="col-lg-10 mx-auto text-center">
         <p class="font-secondary paragraph-lg text-dark">
-          Maritim Muda Nusantara didirikan dengan fokus utama: <br>
-          Penyiapan SDM bidang kemaritiman yang profesional, beretika, berdedikasi, dan mampu mengedepankan kepentingan nasional<br>
-          Pengembangan IPTEK kemaritiman yang mutakhir, efektif, efisien, dan ramah lingkungan <br>
-          Penguatan budaya maritim
+          Geoparks Youth Hub is a platform to connect youths around the world for sustaining the Geoparks. It is powered by Indonesian Maritime Youths (Maritim Muda Nusantara) in collaboration with the Ministry of National Development Planning/National Development Planning Agency of Republic of Indonesia. We provide a digital communication portal for Geoparks youth across countries. We also provide information of Geoparks youth activities, events, and job vacancy.
         </p>
       </div>
     </div>
@@ -332,19 +329,19 @@ $this->load->view('home/_layout/header');
         <div class="col-lg-12 text-center">
           <h5 class="">Developed by</h5>
         </div>
-        <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/maritimmuda.png" alt="client-logo" target="_blank"></a>
+        <!-- <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/maritimmuda.png" alt="client-logo" target="_blank"></a -->>
       </div>
       <div class="col-lg-6">
         <div class="col-lg-12 text-center">
           <h5 class="">Supported by</h5>
         </div>
-        <a href="#" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/bappenas.png" alt="client-logo" target="_blank"></a>
+        <!-- <a href="#" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/bappenas.png" alt="client-logo" target="_blank"></a> -->
       </div>
       <div class="col-lg-3">
         <div class="col-lg-12 text-center">
           <h5 class="">In collaboration with</h5>
         </div>
-        <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="client-logo" target="_blank"></a>
+        <!-- <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="client-logo" target="_blank"></a> -->
       </div>
     </div>
   </div>

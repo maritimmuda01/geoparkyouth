@@ -33,7 +33,7 @@ $this->load->view('_layout/header');
               Already have an account? <a href="<?php echo base_url(); ?>auth">Login</a>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Global Geopark Youth Forum 2021
+              Copyright &copy; <?= $site_settings['title'] ?> 2021
             </div>
           </div>
         </div>

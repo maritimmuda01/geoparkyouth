@@ -64,7 +64,7 @@ $this->load->view('_layout/header');
               Don't have an account? <a href="<?php echo base_url(); ?>auth/registration">Create Account</a>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Global Geopark Youth Forum 2021
+              Copyright &copy; <?= $site_settings['title'] ?> 2021
             </div>
           </div>
         </div>

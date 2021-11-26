@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="main-wrapper container">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
-        <!-- <a href="<?php echo base_url(); ?>" class="navbar-brand sidebar-gone-hide">Global Geopark Youth Forum</a> -->
+        <!-- <a href="<?php echo base_url(); ?>" class="navbar-brand sidebar-gone-hide"><?= $site_settings['title'] ?></a> -->
         <!-- <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a> -->
         <div class="nav-collapse">
           <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
@@ -138,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <i class="fas fa-bell"></i>
                   </div>
                   <div class="dropdown-item-desc">
-                    Welcome to Global Geopark Youth Forum template!
+                    Welcome to <?= $site_settings['title'] ?> template!
                     <div class="time">Yesterday</div>
                   </div>
                 </a>

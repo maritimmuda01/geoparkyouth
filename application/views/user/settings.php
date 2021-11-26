@@ -6,8 +6,6 @@ $this->load->view('_layout/header');
 <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div> 
 <div class="main-content">
   <section class="section">
-    <div class="section-header">
-    </div>
     <div class="section-body">
       <div id="output-status"></div>
       <div class="row">

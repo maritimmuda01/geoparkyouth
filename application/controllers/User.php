@@ -19,6 +19,7 @@ class User extends CI_Controller
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         redirect('user/profile/'.$data['user']['id']);
     }
 
@@ -28,6 +29,7 @@ class User extends CI_Controller
         if (!isset($id)) redirect('errors');
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
@@ -49,6 +51,7 @@ class User extends CI_Controller
     public function settings()
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['title'] = 'Settings';
         $data['country'] = $this->db->get_where('country', ["iso"=> $data['user']['country']])->row_array();
@@ -64,6 +67,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Change Password';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
@@ -91,7 +95,7 @@ class User extends CI_Controller
             $this->load->library('upload', $config);
 
             if ( ! $this->upload->do_upload('profile_picture')){
-                    $this->session->set_flashdata('message', 'failed');
+                $this->session->set_flashdata('message', 'failed');
             }else{
 
                 $gbr = $this->upload->data();
@@ -107,44 +111,46 @@ class User extends CI_Controller
                 $config['new_image']= './assets/dashboard/img/profile/thumb'.$gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
- 
+                
 
                 $data['profile_picture']=$gbr['file_name'];
                 $sql = "UPDATE user SET profile_picture = '" .$data['profile_picture']. "' WHERE id='" .$data['id'] ."'";
                 $this->db->query($sql);
             }
         }
-                $this->form_validation->set_rules('name', 'Name', 'trim|required');
-                $this->form_validation->set_rules('twitter', 'Twitter', 'trim');
-                $this->form_validation->set_rules('instagram', 'Intagram', 'trim');
-                $this->form_validation->set_rules('linkedin', 'Linkedin', 'trim');
 
-                $name = ucwords(addslashes($data['name']));
-                $position = ucwords(addslashes($data['position']));
-                $company = ucwords(addslashes($data['company']));
-                $about = addslashes($data['about']);
-                $twitter = strtolower(addslashes($data['twitter']));
-                $instagram = strtolower(addslashes($data['instagram']));
-                $linkedin = strtolower(addslashes($data['linkedin']));
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('twitter', 'Twitter', 'trim');
+        $this->form_validation->set_rules('instagram', 'Intagram', 'trim');
+        $this->form_validation->set_rules('linkedin', 'Linkedin', 'trim');
 
-
-                $sql = "UPDATE user SET name='" .$name ."', gender='" .$data['gender'] ."', dob='" .$data['dob'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$twitter."', instagram='" .$instagram ."', linkedin='" .$linkedin ."' WHERE id='" .$data['id'] ."'";
+        $name = ucwords(addslashes($data['name']));
+        $position = ucwords(addslashes($data['position']));
+        $company = ucwords(addslashes($data['company']));
+        $about = addslashes($data['about']);
+        $twitter = strtolower(addslashes($data['twitter']));
+        $instagram = strtolower(addslashes($data['instagram']));
+        $linkedin = strtolower(addslashes($data['linkedin']));
 
 
-                if ($this->form_validation->run() == TRUE) {
-                    $this->db->query($sql);
-                    $this->session->set_flashdata('message', 'success');
-                    redirect("user/settings", $data);
-                }else {
-                    $this->session->set_flashdata('message', 'failed');
-                    redirect("user/settings", $data);
-                }
+        $sql = "UPDATE user SET name='" .$name ."', gender='" .$data['gender'] ."', dob='" .$data['dob'] ."', position='" .$position ."', company='" .$company ."', about='" .$about ."', twitter='" .$twitter."', instagram='" .$instagram ."', linkedin='" .$linkedin ."' WHERE id='" .$data['id'] ."'";
+
+
+        if ($this->form_validation->run() == TRUE) {
+            $this->db->query($sql);
+            $this->session->set_flashdata('message', 'success');
+            redirect("user/settings", $data);
+        }else {
+            $this->session->set_flashdata('message', 'failed');
+            redirect("user/settings", $data);
+        }
     }
 
     public function password_update()
     {
         $data['title'] = 'Change Password';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
 
         $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
@@ -187,6 +193,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Articles';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['dataArticles'] = $this->M_articles->select_published();
         $data['dataCategories'] = $this->M_categories->select_all();
@@ -202,6 +209,7 @@ class User extends CI_Controller
         $data['title'] = 'Write Articles';
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
@@ -231,7 +239,7 @@ class User extends CI_Controller
             $this->load->library('upload', $config);
 
             if ( ! $this->upload->do_upload('uploadArticles')){
-                    $this->session->set_flashdata('message', 'failed');
+                $this->session->set_flashdata('message', 'failed');
             }else{
 
                 $gbr = $this->upload->data();
@@ -263,13 +271,13 @@ class User extends CI_Controller
         $title = $this->input->post('title');
 
         $sql = [
-                'title'         => $title,
-                'content'       => $this->input->post('content'),
-                'author_id'     => $author['user']['id'],
-                'category_id'   => $this->input->post('category_id'),
-                'image'         => $image,
-                'is_published'  => $is_published,
-            ];
+            'title'         => $title,
+            'content'       => $this->input->post('content'),
+            'author_id'     => $author['user']['id'],
+            'category_id'   => $this->input->post('category_id'),
+            'image'         => $image,
+            'is_published'  => $is_published,
+        ];
 
         $this->db->insert('articles', $sql);
 
@@ -277,16 +285,16 @@ class User extends CI_Controller
             $text = "Your article <b>".$title."</b> has been posted. Waiting for the administrator's approval.";
 
             $sql = [
-                    'text'  => $text,
-                    'type'  => "articles",
-                    'type_color' => "primary",
-                    'type_icon' => "newspaper",
-                    'receiver_id' => $author['user']['id'],
-                    'is_read' => 0        
-                ];
+                'text'  => $text,
+                'type'  => "articles",
+                'type_color' => "primary",
+                'type_icon' => "newspaper",
+                'receiver_id' => $author['user']['id'],
+                'is_read' => 0        
+            ];
             $this->db->insert('notifications', $sql);  
         }
-         
+        
 
         if ($author['user']['role_id']==1) {  
             $this->session->set_flashdata('message', 'success');
@@ -300,6 +308,7 @@ class User extends CI_Controller
     public function find_user(){
         $data['title'] = 'Find Others';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['dataUser'] = $this->M_user->select_all(); 
         $data['pending_articles'] = $this->M_articles->pending_articles();
@@ -314,6 +323,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Jobs';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['dataJobs'] = $this->M_jobs->select_published();
         $data['pending_articles'] = $this->M_articles->pending_articles();
@@ -327,6 +337,7 @@ class User extends CI_Controller
         if (!isset($id)) redirect('errors');
         
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['single'] = $this->M_jobs->select_single($id);
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
@@ -343,6 +354,7 @@ class User extends CI_Controller
         $data['title'] = 'Write Jobs';
         $data['dataCategories'] = $this->M_categories->select_all();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
@@ -364,14 +376,14 @@ class User extends CI_Controller
         }
 
         $sql = [
-                'position'      => ucwords(addslashes($this->input->post('position'))),
-                'company'       => ucwords(addslashes($this->input->post('company'))),
-                'location'      => ucwords(addslashes($this->input->post('location'))),
-                'type'          => $this->input->post('type'),
-                'description'   => $this->input->post('description'),
-                'author_id'     => $author['user']['id'],
-                'is_published'  => $is_published
-            ];
+            'position'      => ucwords(addslashes($this->input->post('position'))),
+            'company'       => ucwords(addslashes($this->input->post('company'))),
+            'location'      => ucwords(addslashes($this->input->post('location'))),
+            'type'          => $this->input->post('type'),
+            'description'   => $this->input->post('description'),
+            'author_id'     => $author['user']['id'],
+            'is_published'  => $is_published
+        ];
 
         $this->db->insert('jobs', $sql);
 
@@ -379,13 +391,13 @@ class User extends CI_Controller
             $text = "Your job post has been posted. Waiting for the administrator's approval.";
 
             $sql = [
-                    'text'  => $text,
-                    'type'  => "jobs",
-                    'type_color' => "primary",
-                    'type_icon' => "briefcase",
-                    'receiver_id' => $author['user']['id'],
-                    'is_read' => 0        
-                ];
+                'text'  => $text,
+                'type'  => "jobs",
+                'type_color' => "primary",
+                'type_icon' => "briefcase",
+                'receiver_id' => $author['user']['id'],
+                'is_read' => 0        
+            ];
             $this->db->insert('notifications', $sql);  
         }
 

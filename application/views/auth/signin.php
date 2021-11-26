@@ -107,7 +107,7 @@
         <div class="row no-gutters align-items-center justify-content-center justify-content-md-between">
             <div class="col-md-4 mt-4 text-center text-md-left text-muted">
                 <span>Copyright © </span>
-                <a href="<?= base_url() ?>">Global Geopark Youth Forum</a>
+                <a href="<?= base_url() ?>"><?= $site_settings['title'] ?></a>
                 <!-- <div class="mt-1">Maritim Muda Hub v2.0</div> -->
             </div>
             <!-- <div class="col-md-2 mt-4 text-center text-md-left">

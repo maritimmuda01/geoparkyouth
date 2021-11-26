@@ -12,6 +12,7 @@ class Auth extends CI_Controller
 
     public function index()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         if ($this->session->userdata('email')) {
             // var_dump($this->session->userdata('role_id'));
             // exit();
@@ -37,6 +38,7 @@ class Auth extends CI_Controller
 
     private function _login()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
@@ -79,6 +81,7 @@ class Auth extends CI_Controller
 
     public function registration()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
 
         $data['dataCountry'] = $this->M_country->select_all();
         $data['dataType'] = $this->M_country->select_type();
@@ -153,6 +156,7 @@ class Auth extends CI_Controller
 
     private function _sendEmail($token, $type)
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $config = [
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -168,11 +172,11 @@ class Auth extends CI_Controller
 
         $this->email->initialize($config);
 
-        $this->email->from('geopark.mail@gmail.com', 'Global Geopark Youth Forum Mail');
+        $this->email->from('geopark.mail@gmail.com', ' Mail');
         $this->email->to($this->input->post('email'));
 
         if ($type == 'verify') {
-            $this->email->subject('Global Geopark Youth Forum Account Verification');
+            $this->email->subject('Account Verification');
             $this->email->message('Click this link to verify you account : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Activate</a>');
         } else if ($type == 'forgot') {
             $this->email->subject('Reset Password');
@@ -190,6 +194,7 @@ class Auth extends CI_Controller
 
     public function verify()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $email = $this->input->get('email');
         $token = $this->input->get('token');
 
@@ -228,6 +233,7 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
@@ -238,12 +244,14 @@ class Auth extends CI_Controller
 
     public function blocked()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
             $this->load->view('auth/blocked');
     }
 
 
     public function forgotPassword()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
         if ($this->form_validation->run() == false) {
@@ -276,6 +284,7 @@ class Auth extends CI_Controller
 
     public function resetPassword()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $email = $this->input->get('email');
         $token = $this->input->get('token');
 
@@ -300,6 +309,7 @@ class Auth extends CI_Controller
 
     public function changePassword()
     {
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
         if (!$this->session->userdata('reset_email')) {
             redirect('auth');
         }

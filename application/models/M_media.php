@@ -38,6 +38,7 @@ class M_media extends CI_Model {
 
 	public function total_media_by_id() {
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['site_settings'] = $this->db->get('site_settings')->row_array();
 		$id = $data['user']['id'];
 		$data = $this->db->query("SELECT id FROM media WHERE author_id = '{$id}'");
 		return $data->num_rows();

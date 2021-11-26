@@ -34,7 +34,7 @@ $this->load->view('_layout/header');
               </div>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Global Geopark Youth Forum 2021
+              Copyright &copy; <?= $site_settings['title'] ?> 2021
             </div>
           </div>
         </div>

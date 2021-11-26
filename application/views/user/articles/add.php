@@ -6,8 +6,6 @@ $this->load->view('_layout/header');
       <div class="main-content">
         <section class="section">
           <div class="section-body">
-            <div class="section-header">
-            </div>
             <div class="row">
               <div class="col-lg-8">
                 <div class="card">

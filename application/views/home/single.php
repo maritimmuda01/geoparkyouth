@@ -18,9 +18,9 @@ $this->load->view('home/_layout/header');
       <div class="col-lg-4">
         <div class="col-lg-12 mb-30">
           <article class="card shadow">
-            <img class="rounded card-img-top" src="images/blog/post-3.jpg" alt="post-thumb">
+            <img class="rounded card-img-top" src="https://asset.kompas.com/crops/QiGHikq1dkSW55J2DTNWGYdUoiQ=/0x0:800x533/750x500/data/photo/2019/10/11/5da0066539a8b.jpg" alt="post-thumb">
             <div class="card-body">
-              <h4 class="card-title"><a class="text-dark" href="blog-single.html">Title</a>
+              <h4 class="card-title"><a class="text-dark" href="blog-single.html">Example Article #2</a>
               </h4>
               <!-- <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                 incididunt ut labore et

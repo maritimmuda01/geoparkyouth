@@ -7,10 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
       <div class="row">
         <div class="col-md-3 footer-text">
-          © <?= date('Y') ?> Global Geopark Youth Forum
+          © <?= date('Y') ?> <?= $site_settings['title'] ?>
         </div>
         <div class="col-md-6 footer-text">
-          © 2021 Global Geopark Youth Forum
+          © 2021 <?= $site_settings['title'] ?>
         </div>        
         <div class="col-md-3 footer-text">
           +62-812-1846-2281

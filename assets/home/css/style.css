@@ -191,10 +191,15 @@ body {
   justify-content: center;
 }
 
-ol,
+ol {
+  list-style-type: lower-roman;
+  margin: 0px 0px 0px -20px;
+  line-height: 200%;
+}
 ul {
-  list-style-type: none;
-  margin: 0px;
+  list-style-type: circle;
+  margin: 0px 0px 0px -20px;
+  line-height: 200%;
 }
 
 img {

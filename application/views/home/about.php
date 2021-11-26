@@ -8,7 +8,7 @@ $this->load->view('home/_layout/header');
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="text-white font-tertiary">Global Geopark<br>Youth Forum</h2>
+        <h2 class="text-white font-tertiary">Geoparks Youth Hub</h2>
       </div>
     </div>
   </div>
@@ -27,21 +27,14 @@ $this->load->view('home/_layout/header');
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident.</p>
-        <p>Deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-          architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.</p>
+        <p>Geoparks Youth Hub is a platform to connect youths around the world for sustaining the Geoparks. It is powered by Indonesian Maritime Youths (Maritim Muda Nusantara) in collaboration with the Ministry of National Development Planning/National Development Planning Agency of Republic of Indonesia. We provide a digital communication portal for Geoparks youth across countries. We also provide information of Geoparks youth activities, events, and job vacancy.</p>
+        <p>
       </div>
       <div class="col-md-4 text-center drag-lg-top">
         <div class="shadow-down mb-4">
-          <img src="<?= base_url()?>assets/home/images/about/author.jpg" alt="author" class="img-fluid w-100 rounded-lg border-thick border-white">
+          <img src="https://phinemo.com/wp-content/uploads/2018/04/geopark-ciletuh-3-1.jpg" alt="author" class="img-fluid w-100 rounded-lg border-thick border-white">
         </div>
-        <img src="<?= base_url()?>assets/home/images/about/signature.png" alt="signature" class="img-fluid logo-about">
-        <h4>Global Geopark Youth Forum</h4>
+        <h4><?= $site_settings['title'] ?></h4>
       </div>
     </div>
   </div>

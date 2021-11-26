@@ -44,11 +44,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="dropdown <?php echo $this->uri->segment(2) == 'jobs_management' || $this->uri->segment(2) == 'jobs_edit' ? 'active' : ''; ?>">
               <a href="<?php echo base_url(); ?>admin/jobs_management" class="nav-link <?php if ($pending_jobs > 0) { echo 'beep beep-sidebar'; } ?>" ><i class="fas fa-briefcase"></i> <span>Jobs</span> </a>
             </li>
-            <!-- <li class="dropdown <?php echo $this->uri->segment(2) == 'categories' ? 'active' : ''; ?>">
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'categories' ? 'active' : ''; ?>">
               <a href="<?php echo base_url(); ?>admin/categories" class="nav-link" ><i class="fas fa-user"></i> <span>Categories</span></a>
-            </li> -->
+            </li>
             <li class="dropdown <?php echo $this->uri->segment(2) == 'user_management' || $this->uri->segment(2) == 'user_edit' ? 'active' : ''; ?>">
               <a href="<?php echo base_url(); ?>admin/user_management" class="nav-link" ><i class="fas fa-user-edit"></i> <span>User Management</span></a>
+            </li>
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'pages' ? 'active' : ''; ?>">
+              <a href="<?php echo base_url(); ?>admin/pages" class="nav-link" ><i class="fas fa-globe"></i> <span>Pages</span></a>
+            </li>
+            <li class="dropdown <?php echo $this->uri->segment(2) == 'site_settings' ? 'active' : ''; ?>">
+              <a href="<?php echo base_url(); ?>admin/site_settings" class="nav-link" ><i class="fas fa-globe"></i> <span>Site Settings</span></a>
             </li>
             <?php } ?>
           </ul>
