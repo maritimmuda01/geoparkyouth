@@ -62,5 +62,12 @@ class M_country extends CI_Model {
 
 		return $data->result();
 	}
+
+	public function select_geoname_country($id) {
+
+		$data = $this->db->query("SELECT geoname.iso as iso, geoname.geotype_id as geotype_id, geoname.country_id as country_id, geoname.name as name, country.iso as country_iso, country.nicename as nicename FROM geoname, country WHERE geoname.country_id = country.iso AND geoname.country_id = '{$id}'");
+
+		return $data->result();
+	}
 }
 ?>

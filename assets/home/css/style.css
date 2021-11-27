@@ -787,12 +787,14 @@ text-overflow: ellipsis;
 }
 
 .hover-wrapper img {
+  filter: brightness(50%);
   transition: .3s ease;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
 .hover-wrapper:hover img {
+  filter: brightness(100%);
   -webkit-transform: scale(1);
           transform: scale(1);
 }

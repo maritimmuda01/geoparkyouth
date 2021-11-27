@@ -11,7 +11,7 @@ $this->load->view('home/_layout/header');
         <h4 class="text-white font-tertiary text-center"><?= $site_settings['description'] ?></h4>
         <div class="text-center">
           <br>
-          <a href="<?=base_url()?>auth" class="btn btn-outline-primary btn-sm">Join Us</a>
+          <a href="<?=base_url()?>auth/registration" class="btn btn-outline-primary btn-sm">Join Us</a>
         </div>
       </div>
     </div>

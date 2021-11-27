@@ -16,9 +16,11 @@ class Home extends CI_Controller
 
     public function index()
     {
+
+
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
-        $data['dataPageYouth Forum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
+        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['title'] = '';
 
@@ -27,6 +29,9 @@ class Home extends CI_Controller
 
     public function media()
     {
+        
+        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
+        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['title'] = 'Media —';
@@ -37,6 +42,9 @@ class Home extends CI_Controller
     }
 
     public function single($id = null){
+
+        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
+        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
@@ -52,47 +60,10 @@ class Home extends CI_Controller
         $this->load->view('home/single', $data);
     }
 
-    public function about(){
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] = 'About —';
-
-        $this->load->view('home/about', $data);
-    }
-
-    public function maritimmuda(){
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] = 'Maritim Muda Nusantara —';
-
-        $this->load->view('home/maritimmuda', $data);
-    }
-
-    public function globalgeoparknetwork(){
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] = 'Global Geopark Network —';
-
-        $this->load->view('home/globalgeoparknetwork', $data);
-    }
-
-    public function geopark(){
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] = 'Geopark —';
-
-        $this->load->view('home/geopark', $data);
-    }
-
-    public function unescoggyf(){
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['title'] = 'UNESCO Global Geoparks Youth Forum —';
-
-        $this->load->view('home/unescoggyf', $data);
-    }
-
     public function pages($id = null){
+
+        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
+        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
@@ -106,6 +77,42 @@ class Home extends CI_Controller
         $data['title'] = $data['dataPages']['title'].' —';
 
         $this->load->view('home/page', $data);
+    }
+
+    public function countries(){
+
+        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
+        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+        
+        $data['dataCountries'] = $this->M_country->select_all();
+
+        $data['title'] = 'Countries of Geopark —';
+
+        $this->load->view('home/countries', $data);
+    }
+
+    public function geoname($id = null){
+
+        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
+        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+        
+        if (!isset($id)) redirect('errors');
+        
+        $data['dataGeoname'] = $this->M_country->select_geoname_country($id);
+        
+        if (!$data['dataGeoname']) redirect('errors');
+
+        $data['country_by_id'] = $this->db->get_where('country', ['iso' => $id])->row_array();
+
+        $data['title'] = $data['country_by_id']['nicename'].' —';
+
+        $this->load->view('home/geoname', $data);
     }
 
 }

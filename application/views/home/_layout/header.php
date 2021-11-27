@@ -50,17 +50,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             foreach ($dataPageAbout as $data) { ?>
               <a href="<?= base_url()?>home/pages/<?= $data->id ?>"><?= $data->title ?></a>
             <?php } ?>
-            <a href="<?= base_url()?>home/about">Geoparks Youth Hub</a>
+            <!-- <a href="<?= base_url()?>home/about">Geoparks Youth Hub</a>
             <a href="<?= base_url()?>home/geopark">Geopark</a>
             <a href="<?= base_url()?>home/globalgeoparknetwork">Global Geopark Network</a>
-            <a href="<?= base_url()?>home/maritimmuda">Maritim Muda Nusantara</a>
+            <a href="<?= base_url()?>home/maritimmuda">Maritim Muda Nusantara</a> -->
           </div>
         </li>
         <li class="navbar-dropdown nav-item ">
           <a class="nav-link" href="#">Youth Forum</a>
           <div class="dropdown">
-            <a href="<?= base_url()?>home/unescoggyf">UNESCO Global Geoparks Youth Forum</a>
-            <a href="#">Countries of Geopark</a>
+            <?php             
+            foreach ($dataPageYouthForum as $data) { ?>
+              <a href="<?= base_url()?>home/pages/<?= $data->id ?>"><?= $data->title ?></a>
+            <?php } ?>
+
+            <a href="<?= base_url()?>home/countries">Countries of Geopark</a>
           </div>
         </li>
         <li class="nav-item <?php echo $this->uri->segment(2) == 'media' ? 'active' : ''; ?>">
