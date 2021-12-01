@@ -11,7 +11,7 @@ $this->load->view('_layout/header');
               <div class="col-12 col-sm-12 col-lg-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>Articles</h4>
+                    <h4>My Articles</h4>
                     <div class="card-header-action">
                       <a href="<?= base_url() ?>user/write_articles" class="btn btn-info">
                         <i class="far fa-edit"></i> Write New
@@ -35,24 +35,14 @@ $this->load->view('_layout/header');
                               </div>
                             </div>
                           </div>
-                          <div class="form-group col-lg-2">
-                            <label class="form-label">Author's Country</label>
-                            <select class="form-control" id="country">
-                              <option value="">All</option>
-                              <?php foreach ($dataCountry as $data) { 
-                                echo "<option value='$data->iso'>$data->nicename</option>";
-                               } ?>
-                            </select>
-                          </div>
                         </div>
                         <div class="table-responsive">
                           <table id="user-articles" class="display table table-striped">
                             <thead>                                 
                               <tr>
                                 <th>Title</th>
-                                <th>Author</th>
                                 <th>Category</th>
-                                <th>Date</th>
+                                <th>Created Date</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -72,19 +62,15 @@ $this->load->view('_layout/header');
                                ?>                                
                               <tr>
                                 <td class="align-middle">
+                                  <img src="<?= base_url()?>assets/dashboard/img/articles/<?= $data->image?>" class="img-fluid rounded" style="padding-right: 20px;">
                                   <a href="<?php echo base_url(); ?>home/single/<?= $data->id?>" target="_blank"><?= $data->title ?></a>
-                                </td>
-                                <td class="align-middle">
-                                  <a href="<?php echo base_url(); ?>user/profile/<?= $data->author_id?>">
-                                    <div class="d-inline-block ml-1"><?= $data->author ?></div>
-                                  </a>
                                 </td>
                                 <td class="align-middle"><?= $data->category_attr?></td>
                                 <td class="align-middle">
                                   <?= date("d F Y H:i",strtotime($data->date)) ?>
                                 </td>
-                                <td>
-                                  <?= $data->author_country; ?>
+                                <td class="align-middle">
+                                  <div class="badge badge-<?= $color ?>"><?= $status ?></div>
                                 </td>
                               </tr>
                             <?php } ?>

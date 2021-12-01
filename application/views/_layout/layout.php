@@ -119,11 +119,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="d-sm-none d-lg-inline-block"></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title"><?= $user['name']?></div>
+              <a href="<?php echo base_url(); ?>" class="dropdown-item has-icon">
+                <i class="fa fa-globe"></i> Main Website
+              </a>
               <a href="<?php echo base_url(); ?>user/profile/<?= $user['id']?>" class="dropdown-item has-icon">
-                <i class="far fa-user"></i> Profile
+                <i class="fa fa-user"></i> Profile
               </a>
               <a href="<?php echo base_url(); ?>user/settings" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
+                <i class="fa fa-cog"></i> Settings
               </a>
               <div class="dropdown-divider"></div>
               <a href="<?= base_url('auth/logout'); ?>" class="dropdown-item has-icon text-danger">

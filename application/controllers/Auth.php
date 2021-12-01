@@ -126,7 +126,6 @@ class Auth extends CI_Controller
                 'profile_picture' => $image,
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'country' => $country,
-                'geotype' => $this->input->post('geotype'),
                 'geoname' => $this->input->post('geoname'),
                 'gender' => $this->input->post('gender'),
                 'dob' => '0000-00-00', 

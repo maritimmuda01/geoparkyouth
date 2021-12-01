@@ -10,6 +10,20 @@ class M_jobs extends CI_Model {
 		return $data->result();
 	}
 
+	public function select_by_user_published($id) {
+
+		$data = $this->db->query("SELECT * FROM jobs WHERE author_id = '{$id}' AND is_published = 1");
+
+		return $data->result();
+	}
+
+	public function select_by_user($id) {
+
+		$data = $this->db->query("SELECT * FROM jobs WHERE author_id = '{$id}' ");
+
+		return $data->result();
+	}
+
 	public function select_published() {
 
 		$data = $this->db->query('SELECT jobs.id as id, jobs.position as position, jobs.company as company, jobs.location as location, jobs.type as type, jobs.description as description, jobs.author_id as author_id, jobs.created_date as created_date, jobs.is_published as is_published, user.id as user_id, user.name as author FROM jobs, user WHERE jobs.author_id = user.id AND jobs.is_published = 1 ORDER BY jobs.created_date DESC');

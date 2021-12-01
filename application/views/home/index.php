@@ -329,13 +329,13 @@ $this->load->view('home/_layout/header');
         <div class="col-lg-12 text-center">
           <h5 class="">Developed by</h5>
         </div>
-        <!-- <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/maritimmuda.png" alt="client-logo" target="_blank"></a -->>
+        <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/site_logo/maritim.png" alt="client-logo" target="_blank"></a>
       </div>
       <div class="col-lg-6">
         <div class="col-lg-12 text-center">
           <h5 class="">Supported by</h5>
         </div>
-        <!-- <a href="#" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/bappenas.png" alt="client-logo" target="_blank"></a> -->
+        <a href="#" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/site_logo/bappenas.png" alt="client-logo" target="_blank"></a>
       </div>
       <div class="col-lg-3">
         <div class="col-lg-12 text-center">

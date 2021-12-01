@@ -6,8 +6,7 @@ $this->load->view('_layout/header');
       <div class="main-content">
         <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
         <section class="section">
-          <div class="section-header">
-          </div>
+          
 
           <div class="section-body">
             <div class="row">
@@ -25,7 +24,7 @@ $this->load->view('_layout/header');
                     <div class="tab-content" id="myTabContent">
                       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="form-row">
-                          <div class="form-group col-lg-8">
+                          <div class="form-group col-lg-7">
                             <label class="form-label">Filter Categories</label>
                             <div class="selectgroup selectgroup-pills panel-body " id="category">
                               <div class="selectgroup-item">
@@ -38,9 +37,9 @@ $this->load->view('_layout/header');
                               </div>
                             </div>
                           </div>
-                          <div class="form-group col-lg-2">
+                          <div class="form-group col-lg-3">
                             <label class="form-label">Author's Country</label>
-                            <select class="form-control" id="country">
+                            <select class="form-control select2" id="country">
                               <option value="">All</option>
                               <?php foreach ($dataCountry as $data) { 
                                 echo "<option value='$data->iso'>$data->nicename</option>";

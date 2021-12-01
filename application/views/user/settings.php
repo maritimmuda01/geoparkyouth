@@ -92,10 +92,6 @@ $this->load->view('_layout/header');
                               <input type="text" class="form-control-plaintext" value="<?= $country['nicename']; ?>" readonly="">
                             </div>
                             <div class="form-group col-md-6">
-                              <label for="position">Geopark Type</label>
-                              <input type="text" class="form-control-plaintext" value="<?= $geotype['name']; ?>" readonly="">
-                            </div>
-                            <div class="form-group col-md-12">
                               <label for="position">Geopark Name</label>
                               <input type="text" class="form-control-plaintext" value="<?= $geoname['name']; ?>" readonly="">
                             </div>

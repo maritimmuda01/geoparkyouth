@@ -64,7 +64,7 @@ $this->load->view('_layout/header');
                   <div class=row>
                     <div class="form-group col-4">
                       <label for="country">Geopark Country</label>
-                      <select name="country" id="mark" class="form-control">
+                      <select name="country" id="mark" class="form-control select2">
                         <option value="">Select Country</option>
                         <?php foreach ($dataCountry as $data) { 
                           echo "<option value='$data->iso'>$data->nicename</option>";
@@ -77,18 +77,18 @@ $this->load->view('_layout/header');
                     <div class="form-group col-4">
                       <label for="geotype">Geopark Type</label>
                       <select name="geotype" id="series" class="form-control">
-                        <option value=""></option>
+                        <option></option>
                         <?php foreach ($dataType as $data) {
-                         echo "<option value='$data->iso' data-chained='$data->country_id'>$data->name</option>";
+                         echo "<option value='$data->iso$data->country_id' data-chained='$data->country_id'>$data->name</option>";
                         } ?>
                       </select>
                     </div>
                     <div class="form-group col-4">
                       <label for="geoname">Geopark Name</label>
-                      <select name="geoname" id="engine" class="form-control">
+                      <select name="geoname" id="engine" class="form-control select2">
                         <option value=""></option>
                         <?php foreach ($dataName as $data) {
-                         echo "<option value='$data->iso' data-chained='$data->geotype_id'>$data->name</option>";
+                         echo "<option value='$data->iso' data-chained='$data->geotype_id$data->country_id'>$data->name</option>";
                         } ?>
                       </select>
                     </div>
@@ -216,10 +216,6 @@ $this->load->view('_layout/header');
     $.fn.chained.defaults = {};
 
 })(window.jQuery || window.Zepto, window, document);
-
-
-
-
 
 
 // MY CODE

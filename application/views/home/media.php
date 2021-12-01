@@ -44,6 +44,7 @@ $this->load->view('home/_layout/header');
       <?php foreach ($dataArticles as $data) { ?>
         <div class="col-lg-4 col-sm-6 mb-4 shuffle-item" data-groups="[&quot;<?= $data->category_name ?>&quot;]">
         <article class="card shadow">
+          <img class="rounded card-img-top" src="<?= base_url() ?>assets/dashboard/img/articles/<?= $data->image ?>" alt="post-thumb">
           <div class="card-body">
             <p class="cars-text thumbnail-text"><span class="text-primary"><?= $data->category_attr ?></span> • <span class="text-primary"><?= date("d F Y",strtotime($data->date)) ?></span></p>
             <h4 class="card-title"><a class="text-dark" href="<?= base_url(); ?>home/single/<?= $data->id ?>"><?= $data->title ?></a>

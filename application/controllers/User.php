@@ -35,10 +35,20 @@ class User extends CI_Controller
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
         $data['profile'] = $this->db->get_where('user', ["id"=> $id])->row_array();
         $data['country'] = $this->db->get_where('country', ["iso"=> $data['profile']['country']])->row_array();
-        $data['geotype'] = $this->db->get_where('geotype', ["iso"=> $data['profile']['geotype']])->row_array();
         $data['geoname'] = $this->db->get_where('geoname', ["iso"=> $data['profile']['geoname']])->row_array();
         $data['total_articles_by_id'] = $this->db->get_where('articles', ['author_id' => $id])->num_rows();
         $data['total_jobs_by_id'] = $this->db->get_where('articles', ['author_id' => $id])->num_rows();
+        
+        $data['dataCategories'] = $this->M_categories->select_all();
+        $data['dataCountry'] = $this->M_country->select_all();
+
+        if ($id != $this->session->userdata('id')) {
+            $data['dataArticles'] = $this->M_articles->select_by_user_published($id);
+            $data['dataJobs'] = $this->M_jobs->select_by_user_published($id);
+        } else if ($id = $this->session->userdata('id')) {
+            $data['dataArticles'] = $this->M_articles->select_by_user($id);
+            $data['dataJobs'] = $this->M_jobs->select_by_user($id);
+        }
 
         if (!$data['profile']) redirect('errors');
 
@@ -55,7 +65,6 @@ class User extends CI_Controller
         $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['title'] = 'Settings';
         $data['country'] = $this->db->get_where('country', ["iso"=> $data['user']['country']])->row_array();
-        $data['geotype'] = $this->db->get_where('geotype', ["iso"=> $data['user']['geotype']])->row_array();
         $data['geoname'] = $this->db->get_where('geoname', ["iso"=> $data['user']['geoname']])->row_array();
         $data['pending_articles'] = $this->M_articles->pending_articles();
         $data['pending_jobs'] = $this->M_jobs->pending_jobs();
@@ -189,21 +198,6 @@ class User extends CI_Controller
 
     // Articles
 
-    public function articles()
-    {
-        $data['title'] = 'Articles';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
-        $data['dataArticles'] = $this->M_articles->select_published();
-        $data['dataCategories'] = $this->M_categories->select_all();
-        $data['dataCountry'] = $this->M_country->select_all();
-        $data['pending_articles'] = $this->M_articles->pending_articles();
-        $data['pending_jobs'] = $this->M_jobs->pending_jobs();
-
-        $this->load->view('user/articles/index', $data);
-    }
-
     public function write_articles()
     {
         $data['title'] = 'Write Articles';
@@ -335,8 +329,8 @@ class User extends CI_Controller
     public function jobs_single($id = null)
     {
         if (!isset($id)) redirect('errors');
-        
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['notif'] = $this->db->order_by('time', 'DESC')->get_where('notifications', ['receiver_id' => $this->session->userdata('id')])->result();
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
         $data['single'] = $this->M_jobs->select_single($id);
         $data['pending_articles'] = $this->M_articles->pending_articles();

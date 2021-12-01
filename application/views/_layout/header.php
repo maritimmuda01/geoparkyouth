@@ -7,6 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title><?php echo $title; ?> — <?= $site_settings['title'] ?></title>
+  <link rel="shortcut icon" type="image/jpg" href="<?= base_url(); ?>assets/home/images/site_logo/<?= $site_settings['logo'] ?>" >
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dashboard/modules/bootstrap/css/bootstrap.min.css">

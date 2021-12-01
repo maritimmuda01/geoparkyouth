@@ -88,7 +88,7 @@ class Admin extends CI_Controller
     public function jobs_management()
     {
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['title'] = 'jobs Management';
+        $data['title'] = 'Jobs Management';
         $data['user'] = $this->db->get_where('user, country', ['user.email' => $this->session->userdata('email')], ['user.country' => 'country.iso'])->row_array();
         $data['dataJobs'] = $this->M_jobs->select_all();
         $data['dataCategories'] = $this->M_categories->select_all();
@@ -382,7 +382,7 @@ class Admin extends CI_Controller
         {
 
             $config['upload_path']          = './assets/home/images/site_logo/';
-            $config['allowed_types']        = 'jpg|png|jpeg';
+            $config['allowed_types']        = 'jpg|png|jpeg|svg';
             $config['overwrite']            = TRUE;
             $config['remove_spaces']        = TRUE;
             $config['encrypt_name']         = TRUE;

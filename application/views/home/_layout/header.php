@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
   <meta charset="utf-8">
   <title><?= $title ?> <?= $site_settings['title'] ?></title>
+  <link rel="shortcut icon" type="image/jpg" href="<?= base_url(); ?>assets/home/images/site_logo/<?= $site_settings['logo'] ?>" >
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a href="<?= base_url()?>home/pages/<?= $data->id ?>"><?= $data->title ?></a>
             <?php } ?>
 
-            <a href="<?= base_url()?>home/countries">Countries of Geopark</a>
+            <a href="<?= base_url()?>home/countries">List per Country</a>
           </div>
         </li>
         <li class="nav-item <?php echo $this->uri->segment(2) == 'media' ? 'active' : ''; ?>">

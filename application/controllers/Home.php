@@ -52,6 +52,7 @@ class Home extends CI_Controller
         if (!isset($id)) redirect('errors');
         
         $data['dataArticles'] = $this->M_articles->select_single($id);
+        $data['dataArticlesLatest'] = $this->M_articles->select_published();
         
         if (!$data['dataArticles']) redirect('errors');
 
@@ -81,15 +82,15 @@ class Home extends CI_Controller
 
     public function countries(){
 
-        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
+        
         $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
         
-        $data['dataCountries'] = $this->M_country->select_all();
+        $data['dataRegion'] = $this->M_country->select_region();
 
-        $data['title'] = 'Countries of Geopark —';
+        $data['title'] = 'List per Country —';
 
         $this->load->view('home/countries', $data);
     }
@@ -103,6 +104,8 @@ class Home extends CI_Controller
         $data['site_settings'] = $this->db->get('site_settings')->row_array();
         
         if (!isset($id)) redirect('errors');
+
+        $data['dataGeotype'] = $this->M_country->select_type();
         
         $data['dataGeoname'] = $this->M_country->select_geoname_country($id);
         

@@ -8,7 +8,7 @@ $this->load->view('home/_layout/header');
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="text-white font-tertiary"><?= $dataPages['title']?></h2>
+        <h2 class="text-white font-tertiary" style="-webkit-line-clamp: 2; width: 60%;"><?= $dataPages['title']?></h2>
       </div>
     </div>
   </div>
@@ -30,10 +30,10 @@ $this->load->view('home/_layout/header');
         <?= $dataPages['content']?>
       </div>
       <div class="col-md-4 text-center drag-lg-top">
-        <div class="shadow-down mb-4">
-          <img src="https://cdn.idntimes.com/content-images/post/20180129/gunungrinjanilombok6-1-8cd9c00301a1c1851a47241d7eea67f6.jpg" alt="author" class="img-fluid w-100 rounded-lg border-thick border-white">
+        <div class="position-relative rounded hover-wrapper">
+          <img src="<?= base_url()?>assets/home/images/<?= $dataPages['image']?>" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
         </div>
-        <h4><?= $dataPages['title']?></h4>
+        <h4 class="mt-5"><?= $dataPages['title']?></h4>
       </div>
     </div>
   </div>

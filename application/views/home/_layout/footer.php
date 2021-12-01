@@ -13,8 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           © 2021 <?= $site_settings['title'] ?>
         </div>        
         <div class="col-md-3 footer-text">
-          +62-812-1846-2281
-          <br>admin@maritimmuda.id
+          © 2021 <?= $site_settings['title'] ?>
         </div>
       </div>
     </div>

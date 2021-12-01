@@ -41,7 +41,6 @@ $this->load->view('home/_layout/header');
       </div>
       <div class="col-md-4 text-center drag-lg-top">
         <div class="shadow-down mb-4">
-          <img src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg?cs=srgb&dl=pexels-asad-photo-maldives-1320684.jpg&fm=jpg" alt="author" class="img-fluid w-100 rounded-lg border-thick border-white">
         </div>
         <img src="<?= base_url()?>assets/home/images/logo/maritimmuda.png" alt="signature" class="img-fluid mt-5 logo-about">
         <h4 class="mt-5">Maritim Muda Nusantara Website</h4>

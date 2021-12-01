@@ -16,19 +16,24 @@ $this->load->view('home/_layout/header');
         </div>
       </div>
       <div class="col-lg-4">
+        <?php $i=1; foreach ($dataArticlesLatest as $data) { 
+          if ($data->id != $dataArticles['id']) { ?>
         <div class="col-lg-12 mb-30">
           <article class="card shadow">
-            <img class="rounded card-img-top" src="https://asset.kompas.com/crops/QiGHikq1dkSW55J2DTNWGYdUoiQ=/0x0:800x533/750x500/data/photo/2019/10/11/5da0066539a8b.jpg" alt="post-thumb">
+            <img class="rounded card-img-top" src="<?= base_url()?>assets/dashboard/img/articles/<?= $data->image?>" alt="post-thumb">
             <div class="card-body">
-              <h4 class="card-title"><a class="text-dark" href="blog-single.html">Example Article #2</a>
+              <h4 class="card-title"><a class="text-dark" href="<?= base_url(); ?>home/single/<?= $data->id ?>"><?= $data->title ?></a>
               </h4>
-              <!-- <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                incididunt ut labore et
-                dolore magna aliqua.</p> -->
-              <a href="blog-single.html" class="btn btn-xs btn-primary">Read More</a>
+              <div style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;" class="mb-4">
+                <?= $data->content ?>
+                </div>
+              <a href="<?= base_url(); ?>home/single/<?= $data->id ?>" class="btn btn-xs btn-primary">Read More</a>
             </div>
           </article>
         </div>
+        <?php $i++; } if ($i > 3) break; {
+          // code...
+        } } ?>
       </div>
     </div>
   </div>

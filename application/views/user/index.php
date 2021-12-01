@@ -5,8 +5,7 @@ $this->load->view('_layout/header');
 <!-- Main Content -->
       <div class="main-content">
         <section class="section">
-          <div class="section-header">
-          </div>
+          
           <div class="section-body">
             <div class="row">
               <div class="col-12 col-md-4 col-lg-4">
