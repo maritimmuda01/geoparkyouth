@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 02:09 PM
+-- Generation Time: Dec 11, 2021 at 03:44 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.34
 
@@ -245,6 +245,18 @@ INSERT INTO `articles` (`id`, `title`, `content`, `image`, `author_id`, `categor
 (333, 'Cobra Woman', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\r\n\r\nFusce consequat. Nulla nisl. Nunc nisl.\r\n\r\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 'default.jpg', 1023, 3, '2020-12-14 17:00:00', 1),
 (334, 'Story of Marie and Julien, The (Histoire de Marie et Julien)', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.\r\n\r\nAenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\r\n\r\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 'default.jpg', 1006, 2, '2021-04-26 17:00:00', 1),
 (335, 'All the Light in the Sky', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\r\n\r\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\r\n\r\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\r\n\r\nProin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\r\n\r\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 'default.jpg', 1025, 1, '2021-01-20 17:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `block_user`
+--
+
+CREATE TABLE `block_user` (
+  `blocked_from` varchar(10) COLLATE utf8mb4_bin NOT NULL,
+  `blocked_to` varchar(10) COLLATE utf8mb4_bin NOT NULL,
+  `time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- --------------------------------------------------------
 
@@ -732,6 +744,7 @@ INSERT INTO `site_settings` (`id`, `title`, `description`, `logo`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
+  `member_id` int(128) NOT NULL,
   `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `profile_picture` varchar(256) NOT NULL,
@@ -748,65 +761,18 @@ CREATE TABLE `user` (
   `linkedin` varchar(128) NOT NULL,
   `role_id` int(1) NOT NULL,
   `is_active` int(1) NOT NULL,
-  `date_created` int(11) NOT NULL
+  `date_created` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `profile_picture`, `password`, `gender`, `dob`, `country`, `geoname`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'GYH Admin', 'admin@admin.com', 'def_0.png', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1999-02-03', 'ID', 'rinjanilombok', 'Administrator', 'Geoparks Youth Hub', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in', 'twitter', 'instagram', 'pravdam', 1, 1, 1626859548),
-(994, 'Rozina Rogan', 'rrogan0@apple.com', 'def_female.png', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1997-02-21', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(995, 'Vicky Prott', 'vprott1@mashable.com', 'def_female.png', 'u2yd1025FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-01-13', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(996, 'Udall Maud', 'umaud2@github.com', 'def_male.png', '62yb10q5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1992-10-29', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(997, 'Melessa Fogel', 'mfogel3@vistaprint.com', 'def_female.png', 'l2y210v5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1997-12-18', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(998, 'Cole Circuitt', 'ccircuitt4@howstuffworks.com', 'def_male.png', '82yk10j5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1994-09-07', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(999, 'Drusie McGuiness', 'dmcguiness5@hatena.ne.jp', 'def_female.png', 'k2yf10k5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-09-08', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1000, 'Earvin Dyzart', 'edyzart6@squidoo.com', 'def_male.png', 'j2yd1025FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1992-04-24', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1001, 'Cathlene Dyers', 'cdyers7@reverbnation.com', 'def_female.png', 'j2yb10r5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1992-07-14', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1002, 'Pru Geeson', 'pgeeson8@europa.eu', 'def_female.png', 'j2yb1075FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1998-02-09', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1003, 'Merill Awmack', 'mawmack9@rambler.ru', 'def_male.png', '52y310x5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1995-07-31', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1004, 'Rosaleen Woofenden', 'rwoofendena@xinhuanet.com', 'def_female.png', '22yd10a5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-02-05', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1005, 'Hodge Kas', 'hkasb@4shared.com', 'def_male.png', '52ye10k5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1991-11-25', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1006, 'Raimund Wagstaff', 'rwagstaffc@china.com.cn', 'def_male.png', 'a2y110r5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1995-11-01', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1007, 'Dot Izaac', 'dizaacd@npr.org', 'def_female.png', '72y410i5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-01-08', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1008, 'Brear Mardell', 'bmardelle@economist.com', 'def_female.png', '32y710g5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1999-11-09', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1009, 'Clarissa Depport', 'cdepportf@alibaba.com', 'def_female.png', '62yb1045FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1991-01-08', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1010, 'Ambrosi Baggott', 'abaggottg@state.gov', 'def_male.png', 'r2yb1025FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1995-10-18', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1011, 'Ambrosi Jiroutek', 'ajiroutekh@nps.gov', 'def_male.png', 'j2y91065FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1992-03-30', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1012, 'Abel Painten', 'apainteni@drupal.org', 'def_male.png', 'z2yn1085FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1995-06-15', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1013, 'Karlyn MacGebenay', 'kmacgebenayj@prlog.org', 'def_female.png', '32y510h5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-09-11', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1014, 'Trisha Till', 'ttillk@xinhuanet.com', 'def_female.png', '12yc10t5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1992-11-09', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1015, 'Eleanor Clapperton', 'eclappertonl@dedecms.com', 'def_female.png', 'l2yi10l5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1999-02-10', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1016, 'Jonas Raffin', 'jraffinm@pinterest.com', 'def_male.png', '82y71055FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1996-11-10', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1017, 'Luigi Chalder', 'lchaldern@examiner.com', 'def_male.png', 'r2yj1065FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1999-03-11', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1018, 'Massimiliano Ryde', 'mrydeo@devhub.com', 'def_male.png', '82yz1095FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1993-10-15', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1019, 'Danita Radband', 'dradbandp@indiegogo.com', 'def_female.png', 'y2yo10t5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1998-09-24', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1020, 'Max Nickless', 'mnicklessq@imageshack.us', 'def_male.png', 'd2yo10t5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1995-07-11', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1021, 'Sydelle Lucey', 'sluceyr@si.edu', 'def_female.png', 'k2yi10e5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1996-08-20', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1022, 'Fidelio Ochterlony', 'fochterlonys@blogger.com', 'def_male.png', '32y110o5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1997-06-25', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1023, 'Fairfax Brookbank', 'fbrookbankt@123-reg.co.uk', 'def_male.png', 'u2y010i5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1997-12-17', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1024, 'Robinia Iannello', 'riannellou@deliciousdays.com', 'def_female.png', 't2yn10q5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1993-03-28', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1025, 'Dynah Mincini', 'dminciniv@flickr.com', 'def_female.png', 'q2yp10c5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1995-01-04', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1026, 'Conrad Scattergood', 'cscattergoodw@dailymotion.com', 'def_male.png', 'p2ye10v5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1998-10-02', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1027, 'Cayla Ormond', 'cormondx@slashdot.org', 'def_female.png', '42yq10n5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1995-08-26', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1028, 'Shanon MacPeice', 'smacpeicey@paypal.com', 'def_female.png', 'u2y81065FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1991-02-18', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1029, 'Cissiee Van Velde', 'cvanz@dmoz.org', 'def_female.png', 'r2y010r5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1991-04-29', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1030, 'Sheila D\'Oyley', 'sdoyley10@wikimedia.org', 'def_female.png', 'p2y210t5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1991-01-30', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1031, 'Paulita Yockley', 'pyockley11@ocn.ne.jp', 'def_female.png', '42yg10a5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1991-07-24', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1032, 'Rabi Tolchar', 'rtolchar12@wufoo.com', 'def_male.png', 's2yj1035FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1997-09-20', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1033, 'Davy Peggrem', 'dpeggrem13@goodreads.com', 'def_male.png', '12yr10b5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1991-09-15', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1034, 'Robinett Dabbes', 'rdabbes14@sun.com', 'def_female.png', '62yu10c5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1996-08-29', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1035, 'Martguerita Gotling', 'mgotling15@uiuc.edu', 'def_female.png', '22y810w5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1998-11-10', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1036, 'Katlin McCrann', 'kmccrann16@xing.com', 'def_female.png', 'p2yg10y5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1992-03-21', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1037, 'Atlante Kiss', 'akiss17@umn.edu', 'def_female.png', '52yu10w5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1995-08-17', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1038, 'Kellby Cremen', 'kcremen18@soup.io', 'def_male.png', 'h2yq10e5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1994-12-28', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1039, 'Enrika Hedin', 'ehedin19@wunderground.com', 'def_female.png', 'u2y210t5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-04-09', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1040, 'Earlie Riccio', 'ericcio1a@thetimes.co.uk', 'def_male.png', 'z2yj10y5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1991-02-21', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1041, 'Kim Chinge', 'kchinge1b@intel.com', 'def_male.png', 'r2yk10h5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1994-02-11', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1042, 'Myrtia Cribbott', 'mcribbott1c@diigo.com', 'def_female.png', '02yy10i5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-03-09', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548),
-(1043, 'Coop Maciejewski', 'cmaciejewski1d@ning.com', 'def_male.png', '62yb10a5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'M', '1997-01-28', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548);
+INSERT INTO `user` (`id`, `member_id`, `name`, `email`, `profile_picture`, `password`, `gender`, `dob`, `country`, `geoname`, `position`, `company`, `about`, `twitter`, `instagram`, `linkedin`, `role_id`, `is_active`, `date_created`, `status`) VALUES
+(1, 123456, 'GYH Admin', 'admin@admin.com', 'def_male.png', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1999-02-03', 'ID', 'rinjanilombok', 'Administrator', 'Geoparks Youth Hub', 'asas', 'twitter', 'instagram', '', 1, 1, 1626859548, 'active'),
+(994, 12121212, 'Rozina Rogan', 'rrogan0@apple.com', 'def_female.png', '$2y$10$5FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1997-02-21', 'ID', 'rinjanilombok', '', '', 'askai', 'twitter', 'instagram', '', 2, 1, 1626859548, 'active'),
+(995, 121233, 'Vicky Prott', 'vprott1@mashable.com', 'def_female.png', 'u2yd1025FNftn6jLXBUq35eeC8AP.xH7MwvGgwpskyl9h2c1XTApLW23VZ4a', 'F', '1994-01-13', 'ID', 'rinjanilombok', '', '', '', 'twitter', 'instagram', '', 2, 1, 1626859548, '');
 
 -- --------------------------------------------------------
 
@@ -830,7 +796,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (7, 1, 3),
 (9, 2, 5),
 (13, 1, 5),
-(17, 1, 2);
+(17, 1, 2),
+(18, 1, 6),
+(19, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -852,7 +820,39 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (2, 'User'),
 (3, 'Menu'),
 (4, 'News'),
-(5, 'Articles');
+(5, 'Articles'),
+(6, 'Message');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_messages`
+--
+
+CREATE TABLE `user_messages` (
+  `time` datetime(6) NOT NULL,
+  `sender_message_id` varchar(20) CHARACTER SET latin1 NOT NULL,
+  `receiver_message_id` varchar(20) CHARACTER SET latin1 NOT NULL,
+  `message` varchar(500) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumping data for table `user_messages`
+--
+
+INSERT INTO `user_messages` (`time`, `sender_message_id`, `receiver_message_id`, `message`) VALUES
+('2021-12-11 10:32:19.000000', '994', '1', 'hey'),
+('2021-12-11 10:32:30.000000', '1', '994', 'ssup?'),
+('2021-12-11 10:32:48.000000', '994', '1', 'ja'),
+('2021-12-11 10:32:54.000000', '1', '994', 'hahaha'),
+('2021-12-11 10:33:51.000000', '1', '994', 'go'),
+('2021-12-11 10:36:31.000000', '1', '994', 'hey'),
+('2021-12-11 10:36:52.000000', '1', '994', 'asad'),
+('2021-12-11 10:36:59.000000', '1', '994', 'asas'),
+('2021-12-11 10:37:54.000000', '1', '995', 'vick'),
+('2021-12-11 21:17:24.000000', '1', '994', 'as'),
+('2021-12-11 21:17:28.000000', '1', '994', 'asasa'),
+('2021-12-11 21:17:33.000000', '1', '994', 'asasasasasdasdasd');
 
 -- --------------------------------------------------------
 
@@ -1114,7 +1114,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
