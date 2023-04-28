@@ -1,0 +1,14 @@
+[08-Feb-2022 11:24:14 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Jobvacancy::addJobvacancy() in /home/geoparks/public_html/application/controllers/Jobvacancy.php on line 104
+[08-Feb-2022 12:16:54 Asia/Jakarta] PHP Fatal error:  Can't use method return value in write context in /home/geoparks/public_html/application/controllers/Article.php on line 17
+[08-Feb-2022 12:17:22 Asia/Jakarta] PHP Fatal error:  Can't use method return value in write context in /home/geoparks/public_html/application/controllers/Article.php on line 17
+[08-Feb-2022 12:17:45 Asia/Jakarta] PHP Fatal error:  Can't use method return value in write context in /home/geoparks/public_html/application/controllers/Article.php on line 16
+[08-Feb-2022 12:17:45 Asia/Jakarta] PHP Fatal error:  Can't use method return value in write context in /home/geoparks/public_html/application/controllers/Article.php on line 16
+[09-Feb-2022 10:16:45 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Account::index() in /home/geoparks/public_html/application/controllers/Account.php on line 20
+[09-Feb-2022 10:16:49 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Account::index() in /home/geoparks/public_html/application/controllers/Account.php on line 20
+[30-Jul-2022 09:46:58 Asia/Jakarta] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/geoparks/public_html/system/libraries/Session/drivers/Session_files_driver.php on line 212
+[30-Jul-2022 09:56:26 Asia/Jakarta] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/geoparks/public_html/system/libraries/Session/drivers/Session_files_driver.php on line 212
+[30-Jul-2022 09:58:25 Asia/Jakarta] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/geoparks/public_html/system/libraries/Session/drivers/Session_files_driver.php on line 212
+[30-Jul-2022 10:00:28 Asia/Jakarta] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/geoparks/public_html/system/libraries/Session/drivers/Session_files_driver.php on line 212
+[02-Aug-2022 07:38:42 Asia/Jakarta] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/geoparks/public_html/system/libraries/Session/drivers/Session_files_driver.php on line 212
+[04-Aug-2022 14:31:09 Asia/Jakarta] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/geoparks/public_html/system/libraries/Session/drivers/Session_files_driver.php on line 212
+[16-Aug-2022 06:24:34 Asia/Jakarta] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/geoparks/public_html/system/libraries/Session/drivers/Session_files_driver.php on line 212

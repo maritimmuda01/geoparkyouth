@@ -1,205 +1,170 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-$this->load->view('_layout/header');
+defined('BASEPATH') or exit('No direct script access allowed');
+$this->load->view('dist/_partials/header');
 ?>
 <!-- Main Content -->
 <div class="main-content">
   <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
   <section class="section">
+    <div class="section-header">
+    </div>
     <div class="section-body">
-      <div class="row">
-        <div class="col-lg-12 col-sm-12">
+      <div class="row mt-sm-4">
+        <div class="col-12 col-md-12 col-lg-12">
           <div class="card profile-widget">
-            <div class="profile-widget-header">                     
-              <img alt="image" src="<?= base_url('assets/dashboard/img/profile/') . $profile['profile_picture']; ?>" class="rounded-circle profile-widget-picture">
+            <div class="profile-widget-header">
+              <img alt="image" src="<?php echo base_url(); ?>images/profile/<?= $profile->profile_picture ?>" class="rounded-circle profile-widget-picture" style="height: 100px;">
               <div class="profile-widget-items">
               </div>
             </div>
             <div class="profile-widget-description">
-              <div class="profile-widget-name">
-                <h4>
-                  <?= $profile['name']; ?>
-                </h4> 
-                <?php if ($profile['position'] || $profile['company']) {
-                  echo "<div class='text-muted d-inline font-weight-light'>";
-                  if ($profile['position'] && $profile['company']){
-                    echo $profile['position']." at ";
-                  }
-                  echo $profile['company'];
-                  echo "</div>";
-                }
-                ?>
-                <div class="d-inline font-weight-light">
-                  <h6><?php if($profile['geoname']){ echo $geoname['name'].', ';} echo $country['nicename']; ?> </h6> 
-                </div>
+                <h4><?= $profile->name ?></h4>
+              <div class="profile-widget-name"><?= $profile->geoname ?>, <?= $profile->nicename ?><br>
+                <?php if ($profile->position && $profile->company) { ?>
+                  <div class="text-muted d-inline font-weight-normal"> <?= $profile->position ?> at <?= $profile->company ?></div>
+                <?php } ?>
               </div>
-              <?= $profile['about']?>
+              <?= $profile->about ?>
             </div>
             <div class="card-footer">
-              <a href="mailto:<?= $profile['email']; ?>" class="btn btn-social-icon btn-primary" data-toggle="tooltip" title="<?= $profile['email']; ?>">
-                <i class="fa fa-envelope"></i>
+              <a href="https://instagram.com/<?= $profile->instagram ?>" class="btn btn-social-icon btn-instagram">
+                <i class="fab fa-instagram"></i>
               </a>
-              <?php
-              if ($profile['twitter'] != "" || $profile['instagram'] != "" || $profile['linkedin'] != "") {
-              if ($profile['twitter'] != "") { ?>
-                <a href="https://twitter.com/<?= $profile['twitter']; ?>" class="btn btn-social-icon btn-twitter mr-1" data-toggle="tooltip" title="<?= $profile['twitter']; ?>" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              <?php }
-              if ($profile['instagram'] != "") { ?>
-                <a href="https://instagram.com/<?= $profile['instagram']; ?>" class="btn btn-social-icon btn-instagram" data-toggle="tooltip" title="<?= $profile['instagram']; ?>" target="_blank">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              <?php }
-              if ($profile['linkedin'] != "") { ?>
-                <a href="https://linkedin.com/<?= $profile['linkedin']; ?>" class="btn btn-social-icon btn-linkedin" data-toggle="tooltip" title="<?= $profile['linkedin']; ?>" target="_blank">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              <?php } }
-              ?>
+              <a href="https://twitter.com/<?= $profile->twitter ?>" class="btn btn-social-icon btn-twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://linkedin.com/in/<?= $profile->linkedin ?>" class="btn btn-social-icon btn-linkedin">
+                <i class="fab fa-linkedin"></i>
+              </a>
             </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-lg-12">
+          <div class="card">
             <div class="card-body">
-              <ul class="nav nav-tabs" id="myTab2" role="tablist">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="articles-tab2" data-toggle="tab" href="#articles2" role="tab" aria-controls="articles" aria-selected="true">Articles</a>
+                  <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="jobs-tab2" data-toggle="tab" href="#jobs2" role="tab" aria-controls="jobs" aria-selected="false">Jobs</a>
+                  <a class="nav-link" id="change-password" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Change Password</a>
                 </li>
               </ul>
-              <div class="tab-content tab-bordered" id="myTab3Content">
-                <div class="tab-pane fade show active" id="articles2" role="tabpanel" aria-labelledby="articles-tab2">
-                  <div class="form-row">
-                    <div class="form-group col-lg-10">
-                      <label class="form-label">Filter Categories</label>
-                      <div class="selectgroup selectgroup-pills panel-body " id="category">
-                        <div class="selectgroup-item">
-                          <?php foreach ($dataCategories as $data) { ?>
-                          <label class="selectgroup-item">
-                            <input type="checkbox" value="<?= $data->name ?>" class="selectgroup-input filter-checkbox">
-                            <span class="selectgroup-button"><?= $data->attr ?></span>
-                          </label>
-                          <?php } ?>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4>Edit Profile</h4>
+                    </div>
+                    <?php echo form_open_multipart('account'); ?>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="form-group col-md-12 col-12">
+                          <label>Profile Picture</label>
+                          <div class="file-input">
+                            <input class="choose" type="file" name="profile_picture" accept="image/*">
+                          </div>
+                        </div>
+                        <div class="form-group col-md-12 col-12">
+                          <img id="preview" src="" style="height: 200px;">
+                        </div>
+                        <div class="form-group col-md-12 col-12">
+                          <label>First Name</label>
+                          <input type="hidden" value="<?= $profile->id_user ?>" name="Id">
+                          <input type="text" class="form-control" value="<?= $profile->name ?>" required="" name="name">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6 col-12">
+                          <label>Email</label>
+                          <input type="text" class="form-control-plaintext" value="<?= $profile->email ?>" readonly>
+                        </div>
+                        <div class="form-group col-md-6 col-12">
+                          <label>Date of Birth</label>
+                          <input type="text" class="form-control datepicker" value="<?= $profile->dob ?>" name="dob">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6 col-12">
+                          <label>Geopark Name</label>
+                          <input type="text" class="form-control-plaintext" value="<?= $profile->geoname ?>" readonly>
+                        </div>
+                        <div class="form-group col-md-6 col-12">
+                          <label>Country</label>
+                          <input type="text" class="form-control-plaintext" value="<?= $profile->nicename ?>" readonly>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-6 col-12">
+                          <label>Position</label>
+                          <input type="text" class="form-control" value="<?= $profile->position ?>" name="position">
+                        </div>
+                        <div class="form-group col-md-6 col-12">
+                          <label>Company</label>
+                          <input type="text" class="form-control" value="<?= $profile->company ?>" name="company">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-12">
+                          <label>About</label>
+                          <textarea class="form-control summernote-simple" name="about"><?= $profile->about ?></textarea>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-4">
+                          <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text"><i class="fab fa-instagram"></i></div>
+                            </div>
+                            <input type="text" name="instagram" value="<?= $profile->instagram ?>" class="form-control" id="inlineFormInputGroup">
+                          </div>
+                        </div>
+                        <div class="form-group col-4">
+                          <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text"><i class="fab fa-twitter"></i></div>
+                            </div>
+                            <input type="text" name="twitter" value="<?= $profile->twitter ?>" class="form-control" id="inlineFormInputGroup">
+                          </div>
+                        </div>
+                        <div class="form-group col-4">
+                          <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text"><i class="fab fa-linkedin"></i></div>
+                            </div>
+                            <input type="text" name="linkedin" value="<?= $profile->linkedin ?>" class="form-control" id="inlineFormInputGroup">
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table id="user-articles" class="display table table-striped">
-                      <thead>                                 
-                        <tr>
-                          <th>Title</th>
-                          <th>Category</th>
-                          <th>Created Date</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php foreach ($dataArticles as $data) {
-                          if ($data->is_published == 1) {
-                            $color = 'primary';
-                            $status = 'Published';
-                            $action = 'Unpublish';
-                            $url = 'unpublish';
-                          } elseif ($data->is_published == 0) {
-                            $color = 'warning';
-                            $status = 'Pending';
-                            $action = 'Publish';
-                            $url = 'publish';
-                          }
-                         ?>                                
-                        <tr>
-                          <td class="align-middle">
-                            <img src="<?= base_url()?>assets/dashboard/img/articles/<?= $data->image?>" class="img-fluid rounded" style="padding-right: 20px;">
-                            <a href="<?php echo base_url(); ?>home/single/<?= $data->id?>" target="_blank"><?= $data->title ?></a>
-                          </td>
-                          <td class="align-middle"><?= $data->category_attr?></td>
-                          <td class="align-middle">
-                            <?= date("d F Y H:i",strtotime($data->date)) ?>
-                          </td>
-                          <td class="align-middle">
-                            <?php if ($profile['id'] == $this->session->userdata('id')) {
-                              echo "<div class='badge badge-".$color."' >".$status."</div>";
-                            } else echo '<a class="btn btn-primary" href="'.base_url('home/single/'.$data->id).'"><i class="fa fa-eye" aria-hidden="true"></i></a>' ?>
-                          </td>
-                        </tr>
-                      <?php } ?>
-                      </tbody>
-                    </table>
+                    <div class="card-footer text-right">
+                      <button class="btn btn-primary">Save Changes</button>
+                    </div>
+                    </form>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="jobs2" role="tabpanel" aria-labelledby="jobs-tab2">
-                  <div class="form-row">
-                    <div class="form-group col-lg-10">
-                      <label class="form-label">Filter Categories</label>
-                      <div class="selectgroup selectgroup-pills panel-body " id="category">
-                        <div class="selectgroup-item">
-                          <label class="selectgroup-item">
-                            <input type="checkbox" value="Full-Time" class="selectgroup-input filter-checkbox">
-                            <span class="selectgroup-button">Full-Time</span>
-                          </label>
-                          <label class="selectgroup-item">
-                            <input type="checkbox" value="Part-Time" class="selectgroup-input filter-checkbox">
-                            <span class="selectgroup-button">Part-Time</span>
-                          </label>
-                          <label class="selectgroup-item">
-                            <input type="checkbox" value="Freelance" class="selectgroup-input filter-checkbox">
-                            <span class="selectgroup-button">Freelance</span>
-                          </label>
-                          <label class="selectgroup-item">
-                            <input type="checkbox" value="Internship" class="selectgroup-input filter-checkbox">
-                            <span class="selectgroup-button">Internship</span>
-                          </label>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="change-password">
+                  <form id="change-password" method="POST" action="<?php echo base_url(); ?>account/passwordUpdate">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="form-group">
+                          <label for="inputAddress2">Current Password</label>
+                          <input type="password" class="form-control" name="currentPassword">
+                        </div>
+                        <div class="form-group">
+                          <label for="inputAddress2">New Password</label>
+                          <input type="password" class="form-control" name="newPassword1">
+                        </div>
+                        <div class="form-group">
+                          <label for="inputAddress2">Confirm Password</label>
+                          <input type="password" class="form-control" name="newPassword2">
                         </div>
                       </div>
+                      <div class="card-footer">
+                        <button class="btn btn-primary">Save Changes</button>
+                      </div>
                     </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table id="user-jobs" class="display table table-striped">
-                      <thead>                                 
-                        <tr>
-                          <th>Position</th>
-                          <th>Company</th>
-                          <th>Location</th>
-                          <th>Type</th>
-                          <?php if ($profile['id'] == $this->session->userdata('id')) { 
-                            echo '<th class="text-center"></th>'; }
-                          ?>
-                          <th class="text-center"></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php foreach ($dataJobs as $data) {
-                          if ($data->is_published == 1) {
-                            $color = 'primary';
-                            $status = 'Published';
-                            $action = 'Unpublish';
-                            $url = 'unpublish';
-                          } elseif ($data->is_published == 0) {
-                            $color = 'warning';
-                            $status = 'Pending';
-                            $action = 'Publish';
-                            $url = 'publish';
-                          }
-                         ?>                                
-                        <tr>
-                          <td class="align-middle"><?= $data->position ?></td>
-                          <td class="align-middle"><?= $data->company ?></td>
-                          <td class="align-middle"><?= $data->location ?></td>
-                          <td class="align-middle"><?= $data->type ?></td>
-                          <?php if ($profile['id'] == $this->session->userdata('id')) { ?>
-                            <td class="text-center">
-                              <div class='badge badge-<?= $color?>' ><?= $status ?></div>
-                            </td>
-                          <?php } ?>
-                          <td class="text-center">
-                             <a class="btn btn-primary" href="<?php echo base_url('user/jobs_single/'.$data->id); ?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                          </td>
-                        </tr>
-                      <?php } ?>
-                      </tbody>
-                    </table>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -209,4 +174,27 @@ $this->load->view('_layout/header');
     </div>
   </section>
 </div>
-<?php $this->load->view('_layout/footer'); ?>
+<?php $this->load->view('dist/_partials/footer'); ?>
+
+<script type="text/javascript">
+  const readURL = (input) => {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        $('#preview').attr('src', e.target.result)
+      }
+      reader.readAsDataURL(input.files[0])
+    }
+  }
+  $('.choose').on('change', function() {
+    readURL(this)
+    let i
+    if ($(this).val().lastIndexOf('\\')) {
+      i = $(this).val().lastIndexOf('\\') + 1
+    } else {
+      i = $(this).val().lastIndexOf('/') + 1
+    }
+    const fileName = $(this).val().slice(i)
+    $('.label').text(fileName)
+  })
+</script>

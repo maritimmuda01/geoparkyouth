@@ -1,8 +1,12 @@
-<?php 
+<?php
 
 function is_logged_in()
 {
     $ci = get_instance();
+    $ci->load->model('M_User');
+
+    $dataUser = $ci->M_User->getMyAccount();
+
     if (!$ci->session->userdata('email')) {
         redirect('auth');
     } else {
@@ -21,6 +25,8 @@ function is_logged_in()
             redirect('auth/blocked');
         }
     }
+
+    return $dataUser;
 }
 
 

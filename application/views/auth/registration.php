@@ -1,38 +1,50 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-$this->load->view('_layout/header');
+defined('BASEPATH') or exit('No direct script access allowed');
+$this->load->view('dist/_partials/header');
 ?>
+
 <body>
   <div id="app">
     <section class="section">
       <div class="container mt-5">
         <div class="row">
           <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="login-brand">
+              <a href="<?=base_url()?>"><img src="<?= base_url() ?>images/site_settings/<?= $this->site_settings['logo'] ?>" alt="logo" width="300"></a>
+            </div>
+            <?= $this->session->flashdata('message'); ?>
+
             <div class="card card-primary">
-              <div class="card-header"><h4>Create New Account!</h4></div>
+              <div class="card-header">
+                <h5 class="mt-4"><a href="<?= base_url() ?>auth" class="mr-3"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>Register</h5>
+              </div>
               <div class="card-body">
-                <form method="POST" action="<?= base_url('auth/registration'); ?>">
+                <form method="POST" class="needs-validation" novalidate="">
                   <div class="row">
                     <div class="form-group col-12">
-                      <label for="frist_name">Full Name</label>
-                      <input id="frist_name" type="text" class="form-control" name="name" autofocus value="<?= set_value('name'); ?>">
-                      <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-6">
-                      <label for="email">Email</label>  
-                      <input id="email" type="email" class="form-control" name="email" value="<?= set_value('email'); ?>">
-                       <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
-                      <div class="invalid-feedback">
+                      <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control form-control-user" name="name" tabindex="1" required autofocus value="<?= set_value('name') ?>">
+                      <div class=" invalid-feedback">
+                        Please fill in your name
                       </div>
                     </div>
-                    <div class="form-group col-6">
-                      <label for="gender">Gender</label>
-                      <div class="selectgroup selectgroup-pills">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" class="form-control" name="email" tabindex="2" value="<?= set_value('email') ?>">
+                    <div class="invalid-feedback">
+                      Please fill in your email
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-sm-12 col-lg-6">
+                      <label class="form-label">Gender</label>
+                      <div class="selectgroup w-100 ">
                         <label class="selectgroup-item">
-                          <input type="radio" name="gender" value="M" class="selectgroup-input" >
-                          <span class="selectgroup-button" ><i class="fas fa-mars"></i> Male</span>
+                          <input type="radio" name="gender" value="M" class="selectgroup-input">
+                          <span class="selectgroup-button"><i class="fas fa-mars"></i> Male</span>
                         </label>
                         <label class="selectgroup-item">
                           <input type="radio" name="gender" value="F" class="selectgroup-input">
@@ -42,57 +54,60 @@ $this->load->view('_layout/header');
                           <input type="radio" name="gender" value="O" class="selectgroup-input">
                           <span class="selectgroup-button"><i class="fas fa-genderless"></i> Other</span>
                         </label>
-                      </div>  
+                      </div>
+                    </div>
+                    <div class="form-group col-sm-12 col-lg-6">
+                      <label>Date of Birth</label>
+                      <input type="date" name="date" class="form-control">
                     </div>
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-sm-12 col-lg-6">
                       <label for="password" class="d-block">Password</label>
                       <input id="password1" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password1">
-                      <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
                       <div id="pwindicator" class="pwindicator">
                         <div class="bar"></div>
                         <div class="label"></div>
                       </div>
-                    </div>  
-                    <div class="form-group col-6">
-                      <label for="password2" class="d-block">Confirm Password</label>
+                    </div>
+                    <div class="form-group col-sm-12 col-lg-6">
+                      <label for="password2" class="d-block">Password Confirmation</label>
                       <input id="password2" type="password" class="form-control" name="password2">
                     </div>
                   </div>
-                  <div class=row>
-                    <div class="form-group col-4">
+
+                  <div class="section-title mt-0 mb-4">Geopark Information</div>
+                  <div class="row">
+                    <div class="form-group col-sm-12 col-lg-4">
                       <label for="country">Geopark Country</label>
-                      <select name="country" id="mark" class="form-control select2">
-                        <option value="">Select Country</option>
-                        <?php foreach ($dataCountry as $data) { 
-                          echo "<option value='$data->iso'>$data->nicename</option>";
-                         } ?>
+                      <select name="country" class="form-control" id="country">
+                        <option value="">Select country...</option>
+                        <?php foreach ($dataCountry as $data) {
+                          echo "<option value='$data->id_country'>$data->nicename</option>";
+                        } ?>
                       </select>
                       <?= form_error('country', '<small class="text-danger">', '</small>'); ?>
                       <div class="invalid-feedback">
                       </div>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-12 col-sm-12 col-lg-4">
                       <label for="geotype">Geopark Type</label>
-                      <select name="geotype" id="series" class="form-control">
-                        <option></option>
+                      <select name="geotype" class="form-control" id="geotype" disabled>
+                        <option value="">Select Geopark type...</option>
                         <?php foreach ($dataType as $data) {
-                         echo "<option value='$data->iso$data->country_id' data-chained='$data->country_id'>$data->name</option>";
+                          echo "<option value='$data->id_geotype'>$data->geotype_name</option>";
                         } ?>
                       </select>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-12 col-sm-12 col-lg-4">
                       <label for="geoname">Geopark Name</label>
-                      <select name="geoname" id="engine" class="form-control select2">
-                        <option value=""></option>
-                        <?php foreach ($dataName as $data) {
-                         echo "<option value='$data->iso' data-chained='$data->geotype_id$data->country_id'>$data->name</option>";
-                        } ?>
+                      <select name="geoname" class="form-control" id="geoname" disabled>
+                        <option value="">Select Geopark name...</option>
                       </select>
                     </div>
                   </div>
+
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
                       Register
@@ -102,124 +117,58 @@ $this->load->view('_layout/header');
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Already have an account? <a href="<?php echo base_url(); ?>auth">Log In</a>
+              Already have account? <a href="<?php echo base_url(); ?>auth">Log in</a>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Geopark 2021
+              <?= $this->site_settings['title']  ?>
             </div>
           </div>
         </div>
       </div>
     </section>
   </div>
-<?php $this->load->view('_layout/js'); ?>
 
-<script type="text/javascript">
-// SCROLL AT THE END TO SEE HOW TO USE IT 
+  <?php $this->load->view('dist/_partials/js'); ?>
 
-
-
-
-// CODE JQUERY SELECT
-(function($, window, document, undefined) {
-    "use strict";
-
-    $.fn.chained = function(parentSelector) {
-        return this.each(function() {
-
-            /* Save this to child because this changes when scope changes. */
-            var child   = this;
-            var backup = $(child).clone();
-
-            /* Handles maximum two parents now. */
-            $(parentSelector).each(function() {
-                $(this).bind("change", function() {
-                    updateChildren();
-                });
-
-                /* Force IE to see something selected on first page load, */
-                /* unless something is already selected */
-                if (!$("option:selected", this).length) {
-                    $("option", this).first().attr("selected", "selected");
-                }
-
-                /* Force updating the children. */
-                updateChildren();
-            });
-
-            function updateChildren() {
-                var triggerChange = true;
-                var currentlySelectedValue = $("option:selected", child).val();
-
-                $(child).html(backup.html());
-
-                /* If multiple parents build value like foo+bar. */
-                var selected = "";
-                $(parentSelector).each(function() {
-                    var selectedValue = $("option:selected", this).val();
-                    if (selectedValue) {
-                        if (selected.length > 0) {
-                            selected += "+";
-                        }
-                        selected += selectedValue;
-                    }
-                });
-
-                /* Also check for first parent without subclassing. */
-                /* TODO: This should be dynamic and check for each parent */
-                /*       without subclassing. */
-                var first;
-                if ($.isArray(parentSelector)) {
-                    first = $(parentSelector[0]).first();
-                } else {
-                    first = $(parentSelector).first();
-                }
-                var selectedFirst = $("option:selected", first).val();
-
-                $("option", child).each(function() {
-                    /* Always leave the default value in place. */
-                    if ($(this).val() === "") {
-                        return;
-                    }
-                    var matches = [];
-                    var data = $(this).data("chained");
-                    if (data) {
-                        matches = data.split(" ");
-                    }
-                    if ((matches.indexOf(selected) > -1) || (matches.indexOf(selectedFirst) > -1)) {
-                        if ($(this).val() === currentlySelectedValue) {
-                            $(this).prop("selected", true);
-                            triggerChange = false;
-                        }
-                    } else {
-                        $(this).remove();
-                    }
-                });
-
-                /* If we have only the default value disable select. */
-                if (1 === $("option", child).length && $(child).val() === "") {
-                    $(child).prop("disabled", true);
-                } else {
-                    $(child).prop("disabled", false);
-                }
-                if (triggerChange) {
-                    $(child).trigger("change");
-                }
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#country").change(function() {
+        $("#geotype").removeAttr('disabled');
+        var country_value = $("#country").val();
+        if (country_value == '') {
+          $("#geotype").attr('disabled', true);
+          $("#geoname").attr('disabled', true);
+          $("#geotype").val('').attr('selected', true);
+          $("#geoname").val('').attr('selected', true);
+        } else {
+          $("#geotype").change(function() {
+            $("#geoname").removeAttr('disabled');
+            var type_value = $("#geotype").val();
+            if (type_value == '') {
+              $("#geoname").attr('disabled', true);
+              $("#geoname").val('').attr('selected', true);
             }
-        });
-    };
+            $.ajax({
+              url: '<?php echo base_url() ?>auth/showAllGeoparksByCountryAndType/' + country_value + '/' + type_value,
+              async: false,
+              dataType: 'json',
+              success: function(data) {
+                var html = '';
+                var i;
+                for (i = 0; i < data.length; i++) {
+                  html += '<option value="' + data[i].id_geoname + '">' + data[i].geoname + '</option>';
+                }
+                $("#geoname").empty();
+                $("#geoname").append('<option value="">Select Geopark name...</option>');
+                $('#geoname').append(html);
+              },
+              error: function() {
+                alert: ('error');
+              }
+            })
+          });
+        }
+      });
 
-    /* Alias for those who like to use more English like syntax. */
-    $.fn.chainedTo = $.fn.chained;
-
-    /* Default settings for plugin. */
-    $.fn.chained.defaults = {};
-
-})(window.jQuery || window.Zepto, window, document);
-
-
-// MY CODE
-$("#series").chained("#mark");
-$("#model").chained("#series");
-$("#engine").chained("#series, #model");
-</script>
+    });
+  </script>

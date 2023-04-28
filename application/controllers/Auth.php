@@ -7,89 +7,76 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model('M_country');
+        $this->load->model('M_Country');
+        $this->load->model('M_Geotype');
+        $this->load->model('M_Geoparks');
+        $this->load->model('M_Site');
+        $this->site_settings = $this->M_Site->showAllSite();
     }
 
     public function index()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        if ($this->session->userdata('email')) {
-            // var_dump($this->session->userdata('role_id'));
-            // exit();
-            if ($this->session->userdata('role_id') == 1) {
-                        redirect('admin');
-                    } else {
-                        redirect('user');
-                    }
-        }
+        // $this->email->message('asas');
+        // var_dump($this->email->message('asas'));
+        // die();
+        $data['title'] = 'Login';
 
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        if ($this->session->userdata('email')) {
+            redirect('Dashboard');
+        }
+        $this->form_validation->set_rules('email', 'Email', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Login';
-            $this->load->view('auth/signin', $data);
-        } else {
-            // validasinya success
-            $this->_login();
-        }
-    }
+        if ($this->form_validation->run() == true) {
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
 
+            $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
-    private function _login()
-    {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $email = $this->input->post('email');
-        $password = $this->input->post('password');
-
-        $user = $this->db->get_where('user', ['email' => $email])->row_array();
-
-        // jika usernya ada
-        if ($user) {
-            // jika usernya aktif
-            if ($user['is_active'] == 1) {
-                // cek password
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'id' => $user['id'],
-                        'name' => $user['name'],
-                        'email' => $user['email'],
-                        'role_id' => $user['role_id']
-                    ];
-                    // var_dump($user['id']);
-                    // exit();
-                    $this->session->set_userdata($data);
-                    if ($user['role_id'] == 1) {
-                        redirect('home');
+            // jika usernya ada
+            if ($user) {
+                // jika usernya aktif
+                if ($user['is_active'] == 1) {
+                    // cek password
+                    if (password_verify($password, $user['password'])) {
+                        $data = [
+                            'id' => $user['id'],
+                            'name' => $user['name'],
+                            'email' => $user['email'],
+                            'role_id' => $user['role_id'],
+                            'country_id' => $user['country_id']
+                        ];
+                        // var_dump($user['id']);
+                        // exit();
+                        $this->session->set_userdata($data);
+                        redirect('Dashboard');
                     } else {
-                        redirect('home');
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
-                    redirect('auth');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">This email has not been activated!</div>');
-                redirect('auth');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
             }
-        } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email is not registered!</div>');
-            redirect('auth');
         }
+        $this->load->view('auth/signin', $data);
     }
 
+    public function showAllGeoparksByCountryAndType($country, $type)
+    {
+        $result = $this->M_Geoparks->showAllGeoparksByCountryAndType($country, $type);
+        echo json_encode($result);
+    }
 
     public function registration()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-
-        $data['dataCountry'] = $this->M_country->select_all();
-        $data['dataType'] = $this->M_country->select_type();
-        $data['dataName'] = $this->M_country->select_name();
-
+        $data['dataCountry'] = $this->M_Country->showAllCountry();
+        $data['dataType'] = $this->M_Geotype->showAllGeotype();
+        $data['dataGeopark'] = $this->M_Geoparks->showAllGeoparks();
 
         if ($this->session->userdata('email')) {
-            redirect('user');
+            redirect('auth');
         }
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -101,67 +88,65 @@ class Auth extends CI_Controller
             'min_length' => 'Password is too short!'
         ]);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
-        $this->form_validation->set_rules('country', 'Country', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('date', 'Date', 'required');
+        $this->form_validation->set_rules('geoname', 'Geopark', 'required');
 
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Create Account';
-            $this->load->view('auth/registration', $data);
+        if ($this->input->method() === 'post') {
+            if ($this->form_validation->run() == true) {
+                $email = $this->input->post('email', true);
 
-        } else {
-            $email = $this->input->post('email', true);
-            $country = $this->input->post('country');
-            if ($this->input->post('gender')== 'M' ) {
-                $image = 'def_male.png';
-            } else if ($this->input->post('gender')== 'F') {
-                $image = 'def_female.png';
-            } else if ($this->input->post('gender')== 'O'){
-                $image = 'def_0.png';
+                if ($this->input->post('gender') == 'M') {
+                    $image = 'def_male.png';
+                } else if ($this->input->post('gender') == 'F') {
+                    $image = 'def_female.png';
+                } else if ($this->input->post('gender') == 'O') {
+                    $image = 'def_0.png';
+                }
+
+                $data = [
+                    'name' => ucwords(htmlspecialchars($this->input->post('name', true))),
+                    'email' => strtolower(htmlspecialchars($email)),
+                    'profile_picture' => $image,
+                    'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                    'geoname_id' => $this->input->post('geoname'),
+                    'gender' => $this->input->post('gender'),
+                    'dob' => $this->input->post('date'),
+                    'role_id' => 2,
+                    'is_active' => 1,
+                    'date_created' => time()
+                ];
+
+                // siapkan token
+                $token = time();
+                $user_token = [
+                    'email' => $email,
+                    'token' => $token,
+                    'date_created' => time()
+                ];
+
+                $this->db->insert('user', $data);
+                $this->db->insert('user_token', $user_token);
+                // $this->_sendEmail($token, 'verify');
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulations! Your account has been created. Please log in!</div>');
+                redirect('auth');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Failed! Please fill all required fields!</div>');
             }
-
-            $data = [
-                'name' => ucwords(htmlspecialchars($this->input->post('name', true))),
-                'email' => strtolower(htmlspecialchars($email)),
-                // 'member_code' => 'code'
-                'profile_picture' => $image,
-                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'country' => $country,
-                'geoname' => $this->input->post('geoname'),
-                'gender' => $this->input->post('gender'),
-                'dob' => '0000-00-00', 
-                'role_id' => 2,
-                'is_active' => 0,
-                'date_created' => time()
-            ];
-
-            // siapkan token
-            $token = base64_encode(random_bytes(32));
-            $user_token = [
-                'email' => $email,
-                'token' => $token,
-                'date_created' => time()
-            ];
-
-            $this->db->insert('user', $data);
-            $this->db->insert('user_token', $user_token);
-
-            $this->_sendEmail($token, 'verify');
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! Your account has been created. Please activate your account</div>');
-            redirect('auth');
         }
+        $data['title'] = 'Create Account';
+        $this->load->view('auth/registration', $data);
     }
-
 
     private function _sendEmail($token, $type)
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+
         $config = [
             'protocol'  => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'geopark.mail@gmail.com',
-            'smtp_pass' => 'g30park12',
-            'smtp_port' => 465,
+            'smtp_host' => 'mail.geoparksyouth.net',
+            'smtp_user' => 'admin@geoparksyouth.net',
+            'smtp_pass' => '3asyStradlin_',
+            'smtp_port' => 587,
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
             'newline'   => "\r\n"
@@ -171,8 +156,9 @@ class Auth extends CI_Controller
 
         $this->email->initialize($config);
 
-        $this->email->from('geopark.mail@gmail.com', ' Mail');
+        $this->email->from('admin@geoparksyouth.net', $this->site_settings['title']);
         $this->email->to($this->input->post('email'));
+        $this->email->set_mailtype("html");
 
         if ($type == 'verify') {
             $this->email->subject('Account Verification');
@@ -193,7 +179,7 @@ class Auth extends CI_Controller
 
     public function verify()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+
         $email = $this->input->get('email');
         $token = $this->input->get('token');
 
@@ -232,7 +218,7 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
@@ -243,19 +229,19 @@ class Auth extends CI_Controller
 
     public function blocked()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-            $this->load->view('auth/blocked');
+
+        $this->load->view('auth/blocked');
     }
 
 
     public function forgotPassword()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Forgot Password';
-            $this->load->view('auth/forgot-password', $data);
+            $this->load->view('auth/forgot_password', $data);
         } else {
             $email = $this->input->post('email');
             $user = $this->db->get_where('user', ['email' => $email, 'is_active' => 1])->row_array();
@@ -283,7 +269,7 @@ class Auth extends CI_Controller
 
     public function resetPassword()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+
         $email = $this->input->get('email');
         $token = $this->input->get('token');
 
@@ -308,7 +294,7 @@ class Auth extends CI_Controller
 
     public function changePassword()
     {
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+
         if (!$this->session->userdata('reset_email')) {
             redirect('auth');
         }

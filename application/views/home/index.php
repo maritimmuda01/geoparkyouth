@@ -1,436 +1,155 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('home/_layout/header');
 ?>
-<!-- hero area -->
-<section class="hero-area bg-primary" id="parallax">
+
+<section class="hero-area" id="header-custom">
   <div class="container">
     <div class="row">
-      <div class="col-lg-11 mx-auto">
-        <h2 class="text-white font-tertiary text-center"><?= $site_settings['title'] ?></h2>
-        <h4 class="text-white font-tertiary text-center"><?= $site_settings['description'] ?></h4>
-        <div class="text-center">
-          <br>
-          <a href="<?=base_url()?>auth/registration" class="btn btn-outline-primary btn-sm">Join Us</a>
-        </div>
+      <div class="col-lg-11 mx-auto text-center">
+        <h1 class="text-white font-tertiary"><?= $this->site_settings['title'] ?></h1>
+        <h1 class="h4 text-white font-tertiary text-center mt-4"><?= $this->site_settings['description'] ?></h1>
+        <a href="<?= base_url() ?>auth" type="button" class="btn btn-success btn-lg mt-4 text-white">Join Us</a>
       </div>
     </div>
   </div>
-  <!-- <div class="layer-bg w-100">
-    <img class="img-fluid w-100" src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-bg.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l2">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/dots-cyan.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l3">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l4">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/dots-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l5">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-yellow.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l6">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-cyan.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l7">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/dots-group-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l8">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-pink-round.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l9">
-    <img src="<?php echo base_url(); ?>assets/home/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
-  </div> -->
-  <!-- social icon -->
-  <!-- <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
-    <li class="mb-3"><a class="text-white" href="#"><i class="ti-facebook"></i></a></li>
-    <li class="mb-3"><a class="text-white" href="#"><i class="ti-instagram"></i></a></li>
-    <li class="mb-3"><a class="text-white" href="#"><i class="ti-dribbble"></i></a></li>
-    <li class="mb-3"><a class="text-white" href="#"><i class="ti-twitter"></i></a></li>
-  </ul> -->
-  <!-- /social icon -->
 </section>
-<!-- /hero area -->
 
-<!-- about -->
+<div class="carousel-custom d-xs-none">
+  <div class="carousel">
+    <ul class="slides">
+      <?php
+      $image = ['batur', 'belitong', 'ciletuh', 'gunung-sewu', 'rinjani', 'toba'];
+      for ($i = 0; $i < 6; $i++) {  ?>
+        <input type="radio" name="radio-buttons" id="img-<?= $i ?>" <?php if ($i == 0) {
+                                                                      echo "checked";
+                                                                    } ?> />
+        <li class="slide-container">
+          <div class="slide-image">
+            <img src="<?php base_url() ?>images/front-carousel/<?= $image[$i] ?>.jpg">
+          </div>
+          <div class="carousel-controls">
+            <label for="img-<?= $i - 1 ?>" class="prev-slide" style="width: 100px">
+              <span>&lsaquo;</span>
+            </label>
+            <label for="img-<?= $i + 1 ?>" class="next-slide" style="width: 100px">
+              <span>&rsaquo;</span>
+            </label>
+          </div>
+        </li>
+      <?php }
+      ?>
+      <div class="carousel-dots">
+        <?php for ($i = 0; $i < 6; $i++) {  ?>
+          <label for="img-<?= $i ?>" class="carousel-dot" id="img-dot-<?= $i ?>"></label>
+        <?php } ?>
+
+      </div>
+    </ul>
+  </div>
+</div>
 <section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+          <a href="https://geoparksyouth.net/home/firstunescoggyfseminarandcamp"><img src="<?= base_url() ?>assets/new/index1.jpg" alt="" class="w-100">
+        <img src="<?= base_url() ?>assets/new/index2.jpg" alt="" class="w-100">
+        <img src="<?= base_url() ?>assets/new/index3.jpg" alt="" class="w-100"></a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<?php if ($dataArticles) { ?>
+  <section class="section mt-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3 class="section-title">Recent Articles</h3>
+        </div>
+        <?php foreach (array_slice($dataArticles, 0, 3) as $data) { ?>
+          <div class="col-lg-4 col-sm-12 mb-4 mb-lg-0">
+            <article class="card shadow">
+              <img class="rounded card-img-top" src="<?= base_url() ?>images/article/<?= $data->article_image ?>" alt="post-thumb">
+              <div class="card-body">
+                <h4 class="card-title"><a class="text-dark" href="<?= base_url() ?>home/single/<?= $data->id_article ?>"><?= $data->title ?></a>
+                </h4>
+                <p class="font-secondary"><span class="text-primary"><?= $data->name ?></span> • <?= date("j F Y", strtotime($data->time_created)) ?></p>
+              </div>
+            </article>
+          </div>
+        <?php } ?>
+        <div class="col-lg-10 mx-auto text-center">
+          <a href="<?= base_url() ?>home/media" class="btn btn-transparent mt-3">Read More!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php } ?>
+
+<section class="section margin-0">
+  <style>
+    .margin0 {
+      padding-top: 0px !important;
+    }
+  </style>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-title">About Us</h2>
       </div>
       <div class="col-lg-10 mx-auto text-center">
-        <p class="font-secondary paragraph-lg text-dark">
-          Geoparks Youth Hub is a platform to connect youths around the world for sustaining the Geoparks. It is powered by Indonesian Maritime Youths (Maritim Muda Nusantara) in collaboration with the Ministry of National Development Planning/National Development Planning Agency of Republic of Indonesia. We provide a digital communication portal for Geoparks youth across countries. We also provide information of Geoparks youth activities, events, and job vacancy.
-        </p>
+        <?= $this->site_settings['about_us'] ?>
       </div>
     </div>
   </div>
 </section>
-<!-- /about -->
 
-<!-- skills -->
-<!-- <section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">Skills</h2>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
-            <div class="wave" data-progress="90%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">Web Design (90%)</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#9473e6">
-            <div class="wave" data-progress="60%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">Logo Design (60%)</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#bdecf6">
-            <div class="wave" data-progress="80%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">After Effects (80%)</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#ffbcaa">
-            <div class="wave" data-progress="70%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">Web App (70%)</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- /skills -->
 
-<!-- experience -->
-<!-- <section class="section">
-  <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">Experience</h2>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center">
-        <img src="<?php echo base_url(); ?>assets/home/images/experience/icon-1.png" alt="icon">
-        <p class="mb-0">Jan 2007 - Feb 2009</p>
-        <h4>Junior UX Designer</h4>
-        <h6 class="text-light">WEBEX</h6>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center">
-        <img src="<?php echo base_url(); ?>assets/home/images/experience/icon-2.png" alt="icon">
-        <p class="mb-0">Mar 2009 - Aug 2014</p>
-        <h4>UX & UI Designer</h4>
-        <h6 class="text-light">AUGMEDIX</h6>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center">
-        <img src="<?php echo base_url(); ?>assets/home/images/experience/icon-3.png" alt="icon">
-        <p class="mb-0">Sep 2014 - Present</p>
-        <h4>Senior UI Designer</h4>
-        <h6 class="text-light">THEMEFISHER</h6>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- ./experience -->
 
-<!-- education -->
-<!-- <section class="section position-relative">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">Education</h2>
-      </div>
-      <div class="col-lg-6 col-md-6 mb-80">
-        <div class="d-flex">
-          <div class="mr-lg-5 mr-3">
-            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
-          </div>
-          <div>
-            <p class="text-dark mb-1">2006</p>
-            <h4>Marters in UX Design</h4>
-            <p class="mb-0 text-light">Masassusets Institute of Technology</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 mb-80">
-        <div class="d-flex">
-          <div class="mr-lg-5 mr-3">
-            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
-          </div>
-          <div>
-            <p class="text-dark mb-1">2004</p>
-            <h4>Honours in Fine Arts</h4>
-            <p class="mb-0 text-light">Harvard University</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 mb-80">
-        <div class="d-flex">
-          <div class="mr-lg-5 mr-3">
-            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
-          </div>
-          <div>
-            <p class="text-dark mb-1">2000</p>
-            <h4>Higher Secondary Certificat</h4>
-            <p class="mb-0 text-light">Cardiff School</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 mb-80">
-        <div class="d-flex">
-          <div class="mr-lg-5 mr-3">
-            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
-          </div>
-          <div>
-            <p class="text-dark mb-1">1998</p>
-            <h4>Secondary School Certificate</h4>
-            <p class="mb-0 text-light">Cardiff School</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  bg image -->
-  <!-- <img class="img-fluid edu-bg-image w-100" src="<?php echo base_url(); ?>assets/home/images/backgrounds/education-bg.png" alt="bg-image"> 
-</section> -->
-<!-- /education -->
-
-<!-- services -->
-<!-- <section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Services</h2>
-      </div>
-      <div class="col-md-4 mb-4 mb-md-0">
-        <div class="card hover-shadow shadow">
-          <div class="card-body text-center px-4 py-5">
-            <i class="ti-palette icon mb-5 d-inline-block"></i>
-            <h4 class="mb-4">UI Design</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4 mb-md-0">
-        <div class="card active-bg-primary hover-shadow shadow">
-          <div class="card-body text-center px-4 py-5">
-            <i class="ti-vector icon mb-5 d-inline-block"></i>
-            <h4 class="mb-4">UX Design</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4 mb-md-0">
-        <div class="card hover-shadow shadow">
-          <div class="card-body text-center px-4 py-5">
-            <i class="ti-panel icon mb-5 d-inline-block"></i>
-            <h4 class="mb-4">Interaction Design</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- /services -->
-
-<!-- portfolio -->
-<!-- <section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Portfolio</h2>
-      </div>
-    </div>
-    <div class="row shuffle-wrapper">
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="<?php echo base_url(); ?>assets/home/images/portfolio/item-1.png" alt="portfolio-image" class="img-fluid rounded w-100">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="<?php echo base_url(); ?>assets/home/images/portfolio/item-2.png" alt="portfolio-image" class="img-fluid rounded w-100">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="<?php echo base_url(); ?>assets/home/images/portfolio/item-3.png" alt="portfolio-image" class="img-fluid rounded w-100">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="<?php echo base_url(); ?>assets/home/images/portfolio/item-4.png" alt="portfolio-image" class="img-fluid rounded w-100">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="<?php echo base_url(); ?>assets/home/images/portfolio/item-5.png" alt="portfolio-image" class="img-fluid rounded w-100">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="project-single.html">view project</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- /portfolio -->
-
-<!-- client logo slider -->
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col-lg-4">
         <div class="col-lg-12 text-center">
-          <h5 class="">Developed by</h5>
+          <h5 class="">Powered by</h5>
         </div>
-        <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/site_logo/maritim.png" alt="client-logo" target="_blank"></a>
+        <a href="#" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>images/homepage/bappenas.png" alt="" target="_blank" style="height: 150px;"></a>
       </div>
-      <div class="col-lg-6">
-        <div class="col-lg-12 text-center">
-          <h5 class="">Supported by</h5>
-        </div>
-        <a href="#" class="text-center d-block outline-0 p-4"><img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/site_logo/bappenas.png" alt="client-logo" target="_blank"></a>
-      </div>
-      <div class="col-lg-3">
+      <div class="col-lg-8">
         <div class="col-lg-12 text-center">
           <h5 class="">In collaboration with</h5>
         </div>
-        <!-- <a href="https://maritimmuda.id" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid" src="<?php echo base_url(); ?>assets/home/images/clients-logo/client-logo-5.png" alt="client-logo" target="_blank"></a> -->
+
+        <a href="#" class="text-center d-block outline-0 p-4">
+          <img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>images/homepage/ggyf.png" alt="" target="_blank" style="height: 175px; margin-right: 30px;">
+          <img class="client-logo d-unset img-fluid" src="<?php echo base_url(); ?>images/homepage/ggy.png" alt="" target="_blank" style="height: 125px; margin-right: 30px;">
+          <img class="client-logo d-unset img-fluid " src="<?php echo base_url(); ?>images/homepage/maritim.png" alt="" target="_blank" style="height: 100px;">
+        </a>
       </div>
     </div>
   </div>
 </section>
 <!-- /client logo slider -->
 
-<!-- blog -->
-<!-- <section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Blogs</h2>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-        <article class="card shadow">
-          <img class="rounded card-img-top" src="<?php echo base_url(); ?>assets/home/images/blog/post-3.jpg" alt="post-thumb">
-          <div class="card-body">
-            <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
-            </h4>
-            <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore magna aliqua.</p>
-            <a href="blog-single.html" class="btn btn-xs btn-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-        <article class="card shadow">
-          <img class="rounded card-img-top" src="<?php echo base_url(); ?>assets/home/images/blog/post-4.jpg" alt="post-thumb">
-          <div class="card-body">
-            <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
-            </h4>
-            <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore magna aliqua.</p>
-            <a href="blog-single.html" class="btn btn-xs btn-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-      <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-        <article class="card shadow">
-          <img class="rounded card-img-top" src="<?php echo base_url(); ?>assets/home/images/blog/post-2.jpg" alt="post-thumb">
-          <div class="card-body">
-            <h4 class="card-title"><a class="text-dark" href="blog-single.html">Amazon increase income 1.5 Million</a>
-            </h4>
-            <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-              incididunt ut labore et
-              dolore magna aliqua.</p>
-            <a href="blog-single.html" class="btn btn-xs btn-primary">Read More</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- /blog -->
+<script>
+  var url = [
+    'https://www.geoparksyouth.net/images/front-carousel/batur.jpg',
+    'https://www.geoparksyouth.net/images/front-carousel/belitong.jpg',
+    'https://www.geoparksyouth.net/images/front-carousel/ciletuh.jpg',
+    'https://www.geoparksyouth.net/images/front-carousel/gunung-sewu.jpg',
+    'https://www.geoparksyouth.net/images/front-carousel/toba.jpg',
+    'https://www.geoparksyouth.net/images/front-carousel/rinjani.jpg'
+  ];
+  curentImageIndex = 0;
+  setInterval(function() {
+    console.log(url[curentImageIndex])
+    var p = $('#image-head');
+    p.css("background-image", "url(" + url[curentImageIndex++] + ")");
+    if (curentImageIndex >= url.length) {
+      curentImageIndex = 0
+    }
+  }, 2000);
+</script>
 
-<!-- contact -->
-<!-- <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Contact Info</h2>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <div class="bg-white rounded text-center p-5 shadow-down">
-          <h4 class="mb-80">Contact Form</h4>
-          <form action="#" class="row">
-            <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here"></textarea>
-            </div>
-            <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- /contact -->
-
-<?php
-$this->load->view('home/_layout/footer');
-?>
+<?php $this->load->view('home/_layout/footer'); ?>

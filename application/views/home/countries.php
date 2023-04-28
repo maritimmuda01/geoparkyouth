@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('home/_layout/header');
 ?>
 
@@ -19,47 +19,38 @@ $this->load->view('home/_layout/header');
 <section class="section">
   <div class="container">
     <!--Accordion wrapper-->
-    <div  role="tablist">
-      <?php foreach ($dataRegion as $data) { ?>
-      <div class="card">
-        <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading<?= $data->abbr ?>">
-          <h5 class="text-uppercase mb-0 py-1">
-            <a class="font-weight-bold white-text">
-              <?= $data->name ?>
-            </a>
-          </h5>
-        </div>
+    <div role="tablist">
+      <?php foreach ($dataRegion as $region) { ?>
+        <div class="card">
+          <div class="card-header blue lighten-3 z-depth-1" role="tab" id="heading<?= $region->id_region ?>">
+            <h5 class="text-uppercase mb-0 py-1">
+              <a class="font-weight-bold white-text">
+                <?= $region->region_name ?>
+              </a>
+            </h5>
+          </div>
           <div class="card-body">
             <div class="row my-4">
-              <div class="col-12 mb-4">
-                <p>
-                  Website: <a href="<?= $data->website ?>"><?= $data->website ?></a>
-                </p>
-                <p>
-                  E-mail: <a href="<?= $data->email ?>"><?= $data->email ?></a>
-                </p>
-              </div>
-              <?php
-              $sql ="SELECT * FROM country WHERE region = '$data->abbr'";
-              $query = $this->db->query($sql)->result();
-              foreach ($query as $data) { ?>
-              <div class="col-lg-4 col-6 mb-4 text-center">
-                <div class="position-relative rounded hover-wrapper">
-                  <a href="<?= base_url() ?>home/geoname/<?= $data->iso?>">
-                  <img src="<?= base_url() ?>/assets/dashboard/img/flag/<?= strtolower($data->iso)?>.svg" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-                  </a>
-                </div>
-                 <a class="btn btn-outline-dark btn-sm mt-2" href="<?= base_url() ?>home/geoname/<?= $data->iso?>"><?= $data->nicename?></a>
-              </div>
-              <?php } ?>
+              <?php foreach ($dataCountry as $country) {
+                if ($country->region_id == $region->id_region) { ?>
+                  <div class="col-lg-4 col-12 mb-4 text-center">
+                    <div class="position-relative rounded hover-wrapper flags">
+                      <a href="<?= base_url() ?>home/geopark/<?= $country->id_country ?>">
+                        <img src="<?= base_url() ?>images/flags/<?= strtolower($country->iso) ?>.svg" class="img-fluid rounded w-100 d-block border">
+                      </a>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm mt-2" href="<?= base_url() ?>home/geopark/<?= $country->id_country ?>"><?= $country->nicename ?></a>
+                  </div>
+              <?php }
+              } ?>
             </div>
           </div>
-      </div>
+        </div>
       <?php } ?>
     </div>
     <!--Accordion wrapper-->
     <div class="row shuffle-wrapper">
-    	
+
     </div>
   </div>
 </section>

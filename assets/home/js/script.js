@@ -5,10 +5,10 @@
 
     // Sticky Menu
     $(window).scroll(function () {
-        if ($('.navigation-main').offset().top > 100) {
-            $('.navigation-main').addClass('nav-bg');
+        if ($('.navigation').offset().top > 100) {
+            $('.navigation').addClass('nav-bg');
         } else {
-            $('.navigation-main').removeClass('nav-bg');
+            $('.navigation').removeClass('nav-bg');
         }
     });
 

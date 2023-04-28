@@ -1,52 +1,200 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 $this->load->view('home/_layout/header');
+// var_dump($dataCountry);
+// die();
 ?>
 
+
 <!-- page title -->
-<section class="page-title-alt bg-primary position-relative">
+<section class="page-title bg-primary position-relative">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <h2 class="text-white font-tertiary">Geopark</h2>
+      <div class="col-12 text-center mt-4">
+        <h1 class="text-white font-tertiary"><?= $dataCountry['nicename'] ?></h1>
       </div>
     </div>
   </div>
-  <!-- background shapes -->
-<!--   <img src="<?= base_url()?>assets/home/images/illustrations/leaf-bg-top.png" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="<?= base_url()?>assets/home/images/illustrations/dots-group-sm.png" alt="illustrations" class="bg-shape-2">
-  <img src="<?= base_url()?>assets/home/images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-3">
-  <img src="<?= base_url()?>assets/home/images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
-  <img src="<?= base_url()?>assets/home/images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-5">
-  <img src="<?= base_url()?>assets/home/images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-6"> -->
 </section>
 <!-- /page title -->
 
-<!-- about -->
 <section class="section pt-5">
-  <div class="container">
+  <div class="container mb-5">
     <div class="row">
-      <div class="col-md-8">
-        <p>Geopark is a single or combined geographic area which has Geosite and valuable landscape related to Geoheritage, Geodiversity, Biodiversity and Cultural Diversity, also managed for conservation, education and economic development sustainably with active involvement of society and government, so can be used for improving the understanding and raising the awareness of communities to the earth and their environment.</p>
-        
-        <p>
-          UNESCO Global Geoparks are single, unified geographical areas where sites and landscapes of international geological significance are managed with a holistic concept of protection, education and sustainable development.
-        </p>
-        <p>
-          A UNESCO Global Geopark uses its geological heritage, in connection with all other aspects of the area’s natural and cultural heritage, to enhance awareness and understanding of key issues facing society in the context of the dynamic planet we all live on, mitigating the effects of climate change and reducing the impact of natural disasters. By raising awareness of the importance of the area’s geological heritage in history and society today, UNESCO Global Geoparks give local people a sense of pride in their region and strengthen their identification with the area. The creation of innovative local enterprises, new jobs and high quality training courses is stimulated as new sources of revenue are generated through sustainable geotourism, while the geological resources of the area are protected.
-        </p>
+      <div class="col-md-10">
+        <?= $dataCountry['country_desc'] ?>
       </div>
-      <div class="col-md-4 text-center drag-lg-top">
-        <div class="shadow-down mb-4">
-          <img src="https://cdn.idntimes.com/content-images/post/20180129/gunungrinjanilombok6-1-8cd9c00301a1c1851a47241d7eea67f6.jpg" alt="author" class="img-fluid w-100 rounded-lg border-thick border-white">
+      <div class="col-md-2">
+        <div class="row">
+          <div class="col-md-12 text-center drag-lg-top">
+            <div class="position-relative rounded hover-wrapper flags">
+              <img src="<?= base_url() ?>/images/flags/<?= strtolower($dataCountry['iso']) ?>.svg" class="border img-fluid rounded w-100 d-block">
+            </div>
+          </div>
+          <div class="col-md-12 text-center drag-lg-top mt-3">
+            <div class="position-relative rounded hover-wrapper flags">
+              <img src="<?= base_url() ?>images/country/<?= $dataCountry['logo'] ?>" class=" img-fluid rounded w-100 d-block">
+            </div>
+          </div>
         </div>
-        <h4>Geopark</h4>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-12 col-md-12">
+        <div id="mapall" style="height: 400px;"></div>
       </div>
     </div>
   </div>
+  <div class="container">
+    <!--Accordion wrapper-->
+    <div class="accordion md-accordion accordion-1" id="accordionEx23" role="tablist">
+      <?php foreach ($dataType as $type) { ?>
+        <div class="card">
+          <div class="card-header blue lighten-3 z-depth-1" role="tab">
+            <h5 class="text-uppercase mb-0 py-1">
+              <a class=" font-weight-bold white-text" aria-expanded="false" aria-controls="collapseunescoglobalgeopark">
+                <?= $type->geotype_name ?>
+              </a>
+            </h5>
+          </div>
+          <?php if ($dataGeoparks) { ?>
+            <div id="collapseunescoglobalgeopark" role="tabpanel">
+              <div class="card-body">
+                <div class="row my-4">
+                  <?php foreach ($dataGeoparks as $geoparks) {
+                    if ($geoparks->geotype_id == $type->id_geotype) {
+                  ?>
+                      <div class="col-lg-4 col-12 mb-4 shuffle-item text-center ">
+                        <div class="position-relative rounded hover-wrapper">
+                          <img src="<?= base_url() ?>images/geoparks/<?= $geoparks->image ?>" class="mx-auto img-fluid rounded d-block" style="height: 200px;">
+                        </div>
+                        <button id="<?= $geoparks->id_geoname ?>" class="btn btn-outline-dark item-preview geonamebutton btn-sm mt-4"><?= $geoparks->geoname . " " . $geoparks->geotype_name ?></button>
+                      </div>
+                  <?php }
+                  } ?>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      <?php } ?>
+    </div>
+  </div>
 </section>
-<!-- /about -->
+<!-- /portfolio -->
+
+<div id="myModal" class="modal fade" role="dialog" style="z-index: 99999;">
+  <div class="modal-dialog modal-lg" style="width:100%" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12 col-md-12" id="maphere">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-sm-12 col-lg-12 text-center mb-2">
+              <a class="btn btn-secondary btn-sm insta" href="#" role="button"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a class="btn btn-info btn-sm link" href="#" role="button"><i class="fa fa-link" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <?php
 $this->load->view('home/_layout/footer');
 ?>
+
+<script>
+  //preview
+  $(document).on('click', '.item-preview', function() {
+    $('#mapid').remove();
+    $('#maphere').append('<div id="mapid" style="height: 400px;"></div> ')
+    var id = $(this).attr('data');
+    $('#myModal').modal('show');
+    $('#myModal').find('.modal-title').text('Edit Geopark');
+    $.ajax({
+      type: 'get',
+      url: '<?php echo  base_url() ?>home/showAllGeoparksById/' + this.id,
+      data: {
+        id: id
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
+        console.log(data);
+        $('#myModal').find('.modal-title').text(data.geoname + " " + data.geotype_name);
+        $(".insta").attr("href", data.geo_insta)
+        $(".link").attr("href", data.geo_link)
+        $("#latitude").val(data.lat);
+        $("#longitude").val(data.long);
+        var curLocation = [data.lat, data.long];
+        initializeMap(curLocation);
+      },
+      error: function() {
+        swal('Failed', 'Error occured. Please try again!', 'error');
+      }
+    });
+
+  });
+
+  function initializeMap(curLocation) {
+    $('#myModal').on('shown.bs.modal', function() {
+      this.mymap;
+      setTimeout(function() {
+        mymap.invalidateSize();
+      }, 3);
+    })
+    if (curLocation[0] == '' && curLocation[1] == '') {
+      curLocation = [-6.3677206, 106.7108219];
+    }
+    var mymap = L.map('mapid').setView(curLocation, 5);
+
+    var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(mymap);
+
+
+    mymap.attributionControl.setPrefix(false);
+    var marker = new L.marker(curLocation, {
+    });
+
+    mymap.addLayer(marker);
+  }
+</script>
+
+<!-- all map -->
+<script>
+    this.mymap;
+    var mymap = L.map('mapall').setView([-6.3677206, 106.7108219], 5);
+
+    var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(mymap);
+
+    <?php foreach ($dataGeoparks as $geo){
+      if ($geo->lat && $geo->long) {
+     ?> 
+        mymap.attributionControl.setPrefix(false);
+         var marker = new L.marker([<?= $geo->lat ?>, <?= $geo->long ?>], {
+        });
+        mymap.addLayer(marker);
+        marker.bindPopup('<h6><?= $geo->geoname ?> <?= $geo->geotype_name ?></h6>');
+    <?php } } ?>
+
+    
+
+  
+</script>

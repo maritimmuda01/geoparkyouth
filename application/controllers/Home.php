@@ -3,119 +3,108 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->library('form_validation');
-        $this->load->model('M_articles');
-        $this->load->model('M_country'); 
-        $this->load->model('M_user');
-        $this->load->model('M_categories');  
-        $this->load->model('M_pages');
-    }
 
-    public function index()
-    {
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('M_Categories');
+		$this->load->model('M_Article');
+		$this->load->model('M_Pages');
+		$this->load->model('M_Parent');
+		$this->load->model('M_Region');
+		$this->load->model('M_Country');
+		$this->load->model('M_Geotype');
+		$this->load->model('M_Site');
+		$this->load->model('M_User');
+		$this->load->model('M_Geoparks');
+		$this->load->model('M_Pageimage');
+		$this->site_settings = $this->M_Site->showAllSite();
+		$this->dataPages = $this->M_Pages->showAllPages();
+		$this->dataParent = $this->M_Parent->showAllPageparent();
+		$this->myData = $this->M_User->getMyAccount();
+	}
 
+	public function index()
+	{
+		$data['title'] = $this->site_settings['title'];
+		$data['dataArticles'] = $this->M_Article->showAllPublishedArticle();
+		$this->load->view('home/index', $data);
+	}
 
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
-        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['title'] = '';
+	public function pages($id)
+	{
+		$data['dataPages'] = $this->M_Pages->showAllPagesById($id);
+		$data['dataPageimage'] = $this->M_Pageimage->showAllPageimageByPageId($id);
+		$data['title'] = $data['dataPages']['title'] . " &mdash; " . $this->site_settings['title'];
+		$this->load->view('home/pages', $data);
+	}
 
-        $this->load->view('home/index', $data);
-    }
+	public function countries()
+	{
 
-    public function media()
-    {
-        
-        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
-        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        $data['title'] = 'Media —';
-        $data['dataArticles'] = $this->M_articles->select_published();
-        $data['dataCategories'] = $this->M_categories->select_all();
+		$data['title'] = "Countries &mdash; " . $this->site_settings['title'];
+		$data['dataRegion'] = $this->M_Region->showAllRegion();
+		$data['dataCountry'] = $this->M_Country->showAllCountry();
 
-        $this->load->view('home/media', $data);
-    }
+		$this->load->view('home/countries', $data);
+	}
 
-    public function single($id = null){
+	public function geopark($id)
+	{
+		$data['dataCountry'] = $this->M_Country->showAllCountryById($id);
+		$data['dataType'] = $this->M_Geotype->showAllGeotype();
+		$data['dataGeoparks'] = $this->M_Geoparks->showAllGeoparksByCountryId($id);
+		// echo '<pre>';
+		// var_dump($data['dataGeoparks']);
+		// echo '</pre>';
+		// die();
+		$data['title'] = "Youth Forum &mdash; " . $this->site_settings['title'];
+		$this->load->view('home/geopark', $data);
+	}
 
-        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
-        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
+	public function showAllGeoparksById($id)
+	{
+		$result = $this->M_Geoparks->showAllGeoparksById($id);
+		echo json_encode($result);
+	}
 
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+	public function media()
+	{
+		$data['dataCategories'] = $this->M_Categories->showAllCategories();
+		$data['dataArticles'] = $this->M_Article->showAllPublishedArticle();
+		$data['title'] = "Media &mdash; " . $this->site_settings['title'];
 
-        if (!isset($id)) redirect('errors');
-        
-        $data['dataArticles'] = $this->M_articles->select_single($id);
-        $data['dataArticlesLatest'] = $this->M_articles->select_published();
-        
-        if (!$data['dataArticles']) redirect('errors');
+		$this->load->view('home/media', $data);
+	}
 
-        $data['title'] = $data['dataArticles']['title'].' —';
+	public function single($id)
+	{
+		$data['dataArticles'] = $this->M_Article->showAllPublishedArticleById($id);
+		$data['dataRecent'] = $this->M_Article->showAllPublishedArticle();
+		$data['featuredArticle'] = $this->M_Article->featuredArticle($id);
 
-        $this->load->view('home/single', $data);
-    }
+		$data['title'] = $data['dataArticles']['title'] . " &mdash; " . $this->site_settings['title'];
 
-    public function pages($id = null){
+		if (!$data['dataArticles']) {
+			redirect('errors');
+		}
 
-        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
-        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
+		$this->load->view('home/single', $data);
+	}
 
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
+	public function searchResult()
+	{
+		$data['keyword'] = $this->input->get('keyword');
+		$data['dataCategories'] = $this->M_Categories->showAllCategories();
+		$data['title'] = "Search " . $data['keyword'] . " &mdash; " . $this->site_settings['title'];
 
-        if (!isset($id)) redirect('errors');
-        
-        $data['dataPages'] = $this->M_pages->select_single($id);
-        
-        if (!$data['dataPages']) redirect('errors');
+		$data['dataArticles'] = $this->M_Article->searchArticle($data['keyword']);
+		$this->load->view('home/result', $data);
+	}
 
-        $data['title'] = $data['dataPages']['title'].' —';
-
-        $this->load->view('home/page', $data);
-    }
-
-    public function countries(){
-
-        
-        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
-
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        
-        $data['dataRegion'] = $this->M_country->select_region();
-
-        $data['title'] = 'List per Country —';
-
-        $this->load->view('home/countries', $data);
-    }
-
-    public function geoname($id = null){
-
-        $data['dataPageAbout'] = $this->db->get_where('pages', ['parent_id' => 1])->result();
-        $data['dataPageYouthForum'] = $this->db->get_where('pages', ['parent_id' => 2])->result();
-
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['site_settings'] = $this->db->get('site_settings')->row_array();
-        
-        if (!isset($id)) redirect('errors');
-
-        $data['dataGeotype'] = $this->M_country->select_type();
-        
-        $data['dataGeoname'] = $this->M_country->select_geoname_country($id);
-        
-        if (!$data['dataGeoname']) redirect('errors');
-
-        $data['country_by_id'] = $this->db->get_where('country', ['iso' => $id])->row_array();
-
-        $data['title'] = $data['country_by_id']['nicename'].' —';
-
-        $this->load->view('home/geoname', $data);
-    }
-
+	public function firstunescoggyfseminarandcamp()
+	{
+		$data['title'] = "1st Unesco Global Geopark Youth Forum Seminar & Camp";
+		$this->load->view('home/seminar_camp', $data);
+	}
 }
